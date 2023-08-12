@@ -41,7 +41,7 @@
 <div class="progress-container" bind:this={circles}>
 	<div class="progress" bind:this={progress}></div>
 	{#each steps as step, i}
-	<div class="circle {i == 0 ? 'active' : ''}" data-title={step} >{i+1}</div>
+	<div class="circle {i == 0 ? 'active' : ''}"  ></div>
 	{/each}
 </div>
 
@@ -58,7 +58,6 @@
 
 	.progress-container::before {
 		content: '';
-		background-color: #e0e0e0;
 		position: absolute;
 		top: 50%;
 		left: 0;
@@ -81,29 +80,26 @@
 	}
 
 	.circle {
-		background-color: #fff;
+        @apply h-2 rounded-full bg-slate-700;
 		color: #999;
-		border-radius: 50%;
-		height: 30px;
 		width: 30px;
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		border: 3px solid #e0e0e0;
 		transition: 0.4s ease;
 		cursor: pointer;
 	}
 	
 	.circle::after{
+        @apply bg-white;
 		content: attr(data-title) " ";
 		position: absolute;
 		bottom: 35px;
-		color: #999;
 		transition: 0.4s ease;
 	}
 	
 	.circle.active::after {
-		color: #3498db;
+		@apply bg-white;
 	}
 
 	.circle.active {

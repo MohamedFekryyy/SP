@@ -1,11 +1,13 @@
 <script>
 	import InputField from './inputField.svelte';
+	import { fade, slide } from 'svelte/transition';
+
 	export let active_step;
 	let formData = {
 		clientName: '',
 		clientCompany: '',
-		email: '',
-		password: '',
+		clientEmail: '',
+		clientDescription: '',
 		address: '',
 		city: '',
 		country: '',
@@ -20,16 +22,18 @@
 
 </script>
 
-<form class="form-container" on:submit={handleSubmit}>
+<form class="form-container" on:submit={handleSubmit} >
 	{#if active_step == 'Info'}
-		<InputField label={'Contact Person'} bind:value={formData.clientName}/>
-		<InputField label={'Company Name'} bind:value={formData.clientCompany}/>
-		<InputField type={'password'} label={'Password'} bind:value={formData.password}/>
-	{:else if active_step == 'Address'}
-		<InputField label={'Address'} bind:value={formData.address}/>
-		<InputField label={'City'} bind:value={formData.city}/>
-		<InputField label={'Country'} bind:value={formData.country}/>
-		<InputField label={'Postcode'} bind:value={formData.postcode}/>
+		<div in:fade={{ duration: 300 }} out:slide={{ y: 30, duration: 300 }} class="flex gap-4"><div class="half-width"><InputField label={'Contact Person'} bind:value={formData.clientName}   /></div>
+		<div class="half-width"><InputField class="half-width" label={'Company Name'} bind:value={formData.clientCompany} /></div></div>
+		<div in:fade={{ duration: 300 }} out:slide={{ y: 30, duration: 300 }}><InputField type={'email'} label={'Company Email'} bind:value={formData.clientEmail}/></div>
+		<div in:fade={{ duration: 300 }} out:slide={{ y: 30, duration: 300 }}><InputField  label={'Company Description'} bind:value={formData.clientDescription} isTextarea={true} /></div>
+
+		{:else if active_step == 'Address'}
+	<div in:fade={{ duration: 300 }} out:slide={{ y: 30, duration: 300 }}><InputField label={'Address'} bind:value={formData.address}/></div>
+		<div in:fade={{ duration: 300 }} out:slide={{ y: 30, duration: 300 }}><InputField label={'City'} bind:value={formData.city}/></div>
+		<div in:fade={{ duration: 300 }} out:slide={{ y: 30, duration: 300 }}><InputField label={'Country'} bind:value={formData.country}/></div>
+		<div in:fade={{ duration: 300 }} out:slide={{ y: 30, duration: 300 }}><InputField label={'Postcode'} bind:value={formData.postcode}/></div>
 	{:else if active_step == 'Payment'}
 		<InputField label={'Account Name'} bind:value={formData.account_name}/>
 		<InputField label={'Card No'} bind:value={formData.card_no}/>
@@ -44,7 +48,7 @@
 <style>
 	
 	.form-container {
-		@apply border border-slate-700 rounded-2xl p-8 gap-y-2 max-w-[700px] mx-auto;
+		@apply border border-slate-700 rounded-2xl px-8 pt-8 pb-4 max-w-[700px] my-10 mx-auto;
 		
 	}
 	.btn{
@@ -66,5 +70,9 @@
 	}
 	.message{
 		text-align: center;
+	}
+
+	.half-width {
+		width: 50%;
 	}
 </style>

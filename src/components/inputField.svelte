@@ -1,7 +1,7 @@
 <script>
-	export let value, label, type = 'text';
-	
-	function typeAction(node){
+	export let value, label, type = 'text', isTextarea = false;
+
+	function typeAction(node) {
 		node.type = type;
 	}
 </script>
@@ -10,19 +10,22 @@
 	{#if label}
 		<label class="label" for>{label}</label>
 	{/if}
-	<input use:typeAction class="input" bind:value={value}/>
+	{#if isTextarea}
+		<textarea use:typeAction class="input" bind:value={value} rows="4"></textarea>
+	{:else}
+		<input use:typeAction class="input" bind:value={value} />
+	{/if}
 </p>
 
 <style>
-	.form-label{
+	.form-label {
 		@apply text-slate-400 text-base;
 		text-align: left;
 	}
-	.input{
-		@apply bg-slate-800 rounded-md text-white px-3 mt-1;
+	.input {
+		@apply bg-slate-800 rounded-md text-white px-3 mt-2 mb-4;
 		width: 100%;
 		display: block;
 		padding: 0.5rem 0;
 	}
-
 </style>

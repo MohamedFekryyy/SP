@@ -13,13 +13,19 @@ const handleProgress = (stepIncrement) => {
 <h1>Create a Proposal</h1>
 <h3>Fill in the data below, and it’ll preview</h3>
 <div class="container">
-    <ProgressBar {steps} bind:currentActive bind:this={progressBar}/>
     
     <Form active_step={steps[currentActive-1]}/>
 
     <div class="step-button">
-        <button class="btn-back" on:click={() => handleProgress(-1)} disabled={currentActive == 1}>Prev</button>
+       <div class="flex w-[30%]">
+        <button class="btn-back" on:click={() => handleProgress(-1)} disabled={currentActive == 1}><svg class="w-5 h-4 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 8 14">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 1 1.3 6.326a.91.91 0 0 0 0 1.348L7 13"/>
+          </svg></button>
         <button class="btn-next" on:click={() => handleProgress(+1)} disabled={currentActive == steps.length}>Continue</button>
+    </div>
+       
+        <ProgressBar {steps} bind:currentActive bind:this={progressBar}/>
+
     </div>		
 </div>	  
 </section>
@@ -39,14 +45,14 @@ h3 {
 }
 
 .btn-next {
-    @apply bg-purple-300 px-6 py-3 text-lg font-medium rounded-lg text-blue-950;
+    @apply bg-purple-200 px-6 py-3 text-lg font-medium rounded-lg text-blue-950 hover:bg-purple-300  transition-all;
 }
 
 .step-button {
-    @apply  max-w-[700px] mx-auto mt-10;
+    @apply  max-w-[700px] mx-auto  flex justify-between items-center;
 }
 
 .btn-back {
-    
+    @apply bg-slate-600 min-h-full mr-3 rounded-lg px-5 hover:bg-slate-700 transition-all cursor-pointer;
 }
 </style>
