@@ -44,27 +44,30 @@
 <style>
 	
 	.form-container {
-		@apply border border-slate-700 rounded-2xl p-8 gap-y-2 max-w-[700px] mx-auto;
-		
+		@apply bg-slate-900/50 border border-slate-900 rounded-2xl px-8 pt-8 pb-3 max-w-[700px] my-10 mx-auto shadow-2xl shadow-black/40;
 	}
-	.btn{
+	.btn {
 		color: white;
 		padding: 0.5rem 0;
 		margin-top: 0.5rem;
 		display: inline-block;
 		width: 100%;
 		border-radius: 0.25rem;
-		cursor:pointer;
+		cursor: pointer;
 	}
-	.submit{
-		background:linear-gradient(to bottom, #44c767 5%, #50b01c 100%);
-		background-color:#44c767;
+	.submit {
+		background: linear-gradient(to bottom, #44c767 5%, #50b01c 100%);
+		background-color: #44c767;
 	}
 	.submit:hover {
-		background:linear-gradient(to bottom, #50b01c 5%, #44c767 100%);
-		background-color:#50b01c;
+		background: linear-gradient(to bottom, #50b01c 5%, #44c767 100%);
+		background-color: #50b01c;
 	}
-	.message{
+	.message {
 		text-align: center;
+	}
+
+	.half-width {
+		width: 50%;
 	}
 </style>
