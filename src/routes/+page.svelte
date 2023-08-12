@@ -33,7 +33,7 @@ const handleProgress = (stepIncrement) => {
                 d="M7 1 1.3 6.326a.91.91 0 0 0 0 1.348L7 13"
             />
         </svg></button>
-        <button class="btn-next" on:click={() => handleProgress(+1)} disabled={currentActive == steps.length}>Continue</button>
+        <button class="btn-next w-full sm:w-[91%]" on:click={() => handleProgress(+1)} disabled={currentActive == steps.length}>Continue</button>
     </div>		
 </div>	  
 </section>
