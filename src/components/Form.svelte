@@ -66,21 +66,22 @@ $: totalSum = items.reduce((sum, item) => sum + (parseFloat(item.price) || 0), 0
 	{/each}
 
 	{#if items.length === 0}
-		<div class="empty-state">
+		<div class="empty-state" in:fade={{ duration: 400 }} out:slide={{ y: -30, duration: 250 }}>
 			<p>Click the <span class="text-slate-300">"Add More"</span> button to add deliverables.</p>
 		</div>
 	{/if}
 
-	<div class="mb-4 flex justify-between items-center mt-8"><button on:click={addItem} class="small-button"> <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
+	<div class="mb-4 flex justify-between items-center mt-8" in:fade={{ duration: 400, delay: 100 }} out:slide={{ y: -30, duration: 250 }}><button on:click={addItem} class="small-button"> <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
 		<path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 1v16M1 9h16"/>
 	  </svg> Add More</button>
-	<div class="text-2xl  font-bold text-slate-50"><span class=" text-xl font-normal text-slate-400">Total</span> ${totalSum}</div>	
+	<div class="text-2xl  font-bold text-slate-50" in:fade={{ duration: 400, delay: 100 }} out:slide={{ y: -30, duration: 250 }}><span class=" text-xl font-normal text-slate-400">Total</span> ${totalSum}</div>	
 </div>
-	{:else if active_step == 'Confirmation'}
-		<div class="message">
-			<h2>Thank you for choosing us</h2>
+	{:else if active_step == 'Milestones'}
+	<h2 in:fade={{ duration: 400 }} out:slide={{ y: -30, duration: 250 }}>Project Milestones</h2>
+
+		
 			<button class="btn submit">Finish </button>
-		</div>
+
 	{/if}
 </form>
 
@@ -126,7 +127,11 @@ $: totalSum = items.reduce((sum, item) => sum + (parseFloat(item.price) || 0), 0
 	}
 
 	.list-item {
-		@apply bg-slate-800/50 border border-slate-600/20  shadow-xl shadow-black/10 rounded-lg p-4 flex justify-between mb-5; 
+		@apply bg-slate-800/50 border border-slate-600/20  shadow-xl shadow-black/10 rounded-lg p-4 flex justify-between mb-5 transition-all ; 
+	}
+
+	.list-item:hover {
+		@apply bg-slate-600/10;    
 	}
 
 	.empty-state {
