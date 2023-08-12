@@ -14,15 +14,22 @@
 </p>
 
 <style>
-	.form-label{
+	.form-label {
 		@apply text-slate-400 text-base;
 		text-align: left;
 	}
-	.input{
-		@apply bg-slate-800 rounded-md text-white px-3 mt-1;
+	.input {
+		@apply bg-slate-800/70 rounded-md text-white py-2 px-2.5 mt-2 mb-5 transition-all border border-slate-700/30 text-lg;
 		width: 100%;
 		display: block;
-		padding: 0.5rem 0;
+	}
+	.input:hover {
+		@apply bg-slate-800/40;
+	}
+	.input:focus {
+		@apply border-slate-700/50 shadow-md shadow-black/60 bg-slate-800/40;
+		outline: none;
+
 	}
 
 </style>
