@@ -1,50 +1,48 @@
 <script>
-	export let steps = [], currentActive = 1;
+	export let steps = [],
+		currentActive = 1;
 	let circles, progress;
-	
+
 	export const handleProgress = (stepIncrement) => {
 		circles = document.querySelectorAll('.circle');
-		if(stepIncrement == 1){
-			currentActive++
+		if (stepIncrement == 1) {
+			currentActive++;
 
-			if(currentActive > circles.length) {
-					currentActive = circles.length
+			if (currentActive > circles.length) {
+				currentActive = circles.length;
 			}
 		} else {
-			currentActive--
+			currentActive--;
 
-			if(currentActive < 1) {
-					currentActive = 1 
+			if (currentActive < 1) {
+				currentActive = 1;
 			}
 		}
-		
 
-    update()
-	}
-	
+		update();
+	};
+
 	function update() {
-    circles.forEach((circle, idx) => {
-        if(idx < currentActive) {
-            circle.classList.add('active')
-        } else {
-            circle.classList.remove('active')
-        }
-    })
+		circles.forEach((circle, idx) => {
+			if (idx < currentActive) {
+				circle.classList.add('active');
+			} else {
+				circle.classList.remove('active');
+			}
+		});
 
-    const actives = document.querySelectorAll('.active');
+		const actives = document.querySelectorAll('.active');
 
-    progress.style.width = (actives.length - 1) / (circles.length - 1) * 100 + '%';
+		progress.style.width = ((actives.length - 1) / (circles.length - 1)) * 100 + '%';
 	}
-	
 </script>
 
 <div class="progress-container" bind:this={circles}>
-	<div class="progress" bind:this={progress}></div>
+	<div class="progress" bind:this={progress} />
 	{#each steps as step, i}
-	<div class="circle {i == 0 ? 'active' : ''}"  ></div>
+		<div class="circle {i == 0 ? 'active' : ''}" />
 	{/each}
 </div>
-
 
 <style>
 	.progress-container {
@@ -80,7 +78,7 @@
 	}
 
 	.circle {
-        @apply h-2 rounded-full bg-slate-700;
+		@apply h-2 rounded-full bg-slate-700;
 		color: #999;
 		width: 30px;
 		display: flex;
@@ -89,15 +87,15 @@
 		transition: 0.4s ease;
 		cursor: pointer;
 	}
-	
-	.circle::after{
-        @apply bg-white;
-		content: attr(data-title) " ";
+
+	.circle::after {
+		@apply bg-white;
+		content: attr(data-title) ' ';
 		position: absolute;
 		bottom: 35px;
 		transition: 0.4s ease;
 	}
-	
+
 	.circle.active::after {
 		@apply bg-white;
 	}
