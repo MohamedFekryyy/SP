@@ -13,7 +13,7 @@ const handleProgress = (stepIncrement) => {
 <h1>Create a Proposal</h1>
 <h3>Fill in the data below, and it’ll preview</h3>
 <div class="container">
-    <ProgressBar {steps} bind:currentActive bind:this={progressBar}/>
+    <div class="hidden"><ProgressBar {steps} bind:currentActive bind:this={progressBar}/> </div>
     
     <Form active_step={steps[currentActive-1]}/>
 

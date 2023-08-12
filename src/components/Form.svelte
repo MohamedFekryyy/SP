@@ -1,14 +1,15 @@
 <script>
 	import InputField from './inputField.svelte';
+	import { fade, slide } from 'svelte/transition';
 	export let active_step;
 	let formData = {
 		clientName: '',
 		clientCompany: '',
 		clientEmail: '',
-		password: '',
-		address: '',
-		city: '',
-		country: '',
+		clientDescription: '',
+		projName: '',
+		projDescription: '',
+		projGoals: '',
 		postcode: '',
 		account_name: '',
 		card_no: ''
@@ -18,18 +19,19 @@
 		console.log("Your form data => ",formData)
 	}
 
+
 </script>
 
 <form class="form-container" on:submit={handleSubmit}>
 	{#if active_step == 'Info'}
-		<div class="flex min-w-full gap-5"><InputField label={'Contact Person'} bind:value={formData.clientName}/>
+	<div in:fade={{ duration: 300 }} out:slide={{ y: 30, duration: 300 }} class="flex gap-4"><InputField label={'Contact Person'} bind:value={formData.clientName}/>
 		<InputField label={'Company Name'} bind:value={formData.clientCompany}/></div>
-		<InputField type={'email'} label={'Client Email'} bind:value={formData.clientEmail}/>
+		<div in:fade={{ duration: 300, delay: 50 }} out:slide={{ y: 30, duration: 100 }}><InputField type={'email'} label={'Client Email'} bind:value={formData.clientEmail}/></div>
+		<div in:fade={{ duration: 300, delay: 100 }} out:slide={{ y: 30, duration: 100 }}><InputField label={'Company Description'} bind:value={formData.clientDescription}/></div>
 	{:else if active_step == 'Address'}
-		<InputField label={'Address'} bind:value={formData.address}/>
-		<InputField label={'City'} bind:value={formData.city}/>
-		<InputField label={'Country'} bind:value={formData.country}/>
-		<InputField label={'Postcode'} bind:value={formData.postcode}/>
+	<div in:fade={{ duration: 300, delay: 50 }} out:slide={{ y: 30, duration: 100 }}><InputField label={'Project Name'} bind:value={formData.projName}/></div>
+	<div in:fade={{ duration: 300, delay: 100 }} out:slide={{ y: 30, duration: 100 }}><InputField label={'Project Description'} bind:value={formData.projDescription}/></div>
+	<div in:fade={{ duration: 300, delay: 150 }} out:slide={{ y: 30, duration: 100 }}><InputField label={'Project Goals'} bind:value={formData.projGoals}/></div>
 	{:else if active_step == 'Payment'}
 		<InputField label={'Account Name'} bind:value={formData.account_name}/>
 		<InputField label={'Card No'} bind:value={formData.card_no}/>
