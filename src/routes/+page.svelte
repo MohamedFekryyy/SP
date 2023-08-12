@@ -2,7 +2,7 @@
   import Form from '../components/Form.svelte';
 import ProgressBar from '../components/ProgressBar.svelte';
 
-let steps = ['Info', 'Address', 'Payment', 'Confirmation'], currentActive = 1, progressBar;
+let steps = ['clientInfo', 'ProjectInfo', 'Items', 'Confirmation'], currentActive = 1, progressBar;
 const handleProgress = (stepIncrement) => {
 		progressBar.handleProgress(stepIncrement)
 	}

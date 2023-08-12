@@ -44,6 +44,10 @@
 
 	}
 
+	.input::placeholder {
+		@apply text-slate-500;
+	}
+
 	.tooltip-container {
 	position: relative;
 	display: inline-block;
@@ -53,9 +57,9 @@
 
 
 .tooltip-text {
-	@apply p-2.5 shadow-lg bg-slate-800/40 absolute bottom-5 left-auto right-auto text-left text-slate-200 rounded-lg border border-slate-700 backdrop-blur-md;
+	@apply p-2.5 shadow-lg bg-slate-950/40 absolute bottom-5 left-auto right-auto text-left text-slate-400 rounded-lg border border-slate-700/30 backdrop-blur-md text-[15px] leading-6;
 	visibility: hidden;
-	width: 250px;
+	width: 300px;
 	z-index: 1;
 	opacity: 0;
 	transition: opacity 0.3s;
