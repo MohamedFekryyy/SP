@@ -24,14 +24,14 @@
 
 <form class="form-container" on:submit={handleSubmit}>
 	{#if active_step == 'Info'}
-	<div in:fade={{ duration: 300 }} out:slide={{ y: 30, duration: 300 }} class="flex gap-4"><InputField label={'Contact Person'} bind:value={formData.clientName}/>
-		<InputField label={'Company Name'} bind:value={formData.clientCompany}/></div>
-		<div in:fade={{ duration: 300, delay: 50 }} out:slide={{ y: 30, duration: 100 }}><InputField type={'email'} label={'Client Email'} bind:value={formData.clientEmail}/></div>
-		<div in:fade={{ duration: 300, delay: 100 }} out:slide={{ y: 30, duration: 100 }}><InputField label={'Company Description'} bind:value={formData.clientDescription}/></div>
+	<div in:fade={{ duration: 400 }} out:slide={{ y: 30, duration: 250 }} class="flex gap-4"><div class="half-width"><InputField label={'Contact Person'} bind:value={formData.clientName}/></div>
+	<div class="half-width"><InputField label={'Company Name'} bind:value={formData.clientCompany}/></div></div>
+		<div in:fade={{ duration: 400, delay: 50 }} out:slide={{ y: 30, duration: 250 }}><InputField type={'email'} label={'Client Email'} bind:value={formData.clientEmail}/></div>
+		<div in:fade={{ duration: 400, delay: 100 }} out:slide={{ y: 30, duration: 250 }}><InputField label={'Company Description'} bind:value={formData.clientDescription} isTextarea={true}/></div>
 	{:else if active_step == 'Address'}
-	<div in:fade={{ duration: 300, delay: 50 }} out:slide={{ y: 30, duration: 100 }}><InputField label={'Project Name'} bind:value={formData.projName}/></div>
-	<div in:fade={{ duration: 300, delay: 100 }} out:slide={{ y: 30, duration: 100 }}><InputField label={'Project Description'} bind:value={formData.projDescription}/></div>
-	<div in:fade={{ duration: 300, delay: 150 }} out:slide={{ y: 30, duration: 100 }}><InputField label={'Project Goals'} bind:value={formData.projGoals}/></div>
+	<div in:fade={{ duration: 400, delay: 50 }} out:slide={{ y: 30, duration: 250 }}><InputField label={'Project Name'} bind:value={formData.projName}/></div>
+	<div in:fade={{ duration: 400, delay: 100 }} out:slide={{ y: 30, duration: 250 }}><InputField label={'Project Description'} bind:value={formData.projDescription} isTextarea={true}/></div>
+	<div in:fade={{ duration: 400, delay: 150 }} out:slide={{ y: 30, duration: 250 }}><InputField label={'Project Goals'} bind:value={formData.projGoals} isTextarea={true}/></div>
 	{:else if active_step == 'Payment'}
 		<InputField label={'Account Name'} bind:value={formData.account_name}/>
 		<InputField label={'Card No'} bind:value={formData.card_no}/>

@@ -1,5 +1,5 @@
 <script>
-	export let value, label, type = 'text';
+	export let value, label, type = 'text', isTextarea = false, placeholder = '';
 	
 	function typeAction(node){
 		node.type = type;
@@ -10,7 +10,11 @@
 	{#if label}
 		<label class="label" for>{label}</label>
 	{/if}
-	<input use:typeAction class="input" bind:value={value}/>
+	{#if isTextarea}
+		<textarea class="input" bind:value={value} rows="4" placeholder={placeholder}></textarea>
+	{:else}
+		<input use:typeAction class="input" bind:value={value} placeholder={placeholder}/>
+	{/if}
 </p>
 
 <style>
