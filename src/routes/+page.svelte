@@ -5,18 +5,20 @@
 	let steps = ['Info', 'Address', 'Payment', 'Confirmation'],
 		currentActive = 1,
 		progressBar;
-	const handleProgress = (stepIncrement) => {
-		progressBar.handleProgress(stepIncrement);
-	};
+     
+        const handleProgress = (stepIncrement) => {
+		progressBar.handleProgress(stepIncrement)
+	}
 </script>
 
 <section class="section">
 	<h1>Create a Proposal</h1>
 	<h3>Fill in the data below, and it’ll preview</h3>
 	<div class="container">
-		<Form active_step={steps[currentActive - 1]} />
-
-		<div class="step-button">
+        
+        <Form active_step={steps[currentActive-1]}/>
+		
+        <div class="step-button">
 			<div class="flex w-[30%]">
 				<button class="btn-back" on:click={() => handleProgress(-1)} disabled={currentActive == 1}
 					><svg
@@ -37,8 +39,7 @@
 				>
 				<button
 					class="btn-next"
-					on:click={() => handleProgress(+1)}
-					disabled={currentActive == steps.length}>Continue</button
+                    on:click={() => handleProgress(+1)} disabled={currentActive == steps.length}>Continue</button
 				>
 			</div>
 
@@ -58,7 +59,7 @@
 		@apply text-slate-400 text-lg font-normal;
 	}
 	.section {
-		@apply min-w-full flex flex-col items-center justify-start  py-32 min-h-screen;
+		@apply min-w-full flex flex-col items-center justify-center  py-32 min-h-screen;
 	}
 
 	.btn-next {

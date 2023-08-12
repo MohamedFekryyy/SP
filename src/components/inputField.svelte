@@ -26,9 +26,12 @@
 		text-align: left;
 	}
 	.input {
-		@apply bg-slate-800 rounded-md text-white px-3 mt-2 mb-4;
+		@apply bg-slate-800 rounded-md text-white px-3 mt-2 mb-4 transition-all;
 		width: 100%;
 		display: block;
 		padding: 0.5rem 0;
+	}
+	.input:hover {
+		@apply bg-slate-800/40;
 	}
 </style>
