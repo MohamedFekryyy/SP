@@ -18,8 +18,8 @@
         <Form active_step={steps[currentActive-1]}/>
 		
         <div class="step-button">
-			<div class="flex w-[30%]">
-				<button class="btn-back" on:click={() => handleProgress(-1)} disabled={currentActive == 1}
+			
+				<button class="btn-back w-full sm:w-[8%]" on:click={() => handleProgress(-1)} disabled={currentActive == 1}
 					><svg
 						class="w-5 h-4 text-slate-50 hover:scale-110 tranistion-all"
 						aria-hidden="true"
@@ -37,10 +37,10 @@
 					</svg></button
 				>
 				<button
-					class="btn-next"
+					class="btn-next w-full sm:w-[91%]"
                     on:click={() => handleProgress(+1)} disabled={currentActive == steps.length}>Continue</button
 				>
-			</div>
+			
 
 		</div>
 	</div>
@@ -61,14 +61,14 @@
 	}
 
 	.btn-next {
-		@apply bg-purple-200 px-6 py-3 text-lg font-medium rounded-lg text-blue-950 hover:bg-purple-300  transition-all;
+		@apply bg-purple-700 px-6 py-3 text-lg font-medium rounded-lg text-slate-50 hover:bg-purple-700/90  shadow-2xl shadow-purple-700/40  transition-all;
 	}
 
 	.step-button {
-		@apply max-w-[700px] mx-auto  flex justify-between items-center;
+		@apply max-w-[700px] mx-auto  flex flex-col sm:flex-row justify-between  items-stretch;
 	}
 
 	.btn-back {
-		@apply bg-slate-900 min-h-full mr-3 rounded-lg px-5 hover:bg-slate-900/50 transition-all cursor-pointer;
+		@apply bg-slate-900 min-h-full mr-3 rounded-lg px-5 hover:bg-slate-900/50 transition-all cursor-pointer items-center justify-center flex;
 	}
 </style>
