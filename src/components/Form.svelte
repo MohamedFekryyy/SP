@@ -4,7 +4,7 @@
 	let formData = {
 		clientName: '',
 		clientCompany: '',
-		email: '',
+		clientEmail: '',
 		password: '',
 		address: '',
 		city: '',
@@ -22,9 +22,9 @@
 
 <form class="form-container" on:submit={handleSubmit}>
 	{#if active_step == 'Info'}
-		<InputField label={'Contact Person'} bind:value={formData.clientName}/>
-		<InputField label={'Company Name'} bind:value={formData.clientCompany}/>
-		<InputField type={'password'} label={'Password'} bind:value={formData.password}/>
+		<div class="flex min-w-full gap-5"><InputField label={'Contact Person'} bind:value={formData.clientName}/>
+		<InputField label={'Company Name'} bind:value={formData.clientCompany}/></div>
+		<InputField type={'email'} label={'Client Email'} bind:value={formData.clientEmail}/>
 	{:else if active_step == 'Address'}
 		<InputField label={'Address'} bind:value={formData.address}/>
 		<InputField label={'City'} bind:value={formData.city}/>
@@ -44,7 +44,7 @@
 <style>
 	
 	.form-container {
-		@apply bg-slate-900/50 border border-slate-900 rounded-2xl px-8 pt-8 pb-3 max-w-[700px] my-10 mx-auto shadow-2xl shadow-black/40;
+		@apply bg-slate-900/50 border border-slate-900 rounded-2xl px-8 pt-8 pb-3 max-w-[700px] my-10 mx-auto shadow-2xl shadow-black/40 transition-all;
 	}
 	.btn {
 		color: white;
