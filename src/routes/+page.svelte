@@ -1,6 +1,5 @@
 <script>
 	import Form from '../components/Form.svelte';
-	import ProgressBar from '../components/ProgressBar.svelte';
 
 	let steps = ['Info', 'Address', 'Payment', 'Confirmation'],
 		currentActive = 1,
@@ -22,7 +21,7 @@
 			<div class="flex w-[30%]">
 				<button class="btn-back" on:click={() => handleProgress(-1)} disabled={currentActive == 1}
 					><svg
-						class="w-5 h-4 text-gray-800 dark:text-white"
+						class="w-5 h-4 text-slate-50 hover:scale-110 tranistion-all"
 						aria-hidden="true"
 						xmlns="http://www.w3.org/2000/svg"
 						fill="none"
@@ -43,23 +42,22 @@
 				>
 			</div>
 
-			<ProgressBar {steps} bind:currentActive bind:this={progressBar} />
 		</div>
 	</div>
 </section>
 
 <style lang="postcss">
 	:global(html) {
-		background-color: theme(colors.slate.900);
+		background-color: theme(colors.slate.950);
 	}
 	h1 {
-		@apply text-slate-50 text-4xl font-semibold mb-4;
+		@apply text-slate-50 text-5xl font-semibold mb-4 text-center;
 	}
 	h3 {
-		@apply text-slate-400 text-lg font-normal;
+		@apply text-slate-400 text-lg font-normal text-center;
 	}
 	.section {
-		@apply min-w-full flex flex-col items-center justify-center  py-32 min-h-screen;
+		@apply min-w-full flex flex-col items-center justify-start sm:justify-center  py-12 sm:py-32 min-h-screen px-5;
 	}
 
 	.btn-next {
@@ -71,6 +69,6 @@
 	}
 
 	.btn-back {
-		@apply bg-slate-600 min-h-full mr-3 rounded-lg px-5 hover:bg-slate-700 transition-all cursor-pointer;
+		@apply bg-slate-900 min-h-full mr-3 rounded-lg px-5 hover:bg-slate-900/50 transition-all cursor-pointer;
 	}
 </style>

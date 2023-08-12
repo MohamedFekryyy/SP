@@ -1,7 +1,7 @@
 <script>
 	import InputField from './inputField.svelte';
 	import { fade, slide } from 'svelte/transition';
-
+ 
 	export let active_step;
 	let formData = {
 		clientName: '',
@@ -67,7 +67,7 @@
 
 <style>
 	.form-container {
-		@apply border border-slate-700 rounded-2xl px-8 pt-8 pb-4 max-w-[700px] my-10 mx-auto;
+		@apply bg-slate-900/50 border border-slate-900 rounded-2xl px-8 pt-8 pb-3 max-w-[700px] my-10 mx-auto shadow-2xl shadow-black/40;
 	}
 	.btn {
 		color: white;
