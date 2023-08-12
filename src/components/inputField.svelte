@@ -1,5 +1,5 @@
 <script>
-	export let value, label, type = 'text', isTextarea = false, placeholder = '';
+	export let value, label, type = 'text', isTextarea = false, placeholder = '', tooltip = '';
 	
 	function typeAction(node){
 		node.type = type;
@@ -8,7 +8,15 @@
 
 <p class="form-label">
 	{#if label}
-		<label class="label" for>{label}</label>
+		<label class="label flex items-center" for>{label}  {#if tooltip}
+			<span class="tooltip-container">
+				<span class="ml-2 absolute top-[-10px]"><svg class="w-4 h-4 text-slate-500 hover:text-slate-300 transition-all " aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+					<path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9h2v5m-2 0h4M9.408 5.5h.01M19 10a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/>
+				  </svg></span>
+				<span class="tooltip-text">{tooltip}</span>
+			</span>
+		{/if}
+		</label>
 	{/if}
 	{#if isTextarea}
 		<textarea class="input" bind:value={value} rows="4" placeholder={placeholder}></textarea>
@@ -35,5 +43,28 @@
 		outline: none;
 
 	}
+
+	.tooltip-container {
+	position: relative;
+	display: inline-block;
+	cursor: pointer;
+}
+
+
+
+.tooltip-text {
+	@apply p-2.5 shadow-lg bg-slate-800/40 absolute bottom-5 left-auto right-auto text-left text-slate-200 rounded-lg border border-slate-700 backdrop-blur-md;
+	visibility: hidden;
+	width: 250px;
+	z-index: 1;
+	opacity: 0;
+	transition: opacity 0.3s;
+}
+
+.tooltip-container:hover .tooltip-text {
+	@apply visible opacity-100;
+
+}
+
 
 </style>

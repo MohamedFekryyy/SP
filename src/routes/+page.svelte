@@ -57,7 +57,7 @@ const handleProgress = (stepIncrement) => {
 	}
 
 	.step-button {
-		@apply max-w-[700px] mx-auto  flex flex-col sm:flex-row justify-between  items-stretch;
+		@apply max-w-[700px] gap-2 mx-auto  flex flex-col sm:flex-row justify-between  items-stretch;
 	}
 
 	.btn-back {

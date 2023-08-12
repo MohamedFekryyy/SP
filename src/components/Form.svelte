@@ -24,12 +24,12 @@
 
 <form class="form-container" on:submit={handleSubmit}>
 	{#if active_step == 'Info'}
-	<div in:fade={{ duration: 400 }} out:slide={{ y: 30, duration: 250 }} class="flex gap-4"><div class="half-width"><InputField label={'Contact Person'} bind:value={formData.clientName}/></div>
-	<div class="half-width"><InputField label={'Company Name'} bind:value={formData.clientCompany}/></div></div>
-		<div in:fade={{ duration: 400, delay: 50 }} out:slide={{ y: 30, duration: 250 }}><InputField type={'email'} label={'Client Email'} bind:value={formData.clientEmail}/></div>
-		<div in:fade={{ duration: 400, delay: 100 }} out:slide={{ y: 30, duration: 250 }}><InputField label={'Company Description'} bind:value={formData.clientDescription} isTextarea={true}/></div>
+	<div in:fade={{ duration: 400 }} out:slide={{ y: 30, duration: 250 }} class="flex gap-4"><div class="half-width"><InputField label={'Contact Person'} bind:value={formData.clientName} placeholder="Elon Musk" tooltip="Enter the full name of the contact person"/></div>
+	<div class="half-width"><InputField label={'Company Name'} bind:value={formData.clientCompany} placeholder="X"/></div></div>
+		<div in:fade={{ duration: 400, delay: 50 }} out:slide={{ y: 30, duration: 250 }}><InputField type={'email'} label={'Client Email'} bind:value={formData.clientEmail} placeholder="elon@x.com"/></div>
+		<div in:fade={{ duration: 400, delay: 100 }} out:slide={{ y: 30, duration: 250 }}><InputField label={'Company Description'} bind:value={formData.clientDescription} isTextarea={true} placeholder="an American social media company based in San Francisco, California. The company operated the social networking service Twitter and previously the Vine short video app and Periscope livestreaming service."/></div>
 	{:else if active_step == 'Address'}
-	<div in:fade={{ duration: 400, delay: 50 }} out:slide={{ y: 30, duration: 250 }}><InputField label={'Project Name'} bind:value={formData.projName}/></div>
+	<div in:fade={{ duration: 400, delay: 50 }} out:slide={{ y: 30, duration: 250 }}><InputField label={'Project Name'} bind:value={formData.projName} placeholder="Design a better logo"/></div>
 	<div in:fade={{ duration: 400, delay: 100 }} out:slide={{ y: 30, duration: 250 }}><InputField label={'Project Description'} bind:value={formData.projDescription} isTextarea={true}/></div>
 	<div in:fade={{ duration: 400, delay: 150 }} out:slide={{ y: 30, duration: 250 }}><InputField label={'Project Goals'} bind:value={formData.projGoals} isTextarea={true}/></div>
 	{:else if active_step == 'Payment'}
