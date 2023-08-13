@@ -64,7 +64,34 @@
     }
 
     // Content for the Terms & Conditions modal
-    const termsContent = 'Hello fuck you'; // Add your content here
+    const termsContent = `
+
+<p class="text-slate-400 italic mb-2">Last updated: 13 Aug 2023</p>
+
+<p class="mb-2 leading-relaxed">Please read these Terms and Conditions ("Terms", "Terms and Conditions") carefully before using Swift Proposal (the "Service") operated by SwiftThings ("us", "we", or "our").</p>
+
+<p class="mb-2 leading-relaxed">Your access to and use of the Service is conditioned on your acceptance of and compliance with these Terms. These Terms apply to all users and others who access or use the Service.</p>
+
+<p class="mb-2 leading-relaxed">By accessing or using the Service you agree to be bound by these Terms. If you disagree with any part of the terms then you may not access the Service.</p>
+
+<h3 class="text-lg mb-1 mt-3">1. Accounts</h3>
+<p class="leading-relaxed">When you create an account with us, you must provide us with information that is accurate, complete, and current at all times. Failure to do so constitutes a breach of the Terms, which may result in immediate termination of your account on our Service.</p>
+
+<h3 class="text-lg mb-1 mt-3">2. Use of the Service</h3>
+<p class="leading-relaxed">You agree to use the Service in accordance with all applicable local, state, national, and international laws, rules, and regulations.</p>
+
+<h3 class="text-lg mb-1 mt-3">3. Termination</h3>
+<p class="leading-relaxed">We may terminate or suspend your account immediately, without prior notice or liability, for any reason whatsoever, including without limitation if you breach the Terms.</p>
+
+<h3 class="text-lg mb-1 mt-3">4. Governing Law</h3>
+<p class="leading-relaxed">These Terms shall be governed and construed in accordance with the laws of Cairo, Egypt, without regard to its conflict of law provisions.</p>
+
+<h3 class="text-lg mb-1 mt-3">5. Changes</h3>
+<p class="leading-relaxed">We reserve the right, at our sole discretion, to modify or replace these Terms at any time. If a revision is material, we will try to provide at least 7 days' notice prior to any new terms taking effect. What constitutes a material change will be determined at our sole discretion.</p>
+
+<p class="leading-relaxed">If you have any questions about these Terms, please <a href="mailto:contact@example.com">contact us</a>.</p>
+`;
+
 
     // Function to close the modal
     function handleCloseModal() {
