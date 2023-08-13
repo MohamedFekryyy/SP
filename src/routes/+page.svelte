@@ -160,8 +160,11 @@ function handleClosePrivacyModal() {
 
  </script>
   
-
-<section class="section">
+  
+  <div
+  class="absolute z-1 inset-0 h-full w-full bg-slate-950 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px] inner-shadow"
+>
+<section class="section z-2">
     <a href="#" class="mb-10 opacity-90 hover:opacity-100 transition-all"><img src="logo-on-dark.svg" class="h-10" alt="Swift Proposal Logo"/></a>
 <h1>Create a Proposal</h1>
 <h3>Fill in the data below, and it’ll preview</h3>
@@ -217,8 +220,11 @@ function handleClosePrivacyModal() {
           </svg>
         Your data is securely handled with utmost care.
       </div>
+
+
 </div>	  
 </section>
+
 
 <footer class="flex items-center justify-center pt-12 pb-8 fixed bottom-0 right-0 left-0 bg-gradient-to-b from-slate-950/0 to-slate-950 ">
     <a href="#" on:click={handleOpenModal} class="text-base text-slate-500 hover:text-slate-300 transition-all mx-3">Terms & Conditions</a>
@@ -230,11 +236,14 @@ function handleClosePrivacyModal() {
   
   <Modal {isModalOpen} title="Terms & Conditions" content={termsContent} on:close={handleCloseModal} />
   <Modal {isPrivacyModalOpen} title="Privacy Policy" content={privacyContent} on:close={handleClosePrivacyModal} />
+</div>
+
 
 
 <style lang="postcss">
    :global(html) {
 		background-color: theme(colors.slate.950);
+        
 	}
 	h1 {
 		@apply text-slate-50 text-3xl sm:text-4xl font-semibold mb-2  text-center;
@@ -274,4 +283,9 @@ function handleClosePrivacyModal() {
   display: none;
 }
 
+
+.inner-shadow {
+    box-shadow: inset 0 0 300px 200px  theme(colors.slate.950);
+
+}
 </style>

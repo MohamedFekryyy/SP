@@ -67,7 +67,7 @@
 </script>
 
 
-<form class="form-container bg-slate-900/50 border border-slate-900 rounded-2xl px-4 sm:px-6 pt-4 sm:pt-6 pb-none sm:pb-1 max-w-[800px] my-10 mx-auto shadow-2xl shadow-black/40 transition-all" on:submit={handleSubmit}>
+<form class="form-container bg-slate-900/50 backdrop-blur-xl border border-slate-900 rounded-2xl px-4 sm:px-6 pt-4 sm:pt-6 pb-none sm:pb-1 max-w-[800px] my-10 mx-auto shadow-2xl shadow-slate-950 transition-all" on:submit={handleSubmit}>
 	{#if active_step == 'clientInfo'}
 	<h2 in:fade={{ duration: 400 }} out:slide={{ y: -30, duration: 250 }} class="sm:text-2xl text-xl">Client Info</h2>
 	<div in:fade={{ duration: 400 }} out:slide={{ y: -30, duration: 250 }} class="flex flex-col sm:flex-row gap-4"><div class="w-full sm:w-[50%]"><InputField label={'Contact Person'} bind:value={formData.clientName} placeholder="Elon Musk"/></div>
