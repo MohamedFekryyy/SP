@@ -268,7 +268,7 @@ function handleClosePrivacyModal() {
         {/if}
     </div>		
     <div class={secureDataClass}>
-        <svg class="w-6 h-6 text-green-700" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 20">
+        <svg class="sm:w-6 sm:h-6 h-4 w-4 text-green-700" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 20">
             <path d="m17.351 3.063-8-3a1.009 1.009 0 0 0-.7 0l-8 3A1 1 0 0 0 0 4a19.394 19.394 0 0 0 8.47 15.848 1 1 0 0 0 1.06 0A19.394 19.394 0 0 0 18 4a1 1 0 0 0-.649-.937Zm-3.644 4.644-5 5A1 1 0 0 1 8 13c-.033 0-.065 0-.1-.005a1 1 0 0 1-.733-.44l-2-3a1 1 0 0 1 1.664-1.11l1.323 1.986 4.138-4.138a1 1 0 0 1 1.414 1.414h.001Z"/>
           </svg>
         Your data is securely handled with utmost care.
@@ -279,7 +279,7 @@ function handleClosePrivacyModal() {
 </section>
 
 
-<footer class="flex items-center justify-center py-6  bg-gradient-to-b from-slate-950/0 to-slate-950 ">
+<footer class="flex gap-y-3 flex-col sm:flex-row items-center justify-center py-6  bg-gradient-to-b from-slate-950/0 to-slate-950 mt-4">
     <a href="#" on:click={handleOpenModal} class="text-base text-slate-500 hover:text-slate-300 transition-all mx-3">Terms & Conditions</a>
     <a href="#" on:click={handleOpenPrivacyModal} class="text-base text-slate-500 hover:text-slate-300 transition-all mx-3">Privacy Policy</a>
     <a href="mailto:fekry@scienft.com" class="text-base text-slate-500 hover:text-slate-300 transition-all mx-3" >Reach Out</a>
@@ -302,7 +302,7 @@ function handleClosePrivacyModal() {
 		@apply text-slate-50 text-3xl sm:text-4xl font-semibold mb-2  text-center;
 	}
 	h3 {
-		@apply text-slate-200 sm:w-full w-[55%] text-lg sm:text-xl font-normal text-center;
+		@apply text-slate-200 w-full  text-lg sm:text-xl font-normal text-center;
 	}
 	.section {
 		@apply min-w-full flex flex-col items-center justify-start   pt-8 sm:pt-16 min-h-screen px-5;
