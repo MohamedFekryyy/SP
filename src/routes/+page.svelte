@@ -120,7 +120,7 @@
 </div>	  
 </section>
 
-<footer class="flex items-center justify-center p-6 absolute bottom-0 right-0 left-0">
+<footer class="flex items-center justify-center pt-12 pb-8 fixed bottom-0 right-0 left-0 bg-gradient-to-b from-slate-950/0 to-slate-950">
     <a href="#" on:click={handleOpenModal} class="text-base text-slate-300">Terms & Conditions</a>
   </footer>
   

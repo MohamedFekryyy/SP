@@ -5,6 +5,8 @@
   export let content = "";
   export let onClose;
 
+
+
   $: modalClass = $isModalOpen ? "modal-overlay" : "modal-overlay hidden"; // Reactive statement to update class
 
 
