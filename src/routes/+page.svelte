@@ -1,6 +1,8 @@
 <script>
     import Form from '../components/Form.svelte';
     import ProgressBar from '../components/ProgressBar.svelte';
+    import Modal from '../components/Modal.svelte';
+
     import jsPDF from 'jspdf';
   
     let formData;
@@ -49,7 +51,21 @@
     const handleProgress = (stepIncrement) => {
       progressBar.handleProgress(stepIncrement);
     }
-  </script>
+ 
+    let isModalOpen = false; // State to control whether the modal is open or closed
+    function handleOpenModal(event) {
+    event.preventDefault(); // Prevent the default behavior of the anchor tag
+    isModalOpen = true;
+  }
+
+// Content for the Terms & Conditions modal
+const termsContent = 'Hello fuck you'; // Add your content here
+
+// Function to close the modal
+function handleCloseModal() {
+  isModalOpen = false;
+}
+ </script>
   
 
 <section class="section">
@@ -97,6 +113,12 @@
     </div>		
 </div>	  
 </section>
+
+<footer class="flex items-center justify-center p-6 absolute bottom-0 right-0 left-0">
+    <a href="#" on:click={handleOpenModal} class="text-base text-slate-300">Terms & Conditions</a>
+  </footer>
+  
+  <Modal {isModalOpen} title="Terms & Conditions" content={termsContent} on:close={handleCloseModal} />
 
 <style lang="postcss">
    :global(html) {
