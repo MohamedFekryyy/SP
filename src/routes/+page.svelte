@@ -14,7 +14,7 @@
     let endDate;
     let totalSum;
   
-    function generatePDF() {
+    async function generatePDF() {
       const doc = new jsPDF();
       doc.text('Client Name: ' + formData.clientName, 10, 10);
       doc.text('Client Company: ' + formData.clientCompany, 10, 20);
@@ -47,6 +47,8 @@
       });
   
       doc.save('proposal.pdf');
+
+      window.location.href = '/proposal-generated';
     }
     
     $: secureDataClass = currentActive === 1 ? "secure-data" : "secure-data hidden";

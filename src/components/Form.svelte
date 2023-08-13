@@ -64,6 +64,7 @@
 	3. New components that are not described in the scope of work will be assessed in a new estimate.
 	4. In case of project cancellation after the work has started, the client will pay for the relative part of the work.`;
 
+
 </script>
 
 
