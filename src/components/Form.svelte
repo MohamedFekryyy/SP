@@ -1,65 +1,71 @@
 <script>
 	import InputField from './inputField.svelte';
-import { fade, slide } from 'svelte/transition';
-import { onMount } from 'svelte';
+	import { fade, slide } from 'svelte/transition';
+	import { onMount } from 'svelte';
 
-export let formData = {
-  clientName: '',
-  clientCompany: '',
-  clientEmail: '',
-  freelancerEmail: '',
-  freelancerName: '',
-  projName: '',
-  projDescription: '',
-  projGoals: '',
-  preFilledText: '',
-};
+	export let formData = {
+		clientName: '',
+		clientCompany: '',
+		clientEmail: '',
+		freelancerEmail: '',
+		freelancerName: '',
+		projName: '',
+		projDescription: '',
+		projGoals: '',
+		preFilledText: '',
+	};
 
-export let items = [{ title: "", price: 0 }]; // Proposal items including title and price
+	export let items = [{ title: "", price: 0 }]; // Proposal items including title and price
 
-export let milestones = [{ title: '', deliveryDate: '' }]; // Milestones items including title and delivery date
+	export let milestones = [{ title: '', deliveryDate: '' }]; // Milestones items including title and delivery date
 
-export let startDate = null; // Start date
-export let endDate = null; // End date
+	export let startDate = null; // Start date
+	export let endDate = null; // End date
 
-export let active_step;
+	export let active_step;
 
-// Computed total sum of the prices
-$: totalSum = items.reduce((sum, item) => sum + (parseFloat(item.price) || 0), 0);
+	const handleSubmit = () => {
+		console.log("Your form data => ", formData)
+	}
 
-const handleSubmit = () => {
-  console.log("Your form data => ", formData);
-};
+	// Initialize the items array with one empty item
+	// let items = [{ title: "", price: 0 }]; // Commented since it's exported
 
-function addItem() {
-  items = [...items, { title: "", price: 0 }];
-}
+	function addItem() {
+		items = [...items, { title: "", price: 0 }];
+	}
 
-function removeItem(index) {
-  items = items.filter((_, i) => i !== index);
-}
+	function removeItem(index) {
+		items = items.filter((_, i) => i !== index);
+	}
 
-function addMilestone() {
-  milestones = [...milestones, { title: '', deliveryDate: '' }];
-}
+	// Computed total sum of the prices
+	$: totalSum = items.reduce((sum, item) => sum + (parseFloat(item.price) || 0), 0);
 
-function removeMilestone(index) {
-  milestones = milestones.filter((_, i) => i !== index);
-}
+	// let milestones = [{ title: '', deliveryDate: '' }]; // Commented since it's exported
 
-function updateDates() {
-  startDate = milestones.length > 0 ? milestones[0].deliveryDate : null;
-  endDate = milestones.length > 0 ? milestones[milestones.length - 1].deliveryDate : null;
-}
+	function addMilestone() {
+		milestones = [...milestones, { title: '', deliveryDate: '' }]; // Adding a new milestone
+	}
 
-onMount(updateDates);
+	function removeMilestone(index) {
+		milestones = milestones.filter((_, i) => i !== index);
+	}
 
-let preFilledText = `1. Payment structure: 50% at approval, the rest at delivery.
-2. Additional work for components that appear in the scope of work will be quoted before any invoicing.
-3. New components that are not described in the scope of work will be assessed in a new estimate.
-4. In case of project cancellation after the work has started, the client will pay for the relative part of the work.`;
+	function updateDates() {
+		startDate = milestones.length > 0 ? milestones[0].deliveryDate : null;
+		endDate = milestones.length > 0 ? milestones[milestones.length - 1].deliveryDate : null;
+	}
+
+	onMount(updateDates);
+
+	let preFilledText = `1. Payment structure: 50% at approval, the rest at delivery.
+	2. Additional work for components that appear in the scope of work will be quoted before any invoicing.
+	3. New components that are not described in the scope of work will be assessed in a new estimate.
+	4. In case of project cancellation after the work has started, the client will pay for the relative part of the work.`;
 
 </script>
+
 
 <form class="form-container bg-slate-900/50 border border-slate-900 rounded-2xl px-4 sm:px-6 pt-4 sm:pt-6 pb-none sm:pb-1 max-w-[800px] my-10 mx-auto shadow-2xl shadow-black/40 transition-all" on:submit={handleSubmit}>
 	{#if active_step == 'clientInfo'}

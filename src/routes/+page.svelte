@@ -1,71 +1,55 @@
 <script>
-   import Form from '../components/Form.svelte';
-  import ProgressBar from '../components/ProgressBar.svelte';
-  import jsPDF from 'jspdf';
-
-  let formData = {
-    clientName: '',
-    clientCompany: '',
-    clientEmail: '',
-    freelancerEmail: '',
-    freelancerName: '',
-    projName: '',
-    projDescription: '',
-    projGoals: '',
-  };
-
-  let items = [{ title: "", price: 0 }];
-  let milestones = [{ title: '', deliveryDate: '' }];
-  let startDate = null;
-  let endDate = null;
-  let totalSum = 0; // You'll need to calculate this based on the items
-
-
-function generatePDF(formData, items, milestones, startDate, endDate, totalSum) {
-  console.log('Generating PDF with:', formData, items, milestones, startDate, endDate, totalSum);
-  const doc = new jsPDF();
-  doc.text('Client Name: ' + formData.clientName, 10, 10);
-  doc.text('Client Company: ' + formData.clientCompany, 10, 20);
-  doc.text('Client Email: ' + formData.clientEmail, 10, 30);
-  doc.text('Freelancer Email: ' + formData.freelancerEmail, 10, 40);
-  doc.text('Freelancer Name: ' + formData.freelancerName, 10, 50);
-  doc.text('Project Name: ' + formData.projName, 10, 60);
-  doc.text('Project Description: ' + formData.projDescription, 10, 70);
-  doc.text('Project Goals: ' + formData.projGoals, 10, 80);
-  doc.text('Start Date: ' + startDate, 10, 90);
-  doc.text('End Date: ' + endDate, 10, 100);
-
-  let yPosition = 110;
-  items.forEach(item => {
-    doc.text('Item Title: ' + item.title, 10, yPosition);
-    yPosition += 10;
-    doc.text('Item Price: ' + item.price, 10, yPosition);
-    yPosition += 10;
-  });
-
-  doc.text('Total Sum: ' + totalSum, 10, yPosition);
-  yPosition += 10;
-
-  milestones.forEach(milestone => {
-    doc.text('Milestone Title: ' + milestone.title, 10, yPosition);
-    yPosition += 10;
-    doc.text('Milestone Delivery Date: ' + milestone.deliveryDate, 10, yPosition);
-    yPosition += 10;
-  });
-
-  doc.save('proposal.pdf');
-}
-
-
-let steps = ['clientInfo', 'ProjectInfo', 'Items', 'Milestones'], currentActive = 1, progressBar;
-const handleProgress = (stepIncrement) => {
-		progressBar.handleProgress(stepIncrement)
-	}
-
-
-
-	
-</script>
+    import Form from '../components/Form.svelte';
+    import ProgressBar from '../components/ProgressBar.svelte';
+    import jsPDF from 'jspdf';
+  
+    let formData;
+    let items;
+    let milestones;
+    let startDate;
+    let endDate;
+    let totalSum;
+  
+    function generatePDF() {
+      const doc = new jsPDF();
+      doc.text('Client Name: ' + formData.clientName, 10, 10);
+      doc.text('Client Company: ' + formData.clientCompany, 10, 20);
+      doc.text('Client Email: ' + formData.clientEmail, 10, 30);
+      doc.text('Freelancer Email: ' + formData.freelancerEmail, 10, 40);
+      doc.text('Freelancer Name: ' + formData.freelancerName, 10, 50);
+      doc.text('Project Name: ' + formData.projName, 10, 60);
+      doc.text('Project Description: ' + formData.projDescription, 10, 70);
+      doc.text('Project Goals: ' + formData.projGoals, 10, 80);
+      doc.text('Start Date: ' + startDate, 10, 90);
+      doc.text('End Date: ' + endDate, 10, 100);
+  
+      let yPosition = 110;
+      items.forEach(item => {
+        doc.text('Item Title: ' + item.title, 10, yPosition);
+        yPosition += 10;
+        doc.text('Item Price: ' + item.price, 10, yPosition);
+        yPosition += 10;
+      });
+  
+      doc.text('Total Sum: ' + totalSum, 10, yPosition);
+      yPosition += 10;
+  
+      milestones.forEach(milestone => {
+        doc.text('Milestone Title: ' + milestone.title, 10, yPosition);
+        yPosition += 10;
+        doc.text('Milestone Delivery Date: ' + milestone.deliveryDate, 10, yPosition);
+        yPosition += 10;
+      });
+  
+      doc.save('proposal.pdf');
+    }
+  
+    let steps = ['clientInfo', 'ProjectInfo', 'Items', 'Milestones'], currentActive = 1, progressBar;
+    const handleProgress = (stepIncrement) => {
+      progressBar.handleProgress(stepIncrement);
+    }
+  </script>
+  
 
 <section class="section">
     <a href="#" class="mb-10 opacity-90 hover:opacity-100 transition-all"><img src="logo-on-dark.svg" class="h-10" alt="Swift Proposal Logo"/></a>
@@ -74,7 +58,8 @@ const handleProgress = (stepIncrement) => {
 <div class="container">
     <div class="hidden"><ProgressBar {steps} bind:currentActive bind:this={progressBar}/> </div>
     
-    <Form active_step={steps[currentActive-1]} {formData} {items} {milestones} {startDate} {endDate}/>
+    <Form active_step={steps[currentActive-1]} bind:formData bind:items bind:milestones bind:startDate bind:endDate bind:totalSum />
+
 
     <div class="step-button">
         {#if currentActive > 1}
@@ -98,7 +83,8 @@ const handleProgress = (stepIncrement) => {
         {#if currentActive === steps.length}
         <button class="btn-next w-auto" on:click={() => generatePDF(formData, items, milestones, startDate, endDate, totalSum)} disabled={currentActive == steps.length}>
             Generate Proposal
-          </button>
+        </button>
+        
           
         {:else}
 
