@@ -22,6 +22,7 @@
 
 
 function generatePDF(formData, items, milestones, startDate, endDate, totalSum) {
+  console.log('Generating PDF with:', formData, items, milestones, startDate, endDate, totalSum);
   const doc = new jsPDF();
   doc.text('Client Name: ' + formData.clientName, 10, 10);
   doc.text('Client Company: ' + formData.clientCompany, 10, 20);
