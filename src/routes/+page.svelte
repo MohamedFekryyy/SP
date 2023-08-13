@@ -10,6 +10,7 @@ const handleProgress = (stepIncrement) => {
 </script>
 
 <section class="section">
+    <a href="#" class="mb-10 opacity-90 hover:opacity-100 transition-all"><img src="logo-on-dark.svg" class="h-10" alt="Swift Proposal Logo"/></a>
 <h1>Create a Proposal</h1>
 <h3>Fill in the data below, and it’ll preview</h3>
 <div class="container">
