@@ -1,71 +1,65 @@
 <script>
 	import InputField from './inputField.svelte';
-	import { fade, slide } from 'svelte/transition';
-	import { onMount } from 'svelte';
-	
-	export let active_step;
-	let formData = {
-		clientName: '',
-		clientCompany: '',
-		clientEmail: '',
-		freelancerEmail: '',
-		freelancerName: '',
-		projName: '',
-		projDescription: '',
-		projGoals: '',
-		preFilledText: '',
-		account_name: '',
-		card_no: ''
-	}
-	
-	const handleSubmit = () => {
-		console.log("Your form data => ",formData)
-	}
+import { fade, slide } from 'svelte/transition';
+import { onMount } from 'svelte';
 
-	// Initialize the items array with one empty item
-	let items = [{ title: "", price: 0 }];
+export let formData = {
+  clientName: '',
+  clientCompany: '',
+  clientEmail: '',
+  freelancerEmail: '',
+  freelancerName: '',
+  projName: '',
+  projDescription: '',
+  projGoals: '',
+  preFilledText: '',
+};
 
-// Function to add a new empty item
-function addItem() {
-  items = [...items, { title: "", price: 0 }];
-}
+export let items = [{ title: "", price: 0 }]; // Proposal items including title and price
 
-// Function to remove an item by index
-function removeItem(index) {
-  items = items.filter((_, i) => i !== index);
-}
+export let milestones = [{ title: '', deliveryDate: '' }]; // Milestones items including title and delivery date
+
+export let startDate = null; // Start date
+export let endDate = null; // End date
+
+export let active_step;
 
 // Computed total sum of the prices
 $: totalSum = items.reduce((sum, item) => sum + (parseFloat(item.price) || 0), 0);
 
-let milestones = [{ title: '', deliveryDate: '' }];
+const handleSubmit = () => {
+  console.log("Your form data => ", formData);
+};
 
-	let startDate = null;
-	let endDate = null;
-
-	function addMilestone() {
-  console.log("Adding milestone"); // Debug log
-  milestones = [...milestones, { title: '', deliveryDate: '' }]; // Adding a new milestone
+function addItem() {
+  items = [...items, { title: "", price: 0 }];
 }
 
+function removeItem(index) {
+  items = items.filter((_, i) => i !== index);
+}
+
+function addMilestone() {
+  milestones = [...milestones, { title: '', deliveryDate: '' }];
+}
 
 function removeMilestone(index) {
-  console.log("Removing milestone at index", index); // Debug log
   milestones = milestones.filter((_, i) => i !== index);
 }
 
+function updateDates() {
+  startDate = milestones.length > 0 ? milestones[0].deliveryDate : null;
+  endDate = milestones.length > 0 ? milestones[milestones.length - 1].deliveryDate : null;
+}
 
-	function updateDates() {
-		startDate = milestones.length > 0 ? milestones[0].deliveryDate : null;
-		endDate = milestones.length > 0 ? milestones[milestones.length - 1].deliveryDate : null;
-	}
+onMount(updateDates);
 
-	onMount(updateDates);
-
-	let preFilledText = `1. Payment structure: 50% at approval, the rest at delivery.
+let preFilledText = `1. Payment structure: 50% at approval, the rest at delivery.
 2. Additional work for components that appear in the scope of work will be quoted before any invoicing.
 3. New components that are not described in the scope of work will be assessed in a new estimate.
-4. In case of project cancellation after the work has started, the client will pay for the relative part of the work.`;</script>
+4. In case of project cancellation after the work has started, the client will pay for the relative part of the work.`;
+
+</script>
 
 <form class="form-container bg-slate-900/50 border border-slate-900 rounded-2xl px-4 sm:px-6 pt-4 sm:pt-6 pb-none sm:pb-1 max-w-[800px] my-10 mx-auto shadow-2xl shadow-black/40 transition-all" on:submit={handleSubmit}>
 	{#if active_step == 'clientInfo'}
