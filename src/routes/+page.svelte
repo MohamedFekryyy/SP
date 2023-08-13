@@ -267,7 +267,7 @@ function handleClosePrivacyModal() {
 }
 
 .secure-data {
-  @apply text-slate-400 text-base gap-2 mt-6  flex items-center  mb-4 max-w-[800px] mx-auto justify-center ;
+  @apply text-slate-400 text-sm sm:text-base gap-2 mt-5 sm:mt-7  flex items-center  mb-4 max-w-[800px] mx-auto justify-center ;
 }
 
 .hidden {
