@@ -8,7 +8,7 @@
 
 <p class="form-label">
 	{#if label}
-		<label class="label flex items-center" for>{label}  {#if tooltip}
+		<label class="label flex items-center  text-sm sm:text-base" for>{label}  {#if tooltip}
 			<span class="tooltip-container">
 				<span class="ml-2 absolute top-[-10px]"><svg class="w-4 h-4 text-slate-500 hover:text-slate-300 transition-all " aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
 					<path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9h2v5m-2 0h4M9.408 5.5h.01M19 10a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/>
@@ -19,19 +19,19 @@
 		</label>
 	{/if}
 	{#if isTextarea}
-		<textarea class="input" bind:value={value} rows="4" placeholder={placeholder}></textarea>
+		<textarea class="input sm:text-lg text-base" bind:value={value} rows="4" placeholder={placeholder}></textarea>
 	{:else}
-		<input use:typeAction class="input" bind:value={value} placeholder={placeholder}/>
+		<input use:typeAction class="input sm:text-lg text-base" bind:value={value} placeholder={placeholder}/>
 	{/if}
 </p>
 
 <style>
 	.form-label {
-		@apply text-slate-400 text-base;
+		@apply text-slate-400 ;
 		text-align: left;
 	}
 	.input {
-		@apply bg-slate-800/70 rounded-md text-white py-2 px-2.5 mt-2 mb-5 transition-all border border-slate-700/30 text-lg;
+		@apply bg-slate-800/70 rounded-md text-white py-2 px-2.5 mt-2 mb-5 transition-all border border-slate-700/30 ;
 		width: 100%;
 		display: block;
 	}

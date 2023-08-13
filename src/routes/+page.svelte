@@ -43,10 +43,10 @@ const handleProgress = (stepIncrement) => {
 		background-color: theme(colors.slate.950);
 	}
 	h1 {
-		@apply text-slate-50 text-5xl font-semibold mb-4 text-center;
+		@apply text-slate-50 text-3xl sm:text-5xl font-semibold mb-2 sm:mb-4 text-center;
 	}
 	h3 {
-		@apply text-slate-400 text-lg font-normal text-center;
+		@apply text-slate-400 text-lg sm:text-lg font-normal text-center;
 	}
 	.section {
 		@apply min-w-full flex flex-col items-center justify-start sm:justify-center  py-12 sm:py-32 min-h-screen px-5;
@@ -57,10 +57,10 @@ const handleProgress = (stepIncrement) => {
 	}
 
 	.step-button {
-		@apply max-w-[800px] gap-2 mx-auto  flex flex-col sm:flex-row justify-between  items-stretch;
+		@apply max-w-[800px] gap-2 mx-auto  flex flex-col-reverse gap-y-5  sm:flex-row justify-between  items-stretch;
 	}
 
 	.btn-back {
-		@apply bg-slate-900 min-h-full mr-3 rounded-lg px-5 hover:bg-slate-900/50 transition-all cursor-pointer items-center justify-center flex;
+		@apply bg-slate-900 min-h-full mr-3 rounded-lg px-5 h-12 sm:h-auto w-full sm:w-auto  hover:bg-slate-900/50 transition-all cursor-pointer items-center justify-center flex;
 	}
 </style>
