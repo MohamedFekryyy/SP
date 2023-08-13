@@ -1,16 +1,39 @@
 <script>
-  export let isModalOpen = false;
+  import { onMount } from 'svelte';
+  export let isModalOpen;
   export let title = "";
   export let content = "";
+  export let onClose;
 
+  $: modalClass = $isModalOpen ? "modal-overlay" : "modal-overlay hidden"; // Reactive statement to update class
+
+
+      // Function to close the modal
   function handleClose() {
-    isModalOpen = false;
-    dispatch('close');
+    isModalOpen.set(false);
+    if (onClose) onClose();
   }
+
+  // Function to handle the Escape key
+  function handleKeydown(event) {
+    if (event.key === 'Escape') {
+      handleClose();
+    }
+  }
+
+  /// On mount, add an event listener for the Escape key
+  onMount(() => {
+    window.addEventListener('keydown', handleKeydown);
+    return () => {
+      window.removeEventListener('keydown', handleKeydown);
+    };
+  });
+
 </script>
 
-{#if isModalOpen}
-<div class="modal-overlay">
+<svelte:window on:keydown={(e) => handleKeydown(e)} />
+
+<div class={modalClass}>
   <div class="modal bg-slate-900/50 border border-slate-900 rounded-2xl px-4 sm:px-6 pt-4 sm:pt-6 pb-none mx-4 sm:pb-1 w-[800px] my-10  shadow-2xl shadow-black/40 transition-all backdrop-blur-xl">
     <div class="modal-header">
       <h2 class="text-slate-50 text-2xl">{title}</h2>
@@ -18,12 +41,12 @@
 				<path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
 			  </svg></button>
     </div>
-    <div class="modal-body">
-      <p>{content}</p>
+    <div class="modal-body mb-4">
+      <p class="text-slate-300 text-base">{content}</p>
     </div>
   </div>
 </div>
-{/if}
+
 
 <style>
   .modal-overlay {
@@ -50,5 +73,9 @@
     border: none;
     font-size: 1.5rem;
     cursor: pointer;
+  }
+
+  .hidden {
+    display: none;
   }
 </style>

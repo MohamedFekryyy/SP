@@ -2,6 +2,8 @@
     import Form from '../components/Form.svelte';
     import ProgressBar from '../components/ProgressBar.svelte';
     import Modal from '../components/Modal.svelte';
+    import { writable } from 'svelte/store';
+
 
     import jsPDF from 'jspdf';
   
@@ -46,25 +48,29 @@
   
       doc.save('proposal.pdf');
     }
+    
   
     let steps = ['clientInfo', 'ProjectInfo', 'Items', 'Milestones'], currentActive = 1, progressBar;
     const handleProgress = (stepIncrement) => {
       progressBar.handleProgress(stepIncrement);
     }
- 
-    let isModalOpen = false; // State to control whether the modal is open or closed
+
+   
+    const isModalOpen = writable(false); // Using a Svelte store for modal state
+    
     function handleOpenModal(event) {
-    event.preventDefault(); // Prevent the default behavior of the anchor tag
-    isModalOpen = true;
-  }
+      event.preventDefault();
+      isModalOpen.set(true);
+    }
 
-// Content for the Terms & Conditions modal
-const termsContent = 'Hello fuck you'; // Add your content here
+    // Content for the Terms & Conditions modal
+    const termsContent = 'Hello fuck you'; // Add your content here
 
-// Function to close the modal
-function handleCloseModal() {
-  isModalOpen = false;
-}
+    // Function to close the modal
+    function handleCloseModal() {
+      isModalOpen.set(false);
+    }
+
  </script>
   
 
