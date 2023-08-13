@@ -1,11 +1,22 @@
 <script>
   import Form from '../components/Form.svelte';
 import ProgressBar from '../components/ProgressBar.svelte';
+import jsPDF from 'jspdf';
+
 
 let steps = ['clientInfo', 'ProjectInfo', 'Items', 'Milestones'], currentActive = 1, progressBar;
 const handleProgress = (stepIncrement) => {
 		progressBar.handleProgress(stepIncrement)
 	}
+
+    function generatePDF() {
+  const doc = new jsPDF();
+  // Add the form data here (You'll need to get this from the Form component)
+  doc.text('Client Name: ' + formData.clientName, 10, 10);
+  // ... Add more content
+  doc.save('proposal.pdf');
+}
+
 	
 </script>
 
@@ -37,9 +48,16 @@ const handleProgress = (stepIncrement) => {
         </svg></button>
         {/if}
 
+        {#if currentActive === steps.length}
+        <button class="btn-next w-auto" on:click={generatePDF} disabled={currentActive == steps.length}>
+            Generate Proposal
+        </button>
+        {:else}
+
         <button class={currentActive === 1 ? 'btn-next w-full' : 'btn-next w-auto'} on:click={() => handleProgress(+1)} disabled={currentActive == steps.length}>
             {currentActive === 1 ? 'Get Started' : 'Continue'}
         </button>
+        {/if}
     </div>		
 </div>	  
 </section>

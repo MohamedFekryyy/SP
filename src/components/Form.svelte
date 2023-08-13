@@ -2,6 +2,7 @@
 	import InputField from './inputField.svelte';
 	import { fade, slide } from 'svelte/transition';
 	import { onMount } from 'svelte';
+	
 	export let active_step;
 	let formData = {
 		clientName: '',
@@ -12,7 +13,7 @@
 		projName: '',
 		projDescription: '',
 		projGoals: '',
-		postcode: '',
+		preFilledText: '',
 		account_name: '',
 		card_no: ''
 	}
@@ -142,7 +143,7 @@ function removeMilestone(index) {
 
 	</div> 
 	<h2 in:fade={{ duration: 400, delay: 200 }} out:slide={{ y: -30, duration: 250 }} class="mt-6 sm:mt-8 sm:text-2xl text-xl">Terms & Conditions</h2>
-	<InputField  bind:value={preFilledText} isTextarea={true}/>
+	<div in:fade={{ duration: 400, delay: 250}} out:slide={{ y: -30, duration: 250 }} ><InputField  bind:value={preFilledText} isTextarea={true}/></div>
 
 
 	{/if}
