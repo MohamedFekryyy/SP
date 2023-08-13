@@ -18,6 +18,7 @@ const handleProgress = (stepIncrement) => {
     <Form active_step={steps[currentActive-1]}/>
 
     <div class="step-button">
+        {#if currentActive > 1}
         <button class="btn-back" on:click={() => handleProgress(-1)} disabled={currentActive == 1}><svg
             class="w-5 h-4 text-slate-50 hover:scale-110 tranistion-all"
             aria-hidden="true"
@@ -33,7 +34,11 @@ const handleProgress = (stepIncrement) => {
                 d="M7 1 1.3 6.326a.91.91 0 0 0 0 1.348L7 13"
             />
         </svg></button>
-        <button class="btn-next w-full sm:w-[91%]" on:click={() => handleProgress(+1)} disabled={currentActive == steps.length}>Continue</button>
+        {/if}
+
+        <button class={currentActive === 1 ? 'btn-next w-full' : 'btn-next w-auto'} on:click={() => handleProgress(+1)} disabled={currentActive == steps.length}>
+            {currentActive === 1 ? 'Get Started' : 'Continue'}
+        </button>
     </div>		
 </div>	  
 </section>
@@ -43,13 +48,13 @@ const handleProgress = (stepIncrement) => {
 		background-color: theme(colors.slate.950);
 	}
 	h1 {
-		@apply text-slate-50 text-3xl sm:text-5xl font-semibold mb-2 sm:mb-4 text-center;
+		@apply text-slate-50 text-3xl sm:text-4xl font-semibold mb-2  text-center;
 	}
 	h3 {
 		@apply text-slate-400 text-lg sm:text-lg font-normal text-center;
 	}
 	.section {
-		@apply min-w-full flex flex-col items-center justify-start sm:justify-center  py-12 sm:py-32 min-h-screen px-5;
+		@apply min-w-full flex flex-col items-center justify-start   py-8 sm:py-16 min-h-screen px-5;
 	}
 
 	.btn-next {
@@ -63,4 +68,12 @@ const handleProgress = (stepIncrement) => {
 	.btn-back {
 		@apply bg-slate-900 min-h-full mr-3 rounded-lg px-5 h-12 sm:h-auto w-full sm:w-auto  hover:bg-slate-900/50 transition-all cursor-pointer items-center justify-center flex;
 	}
+
+    .btn-next.w-full {
+  width: 100%; /* Adjust as needed */
+}
+
+.btn-next.w-auto {
+  width: auto; /* Adjust as needed */
+}
 </style>
