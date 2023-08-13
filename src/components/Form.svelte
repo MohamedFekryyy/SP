@@ -134,10 +134,12 @@
 			<button on:click={addMilestone} class="small-button w-full sm:w-auto"> <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
 				<path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 1v16M1 9h16"/>
 			  </svg>Add Milestone</button>
-			<div class="dates flex flex-row gap-x-4" in:fade={{ duration: 400, delay: 150 }} out:slide={{ y: -30, duration: 250 }}>
+			  {#if startDate && endDate}
+			  <div class="dates flex flex-row gap-x-4" in:fade={{ duration: 400, delay: 150 }} out:slide={{ y: -30, duration: 250 }}>
 			<p class="text-slate-50 text-lg sm:text-xl"><span class="text-slate-400">Start Date</span> {startDate}</p>
 			<p class="text-slate-50 text-lg sm:text-xl"><span class="text-slate-400">End Date</span> {endDate}</p>
 		</div>
+		{/if}
 		
 		</div>
 

@@ -167,7 +167,7 @@ function handleClosePrivacyModal() {
 <section class="section z-2">
     <a href="#" class="mb-10 opacity-90 hover:opacity-100 transition-all"><img src="logo-on-dark.svg" class="h-10" alt="Swift Proposal Logo"/></a>
 <h1>Create a Proposal</h1>
-<h3>Fill in the data below, and it’ll preview</h3>
+<h3>Fill in the data below, and get a nice PDF proposal</h3>
 <div class="container">
     <div class="hidden"><ProgressBar {steps} bind:currentActive bind:this={progressBar}/> </div>
     
