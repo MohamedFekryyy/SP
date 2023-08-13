@@ -135,7 +135,7 @@ function removeMilestone(index) {
 
 	</div> 
 	<h2 in:fade={{ duration: 400, delay: 200 }} out:slide={{ y: -30, duration: 250 }} class="mt-6 sm:mt-8 sm:text-2xl text-xl">Terms & Conditions</h2>
-	<InputField label={'Terms and Condidtions'} bind:value={preFilledText} isTextarea={true}/>
+	<InputField  bind:value={preFilledText} isTextarea={true}/>
 
 
 	{/if}
