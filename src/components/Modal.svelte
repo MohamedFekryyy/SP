@@ -1,21 +1,26 @@
 <script>
-  import { onMount } from 'svelte';
-  import { fly, scale } from 'svelte/transition'; // Import the fly and scale transitions
+  import { onMount, createEventDispatcher } from 'svelte';
+  import { scale, fly } from 'svelte/transition';
   export let isModalOpen;
   export let title = "";
   export let content = "";
   export let onClose;
+  export let isPrivacyModalOpen;
 
 
 
-  $: modalClass = $isModalOpen ? "modal-overlay" : "modal-overlay hidden"; // Reactive statement to update class
+
+  $: modalClass = $isModalOpen || $isPrivacyModalOpen ? "modal-overlay" : "modal-overlay hidden";
+ // Reactive statement to update class
 
 
       // Function to close the modal
-  function handleClose() {
-    isModalOpen.set(false);
-    if (onClose) onClose();
-  }
+      function handleClose() {
+  if ($isModalOpen) isModalOpen.set(false);
+  if ($isPrivacyModalOpen) isPrivacyModalOpen.set(false);
+  if (onClose) onClose();
+}
+
 
   // Function to handle the Escape key
   function handleKeydown(event) {
@@ -36,8 +41,7 @@
 
 <svelte:window on:keydown={(e) => handleKeydown(e)} />
 
-<div class={modalClass} in:scale="{{ start: 0.8, end: 1, duration: 300 }}" 
-out:scale="{{ start: 1, end: 0.8, duration: 300 }}" >
+<div class={modalClass} in:fly={{ y: -10 }} out:fly={{ y: 10 }} >
   <div class="modal bg-slate-900/50 border border-slate-900 rounded-2xl px-4 sm:px-6 pt-4 sm:pt-6  mx-4  w-[800px] my-10  shadow-2xl shadow-black/40 transition-all backdrop-blur-xl"  
      >
     <div class="modal-header">
@@ -65,6 +69,8 @@ out:scale="{{ start: 1, end: 0.8, duration: 300 }}" >
     display: flex;
     align-items: center;
     justify-content: center;
+    transform-origin: center; /* Add this line to set the transform origin for scaling */
+
   }
   .modal {
     position: relative;

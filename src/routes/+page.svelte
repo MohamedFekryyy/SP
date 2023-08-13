@@ -57,6 +57,9 @@
 
    
     const isModalOpen = writable(false); // Using a Svelte store for modal state
+
+    const isPrivacyModalOpen = writable(false);
+
     
     function handleOpenModal(event) {
       event.preventDefault();
@@ -91,6 +94,22 @@
 
 <p class="leading-relaxed">If you have any questions about these Terms, please <a href="mailto:contact@example.com">contact us</a>.</p>
 `;
+
+const privacyContent = `
+  <h3>Privacy Policy</h3>
+  <p>Your privacy policy content goes here.</p>
+  ...
+`;
+
+function handleOpenPrivacyModal(event) {
+  event.preventDefault();
+  isPrivacyModalOpen.set(true);
+}
+
+function handleClosePrivacyModal() {
+  isPrivacyModalOpen.set(false);
+}
+
 
 
     // Function to close the modal
@@ -147,11 +166,17 @@
 </div>	  
 </section>
 
-<footer class="flex items-center justify-center pt-12 pb-8 fixed bottom-0 right-0 left-0 bg-gradient-to-b from-slate-950/0 to-slate-950">
-    <a href="#" on:click={handleOpenModal} class="text-base text-slate-300">Terms & Conditions</a>
+<footer class="flex items-center justify-center pt-12 pb-8 fixed bottom-0 right-0 left-0 bg-gradient-to-b from-slate-950/0 to-slate-950 ">
+    <a href="#" on:click={handleOpenModal} class="text-base text-slate-500 hover:text-slate-300 transition-all mx-3">Terms & Conditions</a>
+    <a href="#" on:click={handleOpenPrivacyModal} class="text-base text-slate-500 hover:text-slate-300 transition-all mx-3">Privacy Policy</a>
+    <a href="mailto:fekry@scienft.com" class="text-base text-slate-500 hover:text-slate-300 transition-all mx-3" >Reach Out</a>
+
+
   </footer>
   
   <Modal {isModalOpen} title="Terms & Conditions" content={termsContent} on:close={handleCloseModal} />
+  <Modal {isPrivacyModalOpen} title="Privacy Policy" content={privacyContent} on:close={handleClosePrivacyModal} />
+
 
 <style lang="postcss">
    :global(html) {
