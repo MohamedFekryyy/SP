@@ -81,7 +81,8 @@
         {/if}
 
         {#if currentActive === steps.length}
-        <button class="btn-next w-auto" on:click={() => generatePDF(formData, items, milestones, startDate, endDate, totalSum)} disabled={currentActive == steps.length}>
+        <button class="btn-next w-auto" on:click={() => generatePDF(formData, items, milestones, startDate, endDate, totalSum)} disabled={currentActive != steps.length}
+            >
             Generate Proposal
         </button>
         
