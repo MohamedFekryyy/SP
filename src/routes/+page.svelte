@@ -219,9 +219,8 @@ function handleClosePrivacyModal() {
   class="absolute z-1 inset-0 h-full w-full bg-slate-950 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px] inner-shadow"
 >
 <section class="section z-2">
-    <a href="#" class="mb-10 opacity-90 hover:opacity-100 transition-all"><img src="logo-on-dark.svg" class="h-10" alt="Swift Proposal Logo"/></a>
-<h1>Create a Proposal</h1>
-<h3>Fill in the data below, and get a nice PDF proposal</h3>
+    <a href="#" class="sm:mb-10 mb-6 opacity-90 hover:opacity-100 transition-all"><img src="logo-on-dark.svg" class="h-8 sm:h-10" alt="Swift Proposal Logo"/></a>
+<h3>Fill in the data below, and get a <span class="bg-gradient-to-r from-purple-700 to-blue-900 bg-clip-text text-transparent font-semibold">Nice PDF Proposal</span></h3>
 <div class="container">
     <div class="hidden"><ProgressBar {steps} bind:currentActive bind:this={progressBar}/> </div>
     
@@ -280,7 +279,7 @@ function handleClosePrivacyModal() {
 </section>
 
 
-<footer class="flex items-center justify-center pt-12 pb-8 fixed bottom-0 right-0 left-0 bg-gradient-to-b from-slate-950/0 to-slate-950 ">
+<footer class="flex items-center justify-center py-6  bg-gradient-to-b from-slate-950/0 to-slate-950 ">
     <a href="#" on:click={handleOpenModal} class="text-base text-slate-500 hover:text-slate-300 transition-all mx-3">Terms & Conditions</a>
     <a href="#" on:click={handleOpenPrivacyModal} class="text-base text-slate-500 hover:text-slate-300 transition-all mx-3">Privacy Policy</a>
     <a href="mailto:fekry@scienft.com" class="text-base text-slate-500 hover:text-slate-300 transition-all mx-3" >Reach Out</a>
@@ -303,10 +302,10 @@ function handleClosePrivacyModal() {
 		@apply text-slate-50 text-3xl sm:text-4xl font-semibold mb-2  text-center;
 	}
 	h3 {
-		@apply text-slate-400 text-lg sm:text-lg font-normal text-center;
+		@apply text-slate-200 sm:w-full w-[55%] text-lg sm:text-xl font-normal text-center;
 	}
 	.section {
-		@apply min-w-full flex flex-col items-center justify-start   py-8 sm:py-16 min-h-screen px-5;
+		@apply min-w-full flex flex-col items-center justify-start   pt-8 sm:pt-16 min-h-screen px-5;
 	}
 
 	.btn-next {
@@ -314,7 +313,7 @@ function handleClosePrivacyModal() {
 	}
 
 	.step-button {
-		@apply max-w-[800px] gap-2 mx-auto  flex flex-col-reverse gap-y-5  sm:flex-row justify-between  items-stretch;
+		@apply max-w-[800px] gap-2 mx-auto  flex  gap-y-5  flex-row justify-between  items-stretch;
 	}
 
 	.btn-back {
