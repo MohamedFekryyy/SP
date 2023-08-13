@@ -32,7 +32,8 @@
       });
   
       doc.text('Total Sum: ' + totalSum, 10, yPosition);
-      yPosition += 10;
+      console.log('Total Sum:', totalSum);
+
   
       milestones.forEach(milestone => {
         doc.text('Milestone Title: ' + milestone.title, 10, yPosition);
