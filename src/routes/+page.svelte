@@ -65,6 +65,9 @@
 
   
     async function generatePDF() {
+        await addFormSubmission(formData, items, milestones, startDate, endDate, totalSum);
+        
+
       const doc = new jsPDF();
       doc.text('Client Name: ' + formData.clientName, 10, 10);
       doc.text('Client Company: ' + formData.clientCompany, 10, 20);
@@ -96,8 +99,7 @@
         yPosition += 10;
       });
   
-      doc.save('proposal.pdf');
-
+      doc.save(formData.projName + '.pdf');
       window.location.href = '/proposal-generated';
     }
     
