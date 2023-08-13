@@ -1,6 +1,7 @@
 <script>
 	import InputField from './inputField.svelte';
 	import { fade, slide } from 'svelte/transition';
+	import { onMount } from 'svelte';
 	export let active_step;
 	let formData = {
 		clientName: '',
@@ -35,8 +36,34 @@ function removeItem(index) {
 // Computed total sum of the prices
 $: totalSum = items.reduce((sum, item) => sum + (parseFloat(item.price) || 0), 0);
 
+let milestones = [{ title: '', deliveryDate: '' }];
 
-</script>
+	let startDate = null;
+	let endDate = null;
+
+	function addMilestone() {
+  console.log("Adding milestone"); // Debug log
+  milestones = [...milestones, { title: '', deliveryDate: '' }]; // Adding a new milestone
+}
+
+
+function removeMilestone(index) {
+  console.log("Removing milestone at index", index); // Debug log
+  milestones = milestones.filter((_, i) => i !== index);
+}
+
+
+	function updateDates() {
+		startDate = milestones.length > 0 ? milestones[0].deliveryDate : null;
+		endDate = milestones.length > 0 ? milestones[milestones.length - 1].deliveryDate : null;
+	}
+
+	onMount(updateDates);
+
+	let preFilledText = `1. Payment structure: 50% at approval, the rest at delivery.
+2. Additional work for components that appear in the scope of work will be quoted before any invoicing.
+3. New components that are not described in the scope of work will be assessed in a new estimate.
+4. In case of project cancellation after the work has started, the client will pay for the relative part of the work.`;</script>
 
 <form class="form-container" on:submit={handleSubmit}>
 	{#if active_step == 'clientInfo'}
@@ -51,7 +78,7 @@ $: totalSum = items.reduce((sum, item) => sum + (parseFloat(item.price) || 0), 0
 	<div in:fade={{ duration: 400, delay: 100 }} out:slide={{ y: -30, duration: 250 }}><InputField label={'Project Description'} bind:value={formData.projDescription} isTextarea={true} tooltip="Describe your project in clear and simple terms. What needs to be done? This helps everyone involved understand the scope and purpose of the project."/> </div>
 	<div in:fade={{ duration: 400, delay: 150 }} out:slide={{ y: -30, duration: 250 }}><InputField label={'Project Goals'} bind:value={formData.projGoals} isTextarea={true} tooltip="Define the desired outcomes of the project. What are you aiming to achieve? Examples: Increase sales, decrease abandoned carts, improve user engagement, etc."/></div>
 	{:else if active_step == 'Items'}
-	<h2 in:fade={{ duration: 400 }} out:slide={{ y: -30, duration: 250 }}>Client Info</h2>
+	<h2 in:fade={{ duration: 400 }} out:slide={{ y: -30, duration: 250 }}>Proposal Items</h2>
 	{#each items as item, index}
 	<div class="list-item" in:fade={{ duration: 400 }} out:slide={{ y: -30, duration: 250 }}>
 		<input type="text" placeholder="Item Name" bind:value={item.title} class="bg-transparent placeholder:text-slate-500 text-slate-50 outline-none text-lg grow min-w-[60%]" />
@@ -80,7 +107,31 @@ $: totalSum = items.reduce((sum, item) => sum + (parseFloat(item.price) || 0), 0
 	<h2 in:fade={{ duration: 400 }} out:slide={{ y: -30, duration: 250 }}>Project Milestones</h2>
 
 		
-			<button class="btn submit">Finish </button>
+	<div>
+		{#each milestones as milestone, index}
+			<div class="list-item" in:fade={{ duration: 400 }} out:slide={{ y: -30, duration: 250 }}>
+				<input type="text" placeholder="Milestone Title" bind:value={milestone.title} class="bg-transparent placeholder:text-slate-500 text-slate-50 outline-none text-lg grow min-w-[60%]" />
+				<input type="date" placeholder="Delivery Date" bind:value={milestone.deliveryDate} on:input={updateDates} class="rounded-lg bg-slate-700/50 px-3 py-3 grow max-w-[200px] text-slate-50 placeholder:text-slate-500 outline-none cursor-pointer" />
+				<button  on:click={() => removeMilestone(index)} class=" pl-3 grow flex items-center justify-center text-slate-400 hover:text-slate-100 transition-all" ><svg class="w-3.5 h-3.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
+					<path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
+				  </svg></button>
+			</div>
+		{/each}
+		<div class="mb-4 flex justify-between items-center mt-8" in:fade={{ duration: 400, delay: 100 }} out:slide={{ y: -30, duration: 250 }}>
+			<button on:click={addMilestone} class="small-button"> <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
+				<path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 1v16M1 9h16"/>
+			  </svg>Add Milestone</button>
+			<div class="dates flex flex-row gap-x-4" in:fade={{ duration: 400, delay: 150 }} out:slide={{ y: -30, duration: 250 }}>
+			<p class="text-slate-50 text-xl"><span class="text-slate-400">Start Date</span> {startDate}</p>
+			<p class="text-slate-50 text-xl"><span class="text-slate-400">End Date</span> {endDate}</p>
+		</div>
+		
+		</div>
+
+	</div> 
+	<h2 in:fade={{ duration: 400, delay: 200 }} out:slide={{ y: -30, duration: 250 }} class="mt-8">Terms & Conditions</h2>
+	<InputField label={'Terms and Condidtions'} bind:value={preFilledText} isTextarea={true}/>
+
 
 	{/if}
 </form>
@@ -88,7 +139,7 @@ $: totalSum = items.reduce((sum, item) => sum + (parseFloat(item.price) || 0), 0
 <style>
 	
 	.form-container {
-		@apply bg-slate-900/50 border border-slate-900 rounded-2xl px-8 pt-8 pb-3 max-w-[700px] my-10 mx-auto shadow-2xl shadow-black/40 transition-all;
+		@apply bg-slate-900/50 border border-slate-900 rounded-2xl px-8 pt-8 pb-3 max-w-[800px] my-10 mx-auto shadow-2xl shadow-black/40 transition-all;
 	}
 	.btn {
 		color: white;
