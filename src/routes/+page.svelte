@@ -96,9 +96,48 @@
 `;
 
 const privacyContent = `
-  <h3>Privacy Policy</h3>
-  <p>Your privacy policy content goes here.</p>
-  ...
+<p class="text-slate-400 italic mb-2">Last updated: 13 Aug 2023</p>
+
+
+<h4 class="text-lg mb-1 mt-3">1. Introduction</h4>
+<p class="leading-relaxed">At Swift Proposal, we are committed to protecting your personal information and your right to privacy. This Privacy Policy explains what information we collect, how we use it, and your rights regarding that information.</p>
+
+<h4 class="text-lg mb-1 mt-3">2. Information We Collect</h4>
+<p class="leading-relaxed">We may collect the following types of information:</p>
+<ul>
+  <li class="leading-relaxed"><strong>Personal Information:</strong> Such as your name, email address, and contact details.</li>
+  <li class="leading-relaxed"><strong>Usage Data:</strong> Information about how you use our service.</li>
+  <li class="leading-relaxed"><strong>Cookies and Tracking Data:</strong> We may use cookies to track activity on our website.</li>
+</ul>
+
+<h4 class="text-lg mb-1 mt-3">3. How We Use Your Information</h4>
+<p class="leading-relaxed">We may use your personal information for the following purposes:</p>
+<ul>
+  <li class="leading-relaxed">To provide and maintain our service.</li>
+  <li class="leading-relaxed">To notify you about changes to our service.</li>
+  <li class="leading-relaxed">To provide customer support.</li>
+  <li class="leading-relaxed">To gather analysis or valuable information to improve our service.</li>
+  <li class="leading-relaxed">To monitor the usage of our service.</li>
+</ul>
+
+<h4 class="text-lg mb-1 mt-3">4. Sharing Your Information</h4>
+<p class="leading-relaxed">We do not sell or share your personal information with third parties for marketing purposes. We may share your information with third-party service providers to provide and support our service.</p>
+
+<h4 class="text-lg mb-1 mt-3">5. Security</h4>
+<p class="leading-relaxed">We take the security of your information seriously and use appropriate security measures to prevent unauthorized access, disclosure, alteration, or destruction of your information.</p>
+
+<h4 class="text-lg mb-1 mt-3">6. Your Rights</h4>
+<p class="leading-relaxed">You have the right to access, update, or delete the personal information we have on you. You can contact us at any time to exercise these rights.</p>
+
+<h4 class="text-lg mb-1 mt-3">7. Changes to This Privacy Policy</h4>
+<p class="leading-relaxed">We may update our Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page.</p>
+
+<h4 class="text-lg mb-1 mt-3">8. Contact Us</h4>
+<p class="leading-relaxed">If you have any questions or concerns about this Privacy Policy, please contact us at:</p>
+<address>
+  Email: support@fekryaiad.com<br>
+</address>
+
 `;
 
 function handleOpenPrivacyModal(event) {
