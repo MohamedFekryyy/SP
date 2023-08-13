@@ -99,13 +99,13 @@ function removeMilestone(index) {
 
 	{#if items.length === 0}
 		<div class="empty-state" in:fade={{ duration: 400 }} out:slide={{ y: -30, duration: 250 }}>
-			<p>Click the <span class="text-slate-300">"Add More"</span> button to add deliverables.</p>
+			<p>Click the <span class="text-slate-300">"Add Item"</span> button to add deliverables.</p>
 		</div>
 	{/if}
 
 	<div class="mb-4 flex flex-col gap-y-4 sm:flex-row justify-between items-center mt-8" in:fade={{ duration: 400, delay: 100 }} out:slide={{ y: -30, duration: 250 }}><button on:click={addItem} class="small-button w-full sm:w-auto"> <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
 		<path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 1v16M1 9h16"/>
-	  </svg> Add More</button>
+	  </svg> Add Item</button>
 	<div class="text-2xl  font-bold text-slate-50" in:fade={{ duration: 400, delay: 100 }} out:slide={{ y: -30, duration: 250 }}><span class=" text-xl font-normal text-slate-400">Total</span> ${totalSum}</div>	
 </div>
 	{:else if active_step == 'Milestones'}
@@ -122,6 +122,13 @@ function removeMilestone(index) {
 				  </svg></button>
 			</div>
 		{/each}
+
+		{#if milestones.length === 0}
+		<div class="empty-state" in:fade={{ duration: 400 }} out:slide={{ y: -30, duration: 250 }}>
+			<p>Click the <span class="text-slate-300">"Add Milestone"</span> button to add Milestones.</p>
+		</div>
+	{/if}
+
 		<div class="mb-4 flex flex-col gap-y-4 sm:flex-row justify-between items-center mt-8" in:fade={{ duration: 400, delay: 100 }} out:slide={{ y: -30, duration: 250 }}>
 			<button on:click={addMilestone} class="small-button w-full sm:w-auto"> <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
 				<path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 1v16M1 9h16"/>
