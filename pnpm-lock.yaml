@@ -7,6 +7,9 @@ dependencies:
   body-parser:
     specifier: ^1.20.2
     version: 1.20.2
+  chrome-aws-lambda:
+    specifier: ^10.1.0
+    version: 10.1.0(puppeteer-core@21.0.3)
   cors:
     specifier: ^2.8.5
     version: 2.8.5
@@ -17,6 +20,9 @@ dependencies:
     specifier: ^2.5.1
     version: 2.5.1
   puppeteer:
+    specifier: ^21.0.3
+    version: 21.0.3
+  puppeteer-core:
     specifier: ^21.0.3
     version: 21.0.3
 
@@ -929,6 +935,16 @@ packages:
     optionalDependencies:
       fsevents: 2.3.2
     dev: true
+
+  /chrome-aws-lambda@10.1.0(puppeteer-core@21.0.3):
+    resolution: {integrity: sha512-NZQVf+J4kqG4sVhRm3WNmOfzY0OtTSm+S8rg77pwePa9RCYHzhnzRs8YvNI6L9tALIW6RpmefWiPURt3vURXcw==}
+    engines: {node: '>= 10.16'}
+    peerDependencies:
+      puppeteer-core: ^10.1.0
+    dependencies:
+      lambdafs: 2.1.1
+      puppeteer-core: 21.0.3
+    dev: false
 
   /chromium-bidi@0.4.20(devtools-protocol@0.0.1147663):
     resolution: {integrity: sha512-ruHgVZFEv00mAQMz1tQjfjdG63jiPWrQPF6HLlX2ucqLqVTJoWngeBEKHaJ6n1swV/HSvgnBNbtTRIlcVyW3Fw==}
@@ -1951,6 +1967,14 @@ packages:
   /known-css-properties@0.28.0:
     resolution: {integrity: sha512-9pSL5XB4J+ifHP0e0jmmC98OGC1nL8/JjS+fi6mnTlIf//yt/MfVLtKg7S6nCtj/8KTcWX7nRlY0XywoYY1ISQ==}
     dev: true
+
+  /lambdafs@2.1.1:
+    resolution: {integrity: sha512-x5k8JcoJWkWLvCVBzrl4pzvkEHSgSBqFjg3Dpsc4AcTMq7oUMym4cL/gRTZ6VM4mUMY+M0dIbQ+V1c1tsqqanQ==}
+    engines: {node: '>= 10.16'}
+    hasBin: true
+    dev: false
+    bundledDependencies:
+      - tar-fs
 
   /levn@0.4.1:
     resolution: {integrity: sha512-+bT2uH4E5LGE7h/n3evcS/sQlJXCpIp6ym8OWJ5eV6+67Dsql/LaaT7qJBAt2rzfoa/5QBGBhxDix1dMt2kQKQ==}

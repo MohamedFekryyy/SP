@@ -5,10 +5,8 @@
     import Modal from '../components/Modal.svelte';
     import { writable } from 'svelte/store';
 
-
-    import jsPDF from 'jspdf';
     
-  
+
     let formData;
     let items;
     let milestones;
@@ -89,7 +87,7 @@ async function generatePDF() {
     };
 
     // Send a POST request to the server-side endpoint
-    const response = await fetch('http://127.0.0.1:3001/generate-pdf', {
+    const response = await fetch('/api/generate-pdf', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
