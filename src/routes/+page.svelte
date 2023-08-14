@@ -7,6 +7,7 @@
 
 
     import jsPDF from 'jspdf';
+    
   
     let formData;
     let items;
@@ -211,6 +212,8 @@ function handleClosePrivacyModal() {
     function handleCloseModal() {
       isModalOpen.set(false);
     }
+
+ 
 
  </script>
   
