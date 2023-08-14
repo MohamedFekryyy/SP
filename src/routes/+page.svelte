@@ -84,7 +84,8 @@ async function generatePDF() {
       endDate: endDate,
       items: items,
       milestones: milestones,
-      totalSum: totalSum
+      totalSum: totalSum,
+     
     };
 
     // Send a POST request to the server-side endpoint
