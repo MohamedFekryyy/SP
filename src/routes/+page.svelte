@@ -325,7 +325,7 @@ function handleClosePrivacyModal() {
 		@apply text-slate-200 w-full  text-lg sm:text-xl font-normal text-center;
 	}
 	.section {
-		@apply min-w-full flex flex-col items-center justify-start   pt-8 sm:pt-16 min-h-screen px-5;
+		@apply min-w-full flex flex-col items-center justify-start   pt-8 sm:pt-16 min-h-[80%] px-5;
 	}
 
 	.btn-next {
