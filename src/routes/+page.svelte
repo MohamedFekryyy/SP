@@ -88,7 +88,7 @@ async function generatePDF() {
     };
 
     // Send a POST request to the server-side endpoint
-    const response = await fetch('/generate-pdf', {
+    const response = await fetch('http://127.0.0.1:3001/generate-pdf', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -267,7 +267,7 @@ function handleClosePrivacyModal() {
 
         {#if currentActive === steps.length}
       
-        <button on:click={() => generatePDF(formData, items, milestones, startDate, endDate, totalSum)} disabled={currentActive != steps.length} class="relative inline-flex items-center justify-center inline-block p-4 px-6 py-3 overflow-hidden font-medium text-indigo-600 rounded-lg shadow-2xl group">
+        <button on:click={() => generatePDF(formData, items, milestones, startDate, endDate, totalSum)} disabled={currentActive != steps.length} class="relative  items-center justify-center inline-block p-4 px-6 py-3 overflow-hidden font-medium text-indigo-600 rounded-lg shadow-2xl group">
             <span class="absolute top-0 left-0 w-60 h-60 -mt-10 -ml-3 transition-all duration-700 bg-purple-700 rounded-full blur-md ease"></span>
             <span class="absolute inset-0 w-full h-full transition duration-700 group-hover:rotate-180 ease">
             <span class="absolute bottom-0 left-0 w-24 h-24 -ml-10 bg-pink-700 rounded-full blur-md"></span>
