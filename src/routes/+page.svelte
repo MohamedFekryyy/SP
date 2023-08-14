@@ -5,7 +5,7 @@
     import Modal from '../components/Modal.svelte';
     import { writable } from 'svelte/store';
 
-    
+
 
     let formData;
     let items;
@@ -97,8 +97,10 @@ async function generatePDF() {
 
     // Check if the response is successful
     if (!response.ok) {
-      throw new Error('Failed to generate PDF');
-    }
+  // Log the response to see more details about the error
+  console.error('Server response:', await response.text());
+  throw new Error('Failed to generate PDF');
+}
 
     // Get the PDF data from the response
     const pdfBlob = await response.blob();
