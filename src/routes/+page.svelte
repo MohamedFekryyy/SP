@@ -65,44 +65,60 @@
 }
 
   
-    async function generatePDF() {
-        await addFormSubmission(formData, items, milestones, startDate, endDate, totalSum);
-        
+async function generatePDF() {
+  try {
+    // Make sure the submission is added
+    await addFormSubmission(formData, items, milestones, startDate, endDate, totalSum);
 
-      const doc = new jsPDF();
-      doc.text('Client Name: ' + formData.clientName, 10, 10);
-      doc.text('Client Company: ' + formData.clientCompany, 10, 20);
-      doc.text('Client Email: ' + formData.clientEmail, 10, 30);
-      doc.text('Freelancer Email: ' + formData.freelancerEmail, 10, 40);
-      doc.text('Freelancer Name: ' + formData.freelancerName, 10, 50);
-      doc.text('Project Name: ' + formData.projName, 10, 60);
-      doc.text('Project Description: ' + formData.projDescription, 10, 70);
-      doc.text('Project Goals: ' + formData.projGoals, 10, 80);
-      doc.text('Start Date: ' + startDate, 10, 90);
-      doc.text('End Date: ' + endDate, 10, 100);
-  
-      let yPosition = 110;
-      items.forEach(item => {
-        doc.text('Item Title: ' + item.title, 10, yPosition);
-        yPosition += 10;
-        doc.text('Item Price: ' + item.price, 10, yPosition);
-        yPosition += 10;
-      });
-  
-      doc.text('Total Sum: ' + totalSum, 10, yPosition);
-      console.log('Total Sum:', totalSum);
+    // Create an object with the data to send to the server
+    const data = {
+      clientName: formData.clientName,
+      clientCompany: formData.clientCompany,
+      clientEmail: formData.clientEmail,
+      freelancerEmail: formData.freelancerEmail,
+      freelancerName: formData.freelancerName,
+      projName: formData.projName,
+      projDescription: formData.projDescription,
+      projGoals: formData.projGoals,
+      startDate: startDate,
+      endDate: endDate,
+      items: items,
+      milestones: milestones,
+      totalSum: totalSum
+    };
 
-  
-      milestones.forEach(milestone => {
-        doc.text('Milestone Title: ' + milestone.title, 10, yPosition);
-        yPosition += 10;
-        doc.text('Milestone Delivery Date: ' + milestone.deliveryDate, 10, yPosition);
-        yPosition += 10;
-      });
-  
-      doc.save(formData.projName + '.pdf');
-      window.location.href = '/proposal-generated';
+    // Send a POST request to the server-side endpoint
+    const response = await fetch('/generate-pdf', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(data)
+    });
+
+    // Check if the response is successful
+    if (!response.ok) {
+      throw new Error('Failed to generate PDF');
     }
+
+    // Get the PDF data from the response
+    const pdfBlob = await response.blob();
+
+    // Create a link to download the PDF
+    const url = window.URL.createObjectURL(pdfBlob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = formData.projName + '.pdf';
+    a.click();
+
+    // Redirect to the next page
+    window.location.href = '/proposal-generated';
+  } catch (error) {
+    console.error('Error generating PDF:', error);
+    // Handle the error as appropriate for your application
+  }
+}
+
     
     $: secureDataClass = currentActive === 1 ? "secure-data" : "secure-data hidden";
 
