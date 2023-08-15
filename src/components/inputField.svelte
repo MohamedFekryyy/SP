@@ -1,9 +1,25 @@
 <script>
+	import { onMount } from 'svelte';
 	export let value, label, type = 'text', isTextarea = false, placeholder = '', tooltip = '';
 	
 	function typeAction(node){
 		node.type = type;
 	}
+
+	function resizeTextarea(event) {
+  const target = event.target;
+  target.style.height = 'auto'; // Reset the height
+  target.style.height = target.scrollHeight + 'px'; // Set to scroll height
+}
+
+
+onMount(() => {
+  if (isTextarea) {
+    const textarea = document.querySelector('.input');
+    resizeTextarea({ target: textarea });
+  }
+});
+
 </script>
 
 <p class="form-label">
@@ -19,7 +35,13 @@
 		</label>
 	{/if}
 	{#if isTextarea}
-		<textarea class="input sm:text-lg text-base" bind:value={value} rows="4" placeholder={placeholder}></textarea>
+		<textarea 
+		class="input sm:text-lg text-base" 
+		bind:value={value} 
+		on:input={resizeTextarea}
+		rows="4" 
+		placeholder={placeholder}
+		></textarea>
 	{:else}
 		<input use:typeAction class="input sm:text-lg text-base" bind:value={value} placeholder={placeholder}/>
 	{/if}
@@ -68,6 +90,11 @@
 .tooltip-container:hover .tooltip-text {
 	@apply visible opacity-100;
 
+}
+
+textarea {
+  overflow: hidden;
+  resize: none; /* Disables manual resizing */
 }
 
 
