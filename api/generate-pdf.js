@@ -23,8 +23,8 @@ const generatePdf = async (req, res) => {
   } = req.body;
 
   // Create HTML lists for proposal items and milestones
-  const proposalItemsHtml = items.map(item => `<li style="color:#030616; font-family: Bricolage Grotesque; font-size: 20px;">${item.title} ${item.price}</li>`).join('');
-  const milestoneItemsHtml = milestones.map(milestone => `<li>${milestone.title}: ${milestone.deliveryDate}</li>`).join('');
+  const proposalItemsHtml = items.map(item => `<li style="color:#030616; font-family: Bricolage Grotesque; font-size: 18px;  min-width: 100%; display: flex; justify-content: space-between;"><div>${item.title}</div> <div>$${item.price}</div></li>`).join('');
+  const milestoneItemsHtml = milestones.map(milestone => `<li style="color:#030616; font-family: Bricolage Grotesque; font-size: 18px;  min-width: 100%; display: flex; justify-content: space-between;"><div>${milestone.title}</div> <div>${milestone.deliveryDate}</div></li>`).join('');
 
     let htmlContent = `<html>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -65,16 +65,17 @@ const generatePdf = async (req, res) => {
         
         <div style="margin: 40px;">
         <h2  style="margin-top: 0px; margin-bottom: 0px; color: #595B65; font-size: 18px; font-family: inter; font-weight: 500;">Proposal Items</h2>
-        <ul  style="list-style: none; background-color: #F0F0F1; padding: 16px; gap: 16px; display: flex; flex-direction: column;">${proposalItemsHtml}</ul>
+        <ul  style="list-style: none; background-color: #F0F0F1; padding: 16px; gap: 14px; display: flex; flex-direction: column;">${proposalItemsHtml}</ul>
         <p style="align-items: end; min-width: 100%; ">Total Sum: ${totalSum}</p>
     </div>
     <div style="height: 1px; background-color: #E1E1E3;"></div>
 
-
-        <h2>Milestones:</h2>
-        <ul>${milestoneItemsHtml}</ul>
-        <p>Start Date: ${startDate}</p>
-        <p>End Date: ${endDate}</p>
+    <div style="margin: 40px;">
+    <h2  style="margin-top: 0px; margin-bottom: 0px; color: #595B65; font-size: 18px; font-family: inter; font-weight: 500;">Milestones</h2>
+    <ul style="list-style: none; background-color: #F0F0F1; padding: 16px; gap: 14px; display: flex; flex-direction: column;">${milestoneItemsHtml}</ul>
+    <p>Start Date: ${startDate}</p>
+    <p>End Date: ${endDate}</p>
+</div>
       
         <h2>Terms & Conditions:${preFilledText}</h2>
     </body>
