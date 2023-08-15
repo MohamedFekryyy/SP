@@ -100,7 +100,7 @@
 	{/each}
 
 	{#if items.length === 0}
-		<div class="empty-state" in:fade={{ duration: 400 }} out:slide={{ y: -30, duration: 250 }}>
+		<div class="empty-state" in:fade={{ duration: 400 }} out:fade={{ duration: 250 }}>
 			<p>Click the <span class="text-slate-300">"Add Item"</span> button to add deliverables.</p>
 		</div>
 	{/if}
@@ -126,7 +126,7 @@
 		{/each}
 
 		{#if milestones.length === 0}
-		<div class="empty-state" in:fade={{ duration: 400 }} out:slide={{ y: -30, duration: 250 }}>
+		<div class="empty-state" in:fade={{ duration: 400 }} out:fade={{ duration: 250 }}>
 			<p>Click the <span class="text-slate-300">"Add Milestone"</span> button to add Milestones.</p>
 		</div>
 	{/if}
