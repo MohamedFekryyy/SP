@@ -5,8 +5,14 @@
   class="absolute z-1 inset-0 h-full w-full bg-slate-950 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px] inner-shadow"
 >
 <section class="section z-2">
- <div class="form-container bg-slate-900/50 backdrop-blur-xl border border-slate-900 rounded-2xl px-4 sm:px-6 pt-4 sm:pt-6 pb-none sm:pb-1 w-full sm:w-[800px] my-10 mx-auto shadow-2xl shadow-slate-950 transition-all">
-<h1>Thank you for using Swift Proposal</h1>
+ <div class="form-container bg-slate-900/50 backdrop-blur-xl border border-slate-900 rounded-2xl p-4 sm:p-6  w-full sm:w-[600px] my-10 mx-auto shadow-2xl shadow-slate-950 transition-all">
+<h1 class="sm:max-w-[400px] mx-auto max-w-none">Thank you for using Swift Proposal</h1>
+<p class="text-slate-300 mt-4 text-center sm:max-w-[420px] mx-auto text-base">This is an early release of the product, if you have any feedback or suggestions please feel free to <a href="mailto:fekry@scienft.com" class="text-white underline decoration-purple-700">Reach out</a> !</p>
+<button class="btn-next mt-6"> <svg class="md:w-4 md:h-4 h-3 w-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
+    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 1v16M1 9h16"/>
+  </svg>
+    Create More
+</button>
  </div>   
 </section></div>
 
@@ -26,7 +32,7 @@
      }
  
      .btn-next {
-         @apply bg-purple-700 px-6 py-3 text-lg font-medium rounded-lg text-slate-50 hover:bg-purple-700/90  shadow-2xl shadow-purple-700/40  transition-all;
+         @apply bg-purple-700 px-6 py-3 text-lg font-medium rounded-lg text-slate-50 hover:bg-purple-700/90  shadow-2xl shadow-purple-700/40  transition-all w-full flex items-center justify-center gap-2;
      }
  
      .step-button {
@@ -37,9 +43,8 @@
          @apply bg-slate-900 min-h-full mr-3 rounded-lg px-5 h-12 sm:h-auto w-full sm:w-auto  hover:bg-slate-900/50 transition-all cursor-pointer items-center justify-center flex;
      }
  
-     .btn-next.w-full {
-   width: 100%; /* Adjust as needed */
- }
+
+
  
  .btn-next.w-auto {
    width: auto; /* Adjust as needed */
