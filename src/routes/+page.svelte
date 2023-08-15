@@ -4,6 +4,8 @@
     import ProgressBar from '../components/ProgressBar.svelte';
     import Modal from '../components/Modal.svelte';
     import { writable } from 'svelte/store';
+    import ThemeSwitch from '../components/ThemeSwitch.svelte';
+
 
 
 
@@ -243,11 +245,12 @@ function handleClosePrivacyModal() {
   
   
   <div
-  class="absolute z-1 inset-0 h-full w-full bg-slate-950 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px] inner-shadow"
+  class="absolute z-1 inset-0 h-full w-full bg-slate-50 dark:bg-slate-950 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px] inner-shadow"
 >
 <section class="section z-2">
     <a href="#" class="sm:mb-10 mb-6 opacity-90 hover:opacity-100 transition-all"><img src="logo-on-dark.svg" class="h-8 sm:h-10" alt="Swift Proposal Logo"/></a>
-<h3>Fill in the data below, and get a <span class="bg-gradient-to-r from-purple-700 to-blue-900 bg-clip-text text-transparent font-semibold">Nice PDF Proposal</span></h3>
+    <ThemeSwitch />
+    <h3>Fill in the data below, and get a <span class="bg-gradient-to-r from-purple-700 to-blue-900 bg-clip-text text-transparent font-semibold">Nice PDF Proposal</span></h3>
 <div class="container">
     <div class="hidden"><ProgressBar {steps} bind:currentActive bind:this={progressBar}/> </div>
     
@@ -325,15 +328,17 @@ function handleClosePrivacyModal() {
 
 
 <style lang="postcss">
-   :global(html) {
-		background-color: theme(colors.slate.950);
-        
-	}
+  
+
+    body {
+        @apply dark:bg-slate-950 bg-slate-100;
+    }
+
 	h1 {
-		@apply text-slate-50 text-3xl sm:text-4xl font-semibold mb-2  text-center;
+		@apply text-slate-900 dark:text-slate-50 text-3xl sm:text-4xl font-semibold mb-2  text-center;
 	}
 	h3 {
-		@apply text-slate-200 w-full  text-lg sm:text-xl font-normal text-center;
+		@apply text-slate-900 dark:text-slate-200 w-full  text-lg sm:text-xl font-normal text-center;
 	}
 	.section {
 		@apply min-w-full flex flex-col items-center justify-start   pt-8 sm:pt-16 min-h-[80%] px-5;
@@ -370,6 +375,7 @@ function handleClosePrivacyModal() {
 
 .inner-shadow {
     box-shadow: inset 0 0 300px 200px  theme(colors.slate.950);
+    
 
 }
 
