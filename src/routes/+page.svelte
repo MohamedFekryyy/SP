@@ -62,9 +62,13 @@
   await supabase.from('milestones').insert(milestoneItems);
 }
 
+const isLoading = writable(false); //  state for PDF generation
+
   
 async function generatePDF() {
   try {
+    isLoading.set(true); // Set the loading state to true
+
     // Make sure the submission is added
     await addFormSubmission(formData, items, milestones, startDate, endDate, totalSum);
 
@@ -83,7 +87,6 @@ async function generatePDF() {
       items: items,
       milestones: milestones,
       totalSum: totalSum,
-     
     };
 
     // Send a POST request to the server-side endpoint
@@ -97,10 +100,10 @@ async function generatePDF() {
 
     // Check if the response is successful
     if (!response.ok) {
-  // Log the response to see more details about the error
-  console.error('Server response:', await response.text());
-  throw new Error('Failed to generate PDF');
-}
+      // Log the response to see more details about the error
+      console.error('Server response:', await response.text());
+      throw new Error('Failed to generate PDF');
+    }
 
     // Get the PDF data from the response
     const pdfBlob = await response.blob();
@@ -117,8 +120,12 @@ async function generatePDF() {
   } catch (error) {
     console.error('Error generating PDF:', error);
     // Handle the error as appropriate for your application
+  } finally {
+    isLoading.set(false); // Set the loading state to false
   }
 }
+
+    
 
     
     $: secureDataClass = currentActive === 1 ? "secure-data" : "secure-data hidden";
@@ -268,13 +275,17 @@ function handleClosePrivacyModal() {
 
         {#if currentActive === steps.length}
       
-        <button on:click={() => generatePDF(formData, items, milestones, startDate, endDate, totalSum)} disabled={currentActive != steps.length} class="relative  items-center justify-center inline-block p-4 px-6 py-3 overflow-hidden font-medium text-indigo-600 rounded-lg shadow-2xl group">
+        <button on:click={() => generatePDF(formData, items, milestones, startDate, endDate, totalSum)} disabled={currentActive != steps.length} class="relative  items-center justify-center inline-block p-4 px-6 py-3 overflow-hidden font-medium text-indigo-600 rounded-lg shadow-2xl group min-w-[220px]">
             <span class="absolute top-0 left-0 w-60 h-60 -mt-10 -ml-3 transition-all duration-700 bg-purple-700 rounded-full blur-md ease"></span>
             <span class="absolute inset-0 w-full h-full transition duration-700 group-hover:rotate-180 ease">
             <span class="absolute bottom-0 left-0 w-24 h-24 -ml-10 bg-pink-700 rounded-full blur-md"></span>
             <span class="absolute bottom-0 right-0 w-24 h-24 -mr-10 bg-blue-900 rounded-full blur-xl"></span>
             </span>
+            {#if $isLoading}
+            <div class="loader"></div> <!-- CSS spinner -->
+          {:else}
             <span class="relative text-xl text-white">Generate Proposal</span>
+            {/if}
         </button>
         
           
@@ -361,4 +372,21 @@ function handleClosePrivacyModal() {
     box-shadow: inset 0 0 300px 200px  theme(colors.slate.950);
 
 }
+
+.loader {
+  margin-left: auto;
+  margin-right: auto;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  border-top: 2px solid white;
+  width: 24px;
+  height: 24px;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
 </style>
