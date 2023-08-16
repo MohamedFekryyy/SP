@@ -245,7 +245,7 @@ function handleClosePrivacyModal() {
   
   
   <div
-  class="absolute z-1 inset-0 overflow-x-clip min-h-full min-w-full bg-slate-50 dark:bg-slate-950 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px] inner-light dark:inner-dark"
+  class=" z-1 inset-0 overflow-x-clip min-h-full min-w-full bg-slate-50 dark:bg-slate-950 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px] inner-light dark:inner-dark"
 >
 
 <div class="nav  p-5 sm:p-6 min-w-full  flex flex-row justify-between items-center">
@@ -324,7 +324,7 @@ function handleClosePrivacyModal() {
 </section>
 
 
-<footer class="flex gap-y-3 flex-col sm:flex-row items-center justify-center py-6  bg-gradient-to-b dark:from-slate-950/0 dark:to-slate-950 from-slate-50/0 to-slate-50 mt-4">
+<footer class=" min-w-full bottom-0 flex gap-y-3 flex-col sm:flex-row items-center justify-center py-6   dark:bg-slate-950 bg-slate-50">
     <a href="#" on:click={handleOpenModal} class="text-sm text-slate-500 hover:text-slate-300 transition-all mx-3">Terms & Conditions</a>
     <a href="#" on:click={handleOpenPrivacyModal} class="text-sm text-slate-500 hover:text-slate-300 transition-all mx-3">Privacy Policy</a>
     <a href="mailto:fekry@scienft.com" class="text-sm text-slate-500 hover:text-slate-300 transition-all mx-3" >Reach Out</a>
@@ -352,7 +352,7 @@ function handleClosePrivacyModal() {
 		@apply text-slate-900 dark:text-slate-200 w-full  text-lg sm:text-xl font-normal text-center;
 	}
 	.section {
-		@apply min-w-full flex flex-col items-center justify-start   pt-0 sm:pt-8 min-h-[80%] px-5;
+		@apply min-w-full flex flex-col items-center justify-start   pt-0 sm:pt-8 pb-5  px-5;
 	}
 
 	.btn-next {
