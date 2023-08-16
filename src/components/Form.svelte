@@ -155,8 +155,8 @@
 			  {#if milestones.length > 0 && (startDate || endDate)}
 
 			  <div class="dates flex sm:flex-row flex-col gap-x-4" in:fade={{ duration: 400, delay: 150 }} out:slide={{ y: -30, duration: 250 }}>
-			<p class="text-slate-50 text-md sm:text-lg"><span class="text-slate-400">Start Date</span> {startDate}</p>
-			<p class="text-slate-50 text-md sm:text-lg"><span class="text-slate-400">End Date</span> {endDate}</p>
+			<p class="text-slate-900 dark:text-slate-50 text-md sm:text-lg"><span class="text-slate-400">Start Date</span> {startDate}</p>
+			<p class="text-slate-900 dark:text-slate-50 text-md sm:text-lg"><span class="text-slate-400">End Date</span> {endDate}</p>
 		</div>
 		{/if}
 		
