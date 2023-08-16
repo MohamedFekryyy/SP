@@ -323,7 +323,7 @@ function handleClosePrivacyModal() {
 </section>
 
 
-<footer class=" footer-shadow min-w-full bottom-0 flex gap-y-3 flex-col sm:flex-row items-center justify-center py-6   dark:bg-slate-950 bg-slate-50">
+<footer class="  border-t dark:border-slate-900 border-slate-200 shadow-2xl dark:shadow-slate-950 shadow-slate-50  min-w-full bottom-0 flex gap-y-3 flex-col sm:flex-row items-center justify-center py-6   dark:bg-slate-950 bg-slate-50">
     <a href="#" on:click={handleOpenModal} class="text-sm text-slate-500 hover:text-slate-300 transition-all mx-3">Terms & Conditions</a>
     <a href="#" on:click={handleOpenPrivacyModal} class="text-sm text-slate-500 hover:text-slate-300 transition-all mx-3">Privacy Policy</a>
     <a href="mailto:fekry@scienft.com" class="text-sm text-slate-500 hover:text-slate-300 transition-all mx-3" >Reach Out</a>
@@ -383,10 +383,12 @@ function handleClosePrivacyModal() {
   display: none;
 }
 
-.footer-shadow {
+.footer-dark-shadow {
     box-shadow: 0px -52px 100px 0px #030616;
 
 }
+
+
 
 
 
