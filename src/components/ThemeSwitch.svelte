@@ -27,7 +27,7 @@ if (browser) {
 }
 </script>
 
-<div>
+<div class="dark:bg-slate-900 bg-slate-100 border border-slate-200 dark:border-slate-700/40 shadow-lg dark:shadow-slate-900 rounded-full  p-3 flex items-center justify-center">
     <input checked={darkMode} on:click={handleSwitchDarkMode} type="checkbox" id="theme-toggle" />
     <label for="theme-toggle" />
     
@@ -35,19 +35,20 @@ if (browser) {
 
 <style lang="postcss">
     #theme-toggle {
-        @apply invisible;
+        @apply hidden;
     }
 
     #theme-toggle + label {
-        @apply inline-block cursor-pointer sm:h-9 sm:w-9 h-6 w-6  rounded-full duration-300 content-[''];
+        @apply inline-block cursor-pointer  h-5 w-5  rounded-full duration-300 content-[''];
     }
 
     #theme-toggle:not(:checked) + label {
-        @apply bg-amber-400;
+        @apply bg-amber-500;
     }
 
     #theme-toggle:checked + label {
-        @apply bg-transparent;
-        box-shadow: inset -18px -12px 1px 1px #97A2B7;
+        @apply bg-transparent  shadow-amber-500;
+        box-shadow: inset -5px -6px 1px 1px #97A2B7;
+        
     }
 </style>
