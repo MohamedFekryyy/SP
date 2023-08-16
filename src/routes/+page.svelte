@@ -244,9 +244,8 @@ function handleClosePrivacyModal() {
  </script>
   
   
-  <div
-  class=" z-1 inset-0 overflow-x-clip min-h-full min-w-full bg-slate-50 dark:bg-slate-950 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px] inner-light dark:inner-dark"
->
+<main class="dark:bg-slate-950 bg-slate-50 min-h-screen">
+  <div class=" z-1 inset-0 overflow-x-clip min-h-full min-w-full bg-slate-50 dark:bg-slate-950 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px] inner-light dark:inner-dark">
 
 <div class="nav  p-5 sm:p-6 min-w-full  flex flex-row justify-between items-center">
     
@@ -335,7 +334,7 @@ function handleClosePrivacyModal() {
   <Modal {isModalOpen} title="Terms & Conditions" content={termsContent} on:close={handleCloseModal} />
   <Modal {isPrivacyModalOpen} title="Privacy Policy" content={privacyContent} on:close={handleClosePrivacyModal} />
 </div>
-
+</main>
 
 
 <style lang="postcss">

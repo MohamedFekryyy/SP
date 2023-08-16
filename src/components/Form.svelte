@@ -203,7 +203,7 @@
 
 
 	.list-item {
-		@apply relative  rounded-lg  flex justify-between mb-5 transition-all; 
+		@apply relative  rounded-lg  flex justify-between mb-3.5 transition-all; 
 	}
 
 
