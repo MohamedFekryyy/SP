@@ -248,11 +248,11 @@ function handleClosePrivacyModal() {
   class="absolute z-1 inset-0 overflow-x-clip min-h-full min-w-full bg-slate-50 dark:bg-slate-950 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px] inner-light dark:inner-dark"
 >
 
-<div class="nav  p-6 min-w-full  flex flex-row justify-between items-center">
+<div class="nav  p-5 sm:p-6 min-w-full  flex flex-row justify-between items-center">
     
     <div class=" logos relative flex items-center justify-center">
-      <a href="#" class="  dark:visible invisible "><img src="logo-on-dark.svg" class="h-8 sm:h-10" alt="Swift Proposal Logo"/></a>
-      <a href="#" class=" dark:invisible visible absolute "><img src="logo-on-light.svg" class="h-8 sm:h-10" alt="Swift Proposal Logo"/></a>
+      <a href="#" class="  dark:visible invisible "><img src="logo-on-dark.svg" class="h-6 sm:h-8" alt="Swift Proposal Logo"/></a>
+      <a href="#" class=" dark:invisible visible absolute "><img src="logo-on-light.svg" class="h-6 sm:h-8" alt="Swift Proposal Logo"/></a>
     </div>
   <ThemeSwitch />
   

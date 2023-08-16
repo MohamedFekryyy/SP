@@ -87,11 +87,11 @@
 	{:else if active_step == 'Items'}
 	<h2 in:fade={{ duration: 400 }} out:slide={{ y: -30, duration: 250 }} class="sm:text-xl text-lg dark:text-slate-300 text-slate-700 mb-4">Proposal Items</h2>
 	{#each items as item, index}
-	<div class="list-item gap-y-4 flex-col md:flex-row dark:bg-slate-800/50 bg-slate-100/60 hover:bg-white border border-slate-200 dark:border-slate-600/20 dark:shadow-black/10 dark:shadow-xl shadow shadow-slate-200 dark:hover:bg-slate-600/10" in:fade={{ duration: 400 }} out:slide={{ y: -30, duration: 250 }}>
-		<input type="text" placeholder="Item Name" bind:value={item.title} class="bg-transparent placeholder:text-slate-500 dark:text-slate-50 text-slate-900 outline-none text-lg grow min-w-[65%]" />
-		<input type="number" placeholder="Price" bind:value={item.price} class="rounded-lg dark:bg-slate-700/50 bg-slate-200/70 px-3 py-3 grow max-w-[200px] text-slate-900 dark:text-slate-50 placeholder:text-slate-500 outline-none" />
-		<button on:click={() => removeItem(index)} class=" absolute md:top-0 md:right-0 top-4 right-4 md:relative pl-3 grow flex items-center justify-center dark:text-slate-400 text-slate-500 hover:text-slate-700 dark:hover:text-slate-100 transition-all">
-			<svg class="w-3.5 h-3.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
+	<div class="list-item  sm:p-4 p-2 gap-y-4 flex-col md:flex-row dark:bg-slate-800/50 bg-slate-100/60 hover:bg-white border border-slate-200 dark:border-slate-600/20 dark:shadow-black/10 dark:shadow-xl shadow shadow-slate-200 dark:hover:bg-slate-600/10" in:fade={{ duration: 400 }} out:slide={{ y: -30, duration: 250 }}>
+		<input type="text" placeholder="Item Name" bind:value={item.title} class="text-base bg-transparent placeholder:text-slate-500 dark:text-slate-50 text-slate-900 outline-none  grow min-w-[65%]" />
+		<input type="number" placeholder="Price" bind:value={item.price} class="text-base rounded-lg dark:bg-slate-700/50 bg-slate-200/70 px-3 py-3 grow max-w-[200px] text-slate-900 dark:text-slate-50 placeholder:text-slate-500 outline-none" />
+		<button on:click={() => removeItem(index)} class=" absolute md:top-0 md:right-0 top-3 right-3 md:relative pl-3 grow flex items-center justify-center dark:text-slate-400 text-slate-500 hover:text-slate-700 dark:hover:text-slate-100 transition-all">
+			<svg class="sm:w-3.5 sm:h-3.5 w-2.5 h-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
 				<path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
 			  </svg>
 		</button>
@@ -116,10 +116,10 @@
 		
 	<div>
 		{#each milestones as milestone, index}
-			<div class="list-item  gap-y-4 flex-col md:flex-row dark:bg-slate-800/50 bg-slate-100/60 hover:bg-white border border-slate-200 dark:border-slate-600/20 dark:shadow-black/10 dark:shadow-xl shadow shadow-slate-200 dark:hover:bg-slate-600/10" in:fade={{ duration: 400 }} out:slide={{ y: -30, duration: 250 }}>
-				<input type="text" placeholder="Milestone Title" bind:value={milestone.title} class="bg-transparent placeholder:text-slate-500 dark:text-slate-50 text-slate-900 outline-none text-lg grow min-w-[65%]" />
-				<input type="date" placeholder="Delivery Date" bind:value={milestone.deliveryDate} on:input={updateDates} class="rounded-lg dark:bg-slate-700/50 bg-slate-200/70 px-3 py-3 grow max-w-[200px] text-slate-900 dark:text-slate-50 placeholder:text-slate-500 outline-none" />
-				<button  on:click={() => removeMilestone(index)} class=" md:top-0 md:right-0 absolute top-4 right-4 md:relative pl-3 grow flex items-center justify-center dark:text-slate-400 text-slate-500 hover:text-slate-700 dark:hover:text-slate-100 transition-all" ><svg class="w-3.5 h-3.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
+			<div class="list-item  sm:p-4 p-2 gap-y-4 flex-col md:flex-row dark:bg-slate-800/50 bg-slate-100/60 hover:bg-white border border-slate-200 dark:border-slate-600/20 dark:shadow-black/10 dark:shadow-xl shadow shadow-slate-200 dark:hover:bg-slate-600/10" in:fade={{ duration: 400 }} out:slide={{ y: -30, duration: 250 }}>
+				<input type="text" placeholder="Milestone Title" bind:value={milestone.title} class="bg-transparent placeholder:text-slate-500 dark:text-slate-50 text-slate-900 outline-none text-base grow min-w-[65%]" />
+				<input type="date" placeholder="Delivery Date" bind:value={milestone.deliveryDate} on:input={updateDates} class="cursor-pointer rounded-lg dark:bg-slate-700/50 bg-slate-200/70 px-3 py-3 grow max-w-[200px] text-slate-900 dark:text-slate-50 placeholder:text-slate-500 outline-none text-base" />
+				<button  on:click={() => removeMilestone(index)} class=" md:top-0 md:right-0 absolute top-3 right-3 md:relative pl-3 grow flex items-center justify-center dark:text-slate-400 text-slate-500 hover:text-slate-700 dark:hover:text-slate-100 transition-all" ><svg class="sm:w-3.5 sm:h-3.5 w-2.5 h-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
 					<path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
 				  </svg></button>
 			</div>
@@ -186,7 +186,7 @@
 
 
 	.list-item {
-		@apply relative   rounded-lg p-4  flex justify-between mb-5 transition-all; 
+		@apply relative  rounded-lg  flex justify-between mb-5 transition-all; 
 	}
 
 
