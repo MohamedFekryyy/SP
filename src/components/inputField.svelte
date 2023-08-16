@@ -50,11 +50,13 @@ onMount(() => {
 <style>
 	.form-label {
 		text-align: left;
+		font-family: 'Inter';
 	}
 	.input {
 		@apply  rounded-md  py-2 px-2.5 mt-2 mb-5 transition-all border  ;
 		width: 100%;
 		display: block;
+		font-family: 'Inter';
 	}
 	 
 	

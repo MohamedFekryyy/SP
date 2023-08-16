@@ -87,10 +87,10 @@
 	{:else if active_step == 'Items'}
 	<h2 in:fade={{ duration: 400 }} out:slide={{ y: -30, duration: 250 }} class="sm:text-2xl text-xl dark:text-slate-400 text-slate-700 mb-4">Proposal Items</h2>
 	{#each items as item, index}
-	<div class="list-item gap-y-4 flex-col md:flex-row" in:fade={{ duration: 400 }} out:slide={{ y: -30, duration: 250 }}>
-		<input type="text" placeholder="Item Name" bind:value={item.title} class="bg-transparent placeholder:text-slate-500 text-slate-50 outline-none text-lg grow min-w-[65%]" />
-		<input type="number" placeholder="Price" bind:value={item.price} class="rounded-lg bg-slate-700/50 px-3 py-3 grow max-w-[200px] text-slate-50 placeholder:text-slate-500 outline-none" />
-		<button on:click={() => removeItem(index)} class=" absolute md:top-0 md:right-0 top-4 right-4 md:relative pl-3 grow flex items-center justify-center text-slate-400 hover:text-slate-100 transition-all">
+	<div class="list-item gap-y-4 flex-col md:flex-row dark:bg-slate-800/50 bg-slate-100/60 hover:bg-white border border-slate-200 dark:border-slate-600/20 dark:shadow-black/10 dark:shadow-xl shadow shadow-slate-200 dark:hover:bg-slate-600/10" in:fade={{ duration: 400 }} out:slide={{ y: -30, duration: 250 }}>
+		<input type="text" placeholder="Item Name" bind:value={item.title} class="bg-transparent placeholder:text-slate-500 dark:text-slate-50 text-slate-900 outline-none text-lg grow min-w-[65%]" />
+		<input type="number" placeholder="Price" bind:value={item.price} class="rounded-lg dark:bg-slate-700/50 bg-slate-200/70 px-3 py-3 grow max-w-[200px] text-slate-900 dark:text-slate-50 placeholder:text-slate-500 outline-none" />
+		<button on:click={() => removeItem(index)} class=" absolute md:top-0 md:right-0 top-4 right-4 md:relative pl-3 grow flex items-center justify-center dark:text-slate-400 text-slate-500 hover:text-slate-700 dark:hover:text-slate-100 transition-all">
 			<svg class="w-3.5 h-3.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
 				<path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
 			  </svg>
@@ -100,12 +100,12 @@
 	{/each}
 
 	{#if items.length === 0}
-		<div class="empty-state" in:fade={{ duration: 400 }} out:fade={{ duration: 250 }}>
-			<p>Click the <span class="text-slate-300">"Add Item"</span> button to add deliverables.</p>
+		<div class="empty-state dark:text-slate-300/60 text-slate-500" in:fade={{ duration: 400 }} out:fade={{ duration: 250 }}>
+			<p>Click the <span class="dark:text-slate-300 text-slate-800">"Add Item"</span> button to add deliverables.</p>
 		</div>
 	{/if}
 
-	<div class="mb-4 flex flex-col gap-y-4 sm:flex-row justify-between items-center mt-8" in:fade={{ duration: 400, delay: 100 }} out:slide={{ y: -30, duration: 250 }}><button on:click={addItem} class="small-button w-full sm:w-auto"> <svg class="md:w-4 md:h-4 h-3 w-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
+	<div class="mb-4 flex flex-col gap-y-4 sm:flex-row justify-between items-center mt-8" in:fade={{ duration: 400, delay: 100 }} out:slide={{ y: -30, duration: 250 }}><button on:click={addItem} class="small-button border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-200 w-full sm:w-auto"> <svg class="md:w-4 md:h-4 h-3 w-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
 		<path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 1v16M1 9h16"/>
 	  </svg> Add Item</button>
 	<div class="text-2xl  font-bold text-slate-50" in:fade={{ duration: 400, delay: 100 }} out:slide={{ y: -30, duration: 250 }}><span class=" text-xl font-normal text-slate-400">Total</span> ${totalSum}</div>	
@@ -116,23 +116,23 @@
 		
 	<div>
 		{#each milestones as milestone, index}
-			<div class="list-item  gap-y-4 flex-col md:flex-row" in:fade={{ duration: 400 }} out:slide={{ y: -30, duration: 250 }}>
-				<input type="text" placeholder="Milestone Title" bind:value={milestone.title} class="bg-transparent placeholder:text-slate-500 text-slate-50 outline-none text-lg grow min-w-[65%]" />
-				<input type="date" placeholder="Delivery Date" bind:value={milestone.deliveryDate} on:input={updateDates} class="rounded-lg bg-slate-700/50 px-3 py-3 grow max-w-[200px] text-slate-50 placeholder:text-slate-500 outline-none cursor-pointer" />
-				<button  on:click={() => removeMilestone(index)} class=" md:top-0 md:right-0 absolute top-4 right-4 md:relative pl-3 grow flex items-center justify-center text-slate-400 hover:text-slate-100 transition-all" ><svg class="w-3.5 h-3.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
+			<div class="list-item  gap-y-4 flex-col md:flex-row dark:bg-slate-800/50 bg-slate-100/60 hover:bg-white border border-slate-200 dark:border-slate-600/20 dark:shadow-black/10 dark:shadow-xl shadow shadow-slate-200 dark:hover:bg-slate-600/10" in:fade={{ duration: 400 }} out:slide={{ y: -30, duration: 250 }}>
+				<input type="text" placeholder="Milestone Title" bind:value={milestone.title} class="bg-transparent placeholder:text-slate-500 dark:text-slate-50 text-slate-900 outline-none text-lg grow min-w-[65%]" />
+				<input type="date" placeholder="Delivery Date" bind:value={milestone.deliveryDate} on:input={updateDates} class="rounded-lg dark:bg-slate-700/50 bg-slate-200/70 px-3 py-3 grow max-w-[200px] text-slate-900 dark:text-slate-50 placeholder:text-slate-500 outline-none" />
+				<button  on:click={() => removeMilestone(index)} class=" md:top-0 md:right-0 absolute top-4 right-4 md:relative pl-3 grow flex items-center justify-center dark:text-slate-400 text-slate-500 hover:text-slate-700 dark:hover:text-slate-100 transition-all" ><svg class="w-3.5 h-3.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
 					<path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
 				  </svg></button>
 			</div>
 		{/each}
 
 		{#if milestones.length === 0}
-		<div class="empty-state" in:fade={{ duration: 400 }} out:fade={{ duration: 250 }}>
-			<p>Click the <span class="text-slate-300">"Add Milestone"</span> button to add Milestones.</p>
+		<div class="empty-state dark:text-slate-300/60 text-slate-500" in:fade={{ duration: 400 }} out:fade={{ duration: 250 }}>
+			<p>Click the <span class="dark:text-slate-300 text-slate-800">"Add Milestone"</span> button to add Milestones.</p>
 		</div>
 	{/if}
 
 		<div class="mb-4 flex flex-col gap-y-4 sm:flex-row justify-between items-center mt-8" in:fade={{ duration: 400, delay: 100 }} out:slide={{ y: -30, duration: 250 }}>
-			<button on:click={addMilestone} class="small-button w-full sm:w-auto"> <svg class="md:w-4 md:h-4 h-3 w-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
+			<button on:click={addMilestone} class="small-button w-full sm:w-auto border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-200"> <svg class="md:w-4 md:h-4 h-3 w-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
 				<path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 1v16M1 9h16"/>
 			  </svg>Add Milestone</button>
 			  {#if milestones.length > 0 && (startDate || endDate)}
@@ -181,21 +181,18 @@
 
 
 	.small-button {
-		@apply border border-slate-700 text-slate-200 px-4 py-2 rounded-lg flex gap-1.5 transition-all  items-center justify-center;
+		@apply border  px-4 py-2 rounded-lg flex gap-1.5 transition-all  items-center justify-center;
 	}
 	.small-button:hover {
 		@apply text-slate-50 border-slate-800;
 	}
 
 	.list-item {
-		@apply relative bg-slate-800/50 border border-slate-600/20  shadow-xl shadow-black/10 rounded-lg p-4  flex justify-between mb-5 transition-all; 
+		@apply relative   rounded-lg p-4  flex justify-between mb-5 transition-all; 
 	}
 
-	.list-item:hover {
-		@apply bg-slate-600/10;    
-	}
 
 	.empty-state {
-		@apply min-h-[150px] flex items-center justify-center text-slate-300/60;
+		@apply min-h-[150px] flex items-center justify-center ;
 	}
 </style>

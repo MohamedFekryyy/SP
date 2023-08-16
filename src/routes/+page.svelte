@@ -152,7 +152,7 @@ async function generatePDF() {
     // Content for the Terms & Conditions modal
     const termsContent = `
 
-<p class="text-slate-400 italic mb-2">Last updated: 13 Aug 2023</p>
+<p class="dark:text-slate-400 text-slate-500 italic mb-2">Last updated: 13 Aug 2023</p>
 
 <p class="mb-2 leading-relaxed">Please read these Terms and Conditions ("Terms", "Terms and Conditions") carefully before using Swift Proposal (the "Service") operated by SwiftThings ("us", "we", or "our").</p>
 
@@ -179,7 +179,7 @@ async function generatePDF() {
 `;
 
 const privacyContent = `
-<p class="text-slate-400 italic mb-2">Last updated: 13 Aug 2023</p>
+<p class="dark:text-slate-400 text-slate-500 italic mb-2">Last updated: 13 Aug 2023</p>
 
 
 <h4 class="text-lg mb-1 mt-3">1. Introduction</h4>
@@ -247,9 +247,20 @@ function handleClosePrivacyModal() {
   <div
   class="absolute z-1 inset-0 h-full w-full bg-slate-50 dark:bg-slate-950 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px] inner-light dark:inner-dark"
 >
+
+<div class="nav  p-6 min-w-full  flex flex-row justify-between items-center">
+    
+    <div class=" logos relative flex items-center justify-center">
+      <a href="#" class="  dark:visible invisible "><img src="logo-on-dark.svg" class="h-8 sm:h-10" alt="Swift Proposal Logo"/></a>
+      <a href="#" class=" dark:invisible visible absolute "><img src="logo-on-light.svg" class="h-8 sm:h-10" alt="Swift Proposal Logo"/></a>
+    </div>
+  <ThemeSwitch />
+  
+  </div>
 <section class="section z-2">
-    <a href="#" class="sm:mb-10 mb-6 opacity-90 hover:opacity-100 transition-all"><img src="logo-on-dark.svg" class="h-8 sm:h-10" alt="Swift Proposal Logo"/></a>
-    <ThemeSwitch />
+
+   
+
     <h3>Fill in the data below, and get a <span class="bg-gradient-to-r from-purple-700 to-blue-900 bg-clip-text text-transparent font-semibold">Nice PDF Proposal</span></h3>
 <div class="container">
     <div class="hidden"><ProgressBar {steps} bind:currentActive bind:this={progressBar}/> </div>
@@ -341,7 +352,7 @@ function handleClosePrivacyModal() {
 		@apply text-slate-900 dark:text-slate-200 w-full  text-lg sm:text-xl font-normal text-center;
 	}
 	.section {
-		@apply min-w-full flex flex-col items-center justify-start   pt-8 sm:pt-16 min-h-[80%] px-5;
+		@apply min-w-full flex flex-col items-center justify-start   pt-0 sm:pt-8 min-h-[80%] px-5;
 	}
 
 	.btn-next {
@@ -365,7 +376,8 @@ function handleClosePrivacyModal() {
 }
 
 .secure-data {
-  @apply text-slate-400 text-sm sm:text-base gap-2 mt-5 sm:mt-7  flex items-center  mb-4 max-w-[800px] mx-auto justify-center ;
+  @apply dark:text-slate-400 text-slate-500 text-sm sm:text-base gap-2 mt-5 sm:mt-7  flex items-center  mb-4 max-w-[800px] mx-auto justify-center ;
+  font-family: 'Inter';
 }
 
 .hidden {
