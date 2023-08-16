@@ -323,7 +323,7 @@ function handleClosePrivacyModal() {
 </section>
 
 
-<footer class=" min-w-full bottom-0 flex gap-y-3 flex-col sm:flex-row items-center justify-center py-6   dark:bg-slate-950 bg-slate-50">
+<footer class=" footer-shadow min-w-full bottom-0 flex gap-y-3 flex-col sm:flex-row items-center justify-center py-6   dark:bg-slate-950 bg-slate-50">
     <a href="#" on:click={handleOpenModal} class="text-sm text-slate-500 hover:text-slate-300 transition-all mx-3">Terms & Conditions</a>
     <a href="#" on:click={handleOpenPrivacyModal} class="text-sm text-slate-500 hover:text-slate-300 transition-all mx-3">Privacy Policy</a>
     <a href="mailto:fekry@scienft.com" class="text-sm text-slate-500 hover:text-slate-300 transition-all mx-3" >Reach Out</a>
@@ -351,7 +351,7 @@ function handleClosePrivacyModal() {
 		@apply text-slate-900 dark:text-slate-200 w-full  text-lg sm:text-xl font-normal text-center;
 	}
 	.section {
-		@apply min-w-full flex flex-col items-center justify-start   pt-0 sm:pt-8 pb-5  px-5;
+		@apply min-w-full flex flex-col items-center justify-start   pt-0 sm:pt-8 pb-8  px-5;
 	}
 
 	.btn-next {
@@ -381,6 +381,11 @@ function handleClosePrivacyModal() {
 
 .hidden {
   display: none;
+}
+
+.footer-shadow {
+    box-shadow: 0px -52px 100px 0px #030616;
+
 }
 
 
