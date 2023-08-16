@@ -43,7 +43,7 @@ onMount(() => {
 		placeholder={placeholder}
 		></textarea>
 	{:else}
-		<input use:typeAction class="input  text-base shadow-md shadow-transparent outline-none focus:shadow-slate-200 dark:focus:bg-slate-800/40 dark:focus:shadow-slate-950 focus:bg-slate-50 focus:border-slate-200  dark:focus:border-slate-700/50 hover:bg-slate-100/60 dark:hover:bg-slate-800/40 dark:bg-slate-800/70 bg-slate-100 dark:text-white text-slate-950 dark:border-slate-700/30 border-slate-200/80" bind:value={value} placeholder={placeholder}/>
+		<input use:typeAction class="input text-base shadow-md shadow-transparent outline-none focus:shadow-slate-200 dark:focus:bg-slate-800/40 dark:focus:shadow-slate-950 focus:bg-slate-50 focus:border-slate-200  dark:focus:border-slate-700/50 hover:bg-slate-100/60 dark:hover:bg-slate-800/40 dark:bg-slate-800/70 bg-slate-100 dark:text-white text-slate-950 dark:border-slate-700/30 border-slate-200/80" bind:value={value} placeholder={placeholder}/>
 	{/if}
 </p>
 

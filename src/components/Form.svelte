@@ -53,9 +53,26 @@
 	}
 
 	function updateDates() {
-		startDate = milestones.length > 0 ? milestones[0].deliveryDate : null;
-		endDate = milestones.length > 0 ? milestones[milestones.length - 1].deliveryDate : null;
+	if (milestones.length === 0) {
+		startDate = null;
+		endDate = null;
+		return;
 	}
+	const timestamps = milestones
+		.map(milestone => new Date(milestone.deliveryDate).getTime())
+		.filter(timestamp => !isNaN(timestamp)); // Only include valid dates
+
+	if (timestamps.length === 0) {
+		startDate = null;
+		endDate = null;
+		return;
+	}
+	const minDate = new Date(Math.min(...timestamps));
+	const maxDate = new Date(Math.max(...timestamps));
+	startDate = minDate.toISOString().split('T')[0];
+	endDate = maxDate.toISOString().split('T')[0];
+}
+
 
 	onMount(updateDates);
 
@@ -108,7 +125,7 @@
 	<div class="mb-4 flex flex-col gap-y-4 sm:flex-row justify-between items-center mt-8" in:fade={{ duration: 400, delay: 100 }} out:slide={{ y: -30, duration: 250 }}><button on:click={addItem} class="small-button dark:hover:text-slate-50 hover:border-slate-300 dark:hover:border-slate-800 border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-200 w-full sm:w-auto"> <svg class="md:w-4 md:h-4 h-3 w-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
 		<path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 1v16M1 9h16"/>
 	  </svg> Add Item</button>
-	<div class="text-2xl  font-bold text-slate-50" in:fade={{ duration: 400, delay: 100 }} out:slide={{ y: -30, duration: 250 }}><span class=" text-xl font-normal text-slate-400">Total</span> ${totalSum}</div>	
+	<div class="sm:text-xl text-lg font-bold text-slate-900 dark:text-slate-50" in:fade={{ duration: 400, delay: 100 }} out:slide={{ y: -30, duration: 250 }}><span class=" sm:text-xl text-lg font-normal text-slate-400">Total</span> ${totalSum}</div>	
 </div>
 	{:else if active_step == 'Milestones'}
 	<h2 in:fade={{ duration: 400 }} out:slide={{ y: -30, duration: 250 }} class="sm:text-xl text-lg dark:text-slate-300 text-slate-700 mb-4">Project Milestones</h2>

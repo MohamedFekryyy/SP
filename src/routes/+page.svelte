@@ -270,7 +270,7 @@ function handleClosePrivacyModal() {
 
     <div class="step-button">
         {#if currentActive > 1}
-        <button class="btn-back dark:bg-slate-900 bg-slate-200 dark:hover:bg-slate-900/50 hover:bg-slate-300/70" on:click={() => handleProgress(-1)} disabled={currentActive == 1}><svg
+        <button class="btn-back dark:bg-slate-900 bg-slate-200/70 dark:hover:bg-slate-900/50 hover:bg-slate-300/70" on:click={() => handleProgress(-1)} disabled={currentActive == 1}><svg
             class="w-5 h-4 dark:text-slate-50 text-slate-700 hover:scale-110 tranistion-all"
             aria-hidden="true"
             xmlns="http://www.w3.org/2000/svg"
