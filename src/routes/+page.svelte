@@ -245,7 +245,7 @@ function handleClosePrivacyModal() {
   
   
   <div
-  class="absolute z-1 inset-0 h-full w-full bg-slate-50 dark:bg-slate-950 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px] inner-light dark:inner-dark"
+  class="absolute z-1 inset-0 overflow-x-clip min-h-full min-w-full bg-slate-50 dark:bg-slate-950 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px] inner-light dark:inner-dark"
 >
 
 <div class="nav  p-6 min-w-full  flex flex-row justify-between items-center">
