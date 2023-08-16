@@ -245,7 +245,7 @@ function handleClosePrivacyModal() {
   
   
   <div
-  class="absolute z-1 inset-0 h-full w-full bg-slate-50 dark:bg-slate-950 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px] inner-shadow"
+  class="absolute z-1 inset-0 h-full w-full bg-slate-50 dark:bg-slate-950 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px] inner-light dark:inner-dark"
 >
 <section class="section z-2">
     <a href="#" class="sm:mb-10 mb-6 opacity-90 hover:opacity-100 transition-all"><img src="logo-on-dark.svg" class="h-8 sm:h-10" alt="Swift Proposal Logo"/></a>
@@ -313,7 +313,7 @@ function handleClosePrivacyModal() {
 </section>
 
 
-<footer class="flex gap-y-3 flex-col sm:flex-row items-center justify-center py-6  bg-gradient-to-b from-slate-950/0 to-slate-950 mt-4">
+<footer class="flex gap-y-3 flex-col sm:flex-row items-center justify-center py-6  bg-gradient-to-b dark:from-slate-950/0 dark:to-slate-950 from-slate-50/0 to-slate-50 mt-4">
     <a href="#" on:click={handleOpenModal} class="text-base text-slate-500 hover:text-slate-300 transition-all mx-3">Terms & Conditions</a>
     <a href="#" on:click={handleOpenPrivacyModal} class="text-base text-slate-500 hover:text-slate-300 transition-all mx-3">Privacy Policy</a>
     <a href="mailto:fekry@scienft.com" class="text-base text-slate-500 hover:text-slate-300 transition-all mx-3" >Reach Out</a>
@@ -373,11 +373,7 @@ function handleClosePrivacyModal() {
 }
 
 
-.inner-shadow {
-    box-shadow: inset 0 0 300px 200px  theme(colors.slate.950);
-    
 
-}
 
 .loader {
   margin-left: auto;

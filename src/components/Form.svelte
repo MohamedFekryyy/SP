@@ -68,24 +68,24 @@
 </script>
 
 
-<form class="form-container bg-slate-900/50 backdrop-blur-xl border border-slate-900 rounded-2xl px-4 sm:px-6 pt-4 sm:pt-6 pb-none sm:pb-1 max-w-[800px] my-6 sm:my-10 mx-auto shadow-2xl shadow-slate-950 transition-all" on:submit={handleSubmit}>
+<form class="form-container dark:bg-slate-900/50 bg-white backdrop-blur-xl border dark:border-slate-900 border-slate-200 rounded-2xl px-4 sm:px-6 pt-4 sm:pt-6 pb-none sm:pb-1 max-w-[800px] my-6 sm:my-10 mx-auto shadow-2xl dark:shadow-slate-950 shadow-slate-300 transition-all" on:submit={handleSubmit}>
 	{#if active_step == 'clientInfo'}
-	<h2 in:fade={{ duration: 400 }} out:slide={{ y: -30, duration: 250 }} class="sm:text-2xl text-xl">Client Info</h2>
+	<h2 in:fade={{ duration: 400 }} out:slide={{ y: -30, duration: 250 }} class="sm:text-2xl text-xl dark:text-slate-400 text-slate-700 mb-4">Client Info</h2>
 	<div in:fade={{ duration: 400 }} out:slide={{ y: -30, duration: 250 }} class="flex flex-col sm:flex-row gap-x-4"><div class="w-full sm:w-[50%]"><InputField label={'Contact Person'} bind:value={formData.clientName} placeholder="Elon Musk"/></div>
 	<div class="w-full sm:w-[50%]"><InputField label={'Company Name'} bind:value={formData.clientCompany} placeholder="X"/></div></div>
 		<div in:fade={{ duration: 400, delay: 50 }} out:slide={{ y: -30, duration: 250 }}><InputField type={'email'} label={'Client Email'} bind:value={formData.clientEmail} placeholder="elon@x.com"/></div>
-		<h2 in:fade={{ duration: 400, delay: 200 }} out:slide={{ y: -30, duration: 250 }} class="mt-4 sm:mt-8 sm:text-2xl text-xl">Your Info</h2>
+		<h2 in:fade={{ duration: 400, delay: 200 }} out:slide={{ y: -30, duration: 250 }} class="mt-4 sm:mt-8 sm:text-2xl text-xl dark:text-slate-400 text-slate-700 mb-4">Your Info</h2>
 
 		<div in:fade={{ duration: 400 }} out:slide={{ y: -30, duration: 250 }} class="flex flex-col sm:flex-row gap-x-4"><div in:fade={{ duration: 400, delay: 100 }} out:slide={{ y: -30, duration: 250 }} class="w-full sm:w-[50%]"><InputField label={'Your Name'} bind:value={formData.freelancerName} placeholder="John Doe"/></div>
 		<div in:fade={{ duration: 400, delay: 100 }} out:slide={{ y: -30, duration: 250 }} class="w-full sm:w-[50%]"><InputField type={'email'} label={'Your Email'} bind:value={formData.freelancerEmail} placeholder="john@doe.com"/></div></div>
 
 	{:else if active_step == 'ProjectInfo'}
-	<h2 in:fade={{ duration: 400 }} out:slide={{ y: -30, duration: 250 }} class="sm:text-2xl text-xl">Project Info</h2>
+	<h2 in:fade={{ duration: 400 }} out:slide={{ y: -30, duration: 250 }} class="sm:text-2xl text-xl dark:text-slate-400 text-slate-700 mb-4">Project Info</h2>
 	<div in:fade={{ duration: 400, delay: 50 }} out:slide={{ y: -30, duration: 250 }}><InputField label={'Project Name'} bind:value={formData.projName} placeholder="Design a better logo"/></div>
 	<div in:fade={{ duration: 400, delay: 100 }} out:slide={{ y: -30, duration: 250 }}><InputField label={'Project Description'} bind:value={formData.projDescription} isTextarea={true} tooltip="Describe your project in clear and simple terms. What needs to be done? This helps everyone involved understand the scope and purpose of the project."/> </div>
 	<div in:fade={{ duration: 400, delay: 150 }} out:slide={{ y: -30, duration: 250 }}><InputField label={'Project Goals'} bind:value={formData.projGoals} isTextarea={true} tooltip="Define the desired outcomes of the project. What are you aiming to achieve? Examples: Increase sales, decrease abandoned carts, improve user engagement, etc."/></div>
 	{:else if active_step == 'Items'}
-	<h2 in:fade={{ duration: 400 }} out:slide={{ y: -30, duration: 250 }} class="sm:text-2xl text-xl">Proposal Items</h2>
+	<h2 in:fade={{ duration: 400 }} out:slide={{ y: -30, duration: 250 }} class="sm:text-2xl text-xl dark:text-slate-400 text-slate-700 mb-4">Proposal Items</h2>
 	{#each items as item, index}
 	<div class="list-item gap-y-4 flex-col md:flex-row" in:fade={{ duration: 400 }} out:slide={{ y: -30, duration: 250 }}>
 		<input type="text" placeholder="Item Name" bind:value={item.title} class="bg-transparent placeholder:text-slate-500 text-slate-50 outline-none text-lg grow min-w-[65%]" />
@@ -111,7 +111,7 @@
 	<div class="text-2xl  font-bold text-slate-50" in:fade={{ duration: 400, delay: 100 }} out:slide={{ y: -30, duration: 250 }}><span class=" text-xl font-normal text-slate-400">Total</span> ${totalSum}</div>	
 </div>
 	{:else if active_step == 'Milestones'}
-	<h2 in:fade={{ duration: 400 }} out:slide={{ y: -30, duration: 250 }} class="sm:text-2xl text-xl">Project Milestones</h2>
+	<h2 in:fade={{ duration: 400 }} out:slide={{ y: -30, duration: 250 }} class="sm:text-2xl text-xl dark:text-slate-400 text-slate-700 mb-4">Project Milestones</h2>
 
 		
 	<div>
@@ -146,7 +146,7 @@
 		</div>
 
 	</div> 
-	<h2 in:fade={{ duration: 400, delay: 200 }} out:slide={{ y: -30, duration: 250 }} class="mt-6 sm:mt-8 sm:text-2xl text-xl">Terms & Conditions</h2>
+	<h2 in:fade={{ duration: 400, delay: 200 }} out:slide={{ y: -30, duration: 250 }} class="mt-6 sm:mt-8 sm:text-2xl text-xl dark:text-slate-400 text-slate-700 mb-4">Terms & Conditions</h2>
 	<div in:fade={{ duration: 400, delay: 250}} out:slide={{ y: -30, duration: 250 }} ><InputField  bind:value={preFilledText} isTextarea={true}/></div>
 
 
@@ -178,9 +178,7 @@
 	}
 
 
-	h2 {
-		@apply text-slate-400 mb-4;
-	}
+
 
 	.small-button {
 		@apply border border-slate-700 text-slate-200 px-4 py-2 rounded-lg flex gap-1.5 transition-all  items-center justify-center;
