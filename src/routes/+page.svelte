@@ -364,7 +364,7 @@ function handleClosePrivacyModal() {
 	}
 
 	.btn-back {
-		@apply  min-h-full mr-3 rounded-lg px-5 h-12 sm:h-auto w-full sm:w-auto   transition-all cursor-pointer items-center justify-center flex;
+		@apply  min-h-full mr-3 rounded-lg px-5  sm:h-auto    transition-all cursor-pointer items-center justify-center flex;
 	}
 
     .btn-next.w-full {
