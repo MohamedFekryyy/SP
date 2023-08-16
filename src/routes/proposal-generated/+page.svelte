@@ -7,7 +7,11 @@
 <div
   class="absolute z-1 inset-0 h-full w-full bg-slate-950 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px] inner-shadow"
 >
+
+    
+    
 <section class="section z-2">
+    
  <div class="form-container bg-slate-900/50 backdrop-blur-xl border border-slate-900 rounded-2xl p-4 sm:p-6  w-full sm:w-[600px] my-10 mx-auto shadow-2xl shadow-slate-950 transition-all">
 <h1 class="sm:max-w-[300px] mx-auto max-w-none">Thank you for using Swift Proposal</h1>
 <p class="text-slate-300 mt-4 text-center sm:max-w-[420px] mx-auto text-base">This is an early release of the product, if you have any feedback or suggestions please feel free to <a href="mailto:fekry@scienft.com" class="text-white underline decoration-purple-700 hover:text-purple-700 transition-all">Reach out</a> !</p>
@@ -16,7 +20,7 @@
   </svg>
     Create More
 </button>
-<script class="min-w-full" type="text/javascript" src="https://cdnjs.buymeacoffee.com/1.0.0/button.prod.min.js" data-name="bmc-button" data-slug="fekry" data-color="#1b1d2c" data-emoji="🚀"  data-font="Inter" data-text="Support for more" data-outline-color="#ffffff" data-font-color="#ffffff" data-coffee-color="#FFDD00" ></script></section></div>
+</section></div>
 
 <style lang="postcss">
     :global(html) {
