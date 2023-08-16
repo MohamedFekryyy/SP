@@ -325,9 +325,9 @@ function handleClosePrivacyModal() {
 
 
 <footer class="flex gap-y-3 flex-col sm:flex-row items-center justify-center py-6  bg-gradient-to-b dark:from-slate-950/0 dark:to-slate-950 from-slate-50/0 to-slate-50 mt-4">
-    <a href="#" on:click={handleOpenModal} class="text-base text-slate-500 hover:text-slate-300 transition-all mx-3">Terms & Conditions</a>
-    <a href="#" on:click={handleOpenPrivacyModal} class="text-base text-slate-500 hover:text-slate-300 transition-all mx-3">Privacy Policy</a>
-    <a href="mailto:fekry@scienft.com" class="text-base text-slate-500 hover:text-slate-300 transition-all mx-3" >Reach Out</a>
+    <a href="#" on:click={handleOpenModal} class="text-sm text-slate-500 hover:text-slate-300 transition-all mx-3">Terms & Conditions</a>
+    <a href="#" on:click={handleOpenPrivacyModal} class="text-sm text-slate-500 hover:text-slate-300 transition-all mx-3">Privacy Policy</a>
+    <a href="mailto:fekry@scienft.com" class="text-sm text-slate-500 hover:text-slate-300 transition-all mx-3" >Reach Out</a>
 
 
   </footer>

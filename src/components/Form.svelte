@@ -105,7 +105,7 @@
 		</div>
 	{/if}
 
-	<div class="mb-4 flex flex-col gap-y-4 sm:flex-row justify-between items-center mt-8" in:fade={{ duration: 400, delay: 100 }} out:slide={{ y: -30, duration: 250 }}><button on:click={addItem} class="small-button border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-200 w-full sm:w-auto"> <svg class="md:w-4 md:h-4 h-3 w-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
+	<div class="mb-4 flex flex-col gap-y-4 sm:flex-row justify-between items-center mt-8" in:fade={{ duration: 400, delay: 100 }} out:slide={{ y: -30, duration: 250 }}><button on:click={addItem} class="small-button dark:hover:text-slate-50 hover:border-slate-300 dark:hover:border-slate-800 border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-200 w-full sm:w-auto"> <svg class="md:w-4 md:h-4 h-3 w-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
 		<path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 1v16M1 9h16"/>
 	  </svg> Add Item</button>
 	<div class="text-2xl  font-bold text-slate-50" in:fade={{ duration: 400, delay: 100 }} out:slide={{ y: -30, duration: 250 }}><span class=" text-xl font-normal text-slate-400">Total</span> ${totalSum}</div>	
@@ -132,7 +132,7 @@
 	{/if}
 
 		<div class="mb-4 flex flex-col gap-y-4 sm:flex-row justify-between items-center mt-8" in:fade={{ duration: 400, delay: 100 }} out:slide={{ y: -30, duration: 250 }}>
-			<button on:click={addMilestone} class="small-button w-full sm:w-auto border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-200"> <svg class="md:w-4 md:h-4 h-3 w-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
+			<button on:click={addMilestone} class="dark:hover:text-slate-50 hover:border-slate-300 dark:hover:border-slate-800 small-button w-full sm:w-auto border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-200"> <svg class="md:w-4 md:h-4 h-3 w-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
 				<path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 1v16M1 9h16"/>
 			  </svg>Add Milestone</button>
 			  {#if milestones.length > 0 && (startDate || endDate)}
@@ -183,9 +183,7 @@
 	.small-button {
 		@apply border  px-4 py-2 rounded-lg flex gap-1.5 transition-all  items-center justify-center;
 	}
-	.small-button:hover {
-		@apply text-slate-50 border-slate-800;
-	}
+
 
 	.list-item {
 		@apply relative   rounded-lg p-4  flex justify-between mb-5 transition-all; 
