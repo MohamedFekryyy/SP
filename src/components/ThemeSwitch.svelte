@@ -27,7 +27,7 @@ if (browser) {
 }
 </script>
 
-<div class="dark:bg-slate-900 bg-slate-100 border border-slate-200 dark:border-slate-700/40 shadow-lg dark:shadow-slate-900 rounded-full  p-3 flex items-center justify-center">
+<div class="dark:bg-slate-900 bg-slate-100 border border-slate-200 dark:border-slate-700/40 shadow-lg dark:shadow-slate-900 rounded-full  p-2.5 flex items-center justify-center">
     <input checked={darkMode} on:click={handleSwitchDarkMode} type="checkbox" id="theme-toggle" />
     <label for="theme-toggle" />
     
@@ -39,7 +39,7 @@ if (browser) {
     }
 
     #theme-toggle + label {
-        @apply inline-block cursor-pointer  h-5 w-5  rounded-full duration-300 content-[''];
+        @apply inline-block cursor-pointer  sm:h-5 sm:w-5 h-4 w-4  rounded-full duration-300 content-[''];
     }
 
     #theme-toggle:not(:checked) + label {
