@@ -31,7 +31,27 @@ const generatePdf = async (req, res) => {
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@10..48,400;10..48,500;10..48,600&family=Inter:wght@400;500&display=swap" rel="stylesheet">        
     
+    <style>
+    @media print {
+      .header { 
+        page-break-before: always;
+      }
+
+      .footer {
+        page-break-after: always;
+      }
+    }
+
+    .first-page {
+        background-color: black;
+        padding: 4rem 3.75rem;
+        min-height: 100%;
+        flex: auto;
+      
+    }
+    </style>    
         </head>
+        
         <body style="margin: 0;">
         <div style="background-color: #030616; padding: 40px;">
         <h1 style="margin-top: 0px; margin-bottom: 0px; min-width: 100%; font-family: Bricolage Grotesque; font-size: 36px; color: white;">${projName}</h1>
