@@ -154,9 +154,9 @@
 			  </svg>Add Milestone</button>
 			  {#if milestones.length > 0 && (startDate || endDate)}
 
-			  <div class="dates sm:min-w-none min-w-full flex sm:flex-row flex-col gap-x-4 gap-y-1.5" in:fade={{ duration: 400, delay: 150 }} out:slide={{ y: -30, duration: 250 }}>
-			<div class="flex sm:min-w-none min-w-full sm:justify-normal justify-between text-slate-900 dark:text-slate-50 text-md sm:text-lg"><div class="text-slate-400">Start Date</div> {startDate}</div>
-			<div class="flex sm:min-w-none min-w-full sm:justify-normal justify-between text-slate-900 dark:text-slate-50 text-md sm:text-lg"><div class="text-slate-400">End Date</div> {endDate}</div>
+			  <div class="dates sm:w-auto w-full justify-end flex sm:flex-row flex-col gap-x-4 gap-y-1.5" in:fade={{ duration: 400, delay: 150 }} out:slide={{ y: -30, duration: 250 }}>
+			<div class="flex sm:w-auto w-full gap-x-2 sm:justify-normal justify-between text-slate-900 dark:text-slate-50 text-md sm:text-lg"><div class="text-slate-400">Start Date</div> {startDate}</div>
+			<div class="flex sm:w-auto w-full gap-x-2 sm:justify-normal justify-between text-slate-900 dark:text-slate-50 text-md sm:text-lg"><div class="text-slate-400">End Date</div> {endDate}</div>
 		</div>
 		{/if}
 		
