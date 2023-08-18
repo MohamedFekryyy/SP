@@ -1,6 +1,5 @@
 <script>
     import Form from '../components/Form.svelte';
-    import { supabase } from '../supabaseClient';
     import ProgressBar from '../components/ProgressBar.svelte';
     import Modal from '../components/Modal.svelte';
     import { writable } from 'svelte/store';
@@ -17,62 +16,13 @@
     let totalSum;
 
 
-    async function addFormSubmission(formData, items, milestones, startDate, endDate, totalSum) {
-  // Inserting into the form_submissions table
-  const { data: submission, error: submissionError } = await supabase
-    .from('form_submissions')
-    .insert([
-      { 
-        clientName: formData.clientName,
-        clientCompany: formData.clientCompany,
-        clientEmail: formData.clientEmail,
-        freelancerEmail: formData.freelancerEmail,
-        freelancerName: formData.freelancerName,
-        projName: formData.projName,
-        projDescription: formData.projDescription,
-        projGoals: formData.projGoals,
-        preFilledText: formData.preFilledText,
-        start_date: startDate, 
-        end_date: endDate,
-        total_price: totalSum 
-      },
-    ]);
-
-  if (submissionError) {
-    console.error('Error adding submission:', submissionError);
-    return;
-  }
-
-  const submissionId = submission[0].id;
-
-  // Inserting into the proposal_items table
-  const proposalItems = items.map(item => ({
-    title: item.title,
-    price: item.price,
-    form_submission_id: submissionId
-  }));
-
-  await supabase.from('proposal_items').insert(proposalItems);
-
-  // Inserting into the milestones table
-  const milestoneItems = milestones.map(milestone => ({
-    title: milestone.title,
-    delivery_date: milestone.deliveryDate,
-    form_submission_id: submissionId
-  }));
-
-  await supabase.from('milestones').insert(milestoneItems);
-}
-
+   
 const isLoading = writable(false); //  state for PDF generation
 
   
 async function generatePDF() {
   try {
     isLoading.set(true); // Set the loading state to true
-
-    // Make sure the submission is added
-    await addFormSubmission(formData, items, milestones, startDate, endDate, totalSum);
 
     // Create an object with the data to send to the server
     const data = {

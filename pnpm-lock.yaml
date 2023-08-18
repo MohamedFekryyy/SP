@@ -1,9 +1,6 @@
 lockfileVersion: '6.0'
 
 dependencies:
-  '@supabase/supabase-js':
-    specifier: ^2.32.0
-    version: 2.32.0
   '@vercel/analytics':
     specifier: ^1.0.2
     version: 1.0.2
