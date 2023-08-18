@@ -1,4 +1,4 @@
-import puppeteer from 'puppeteer';
+import puppeteer from 'puppeteer-core';
 
 const generatePdf = async (req, res) => {
     if (req.method !== 'POST') {
@@ -104,7 +104,10 @@ const generatePdf = async (req, res) => {
       try {
 
     // Launch Puppeteer and generate the PDF
-    const browser = await puppeteer.launch();
+    const browser = await puppeteer.connect({
+      browserWSEndpoint: `wss://chrome.browserless.io?token=${process.env.BLESS_TOKEN}`,
+    });
+    
     const page = await browser.newPage();
     await page.setContent(htmlContent);
     const pdf = await page.pdf({ format: 'A4', printBackground: true });
