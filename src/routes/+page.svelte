@@ -19,6 +19,13 @@
    
 const isLoading = writable(false); //  state for PDF generation
 
+document.addEventListener('DOMContentLoaded', function () {
+  // Listen for the Lemon Squeezy success event
+  window.addEventListener('lemonsqueezy:onCheckoutSuccess', function () {
+    // Call your existing PDF generation function
+    generatePDF();
+  });
+});
   
 async function generatePDF() {
   try {
