@@ -122,7 +122,7 @@
 		</div>
 	{/if}
 
-	<div class="mb-4 flex flex-col gap-y-4 sm:flex-row justify-between items-center mt-8" in:fade={{ duration: 400, delay: 100 }} out:slide={{ y: -30, duration: 250 }}><button on:click={addItem} class="small-button dark:hover:text-slate-50 hover:border-slate-300 dark:hover:border-slate-800 border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-200 w-full sm:w-auto"> <svg class="md:w-4 md:h-4 h-3 w-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
+	<div class="mb-4 flex flex-col gap-y-4 sm:flex-row justify-between items-center mt-8" in:fade={{ duration: 400, delay: 100 }} out:slide={{ y: -30, duration: 250 }}><button on:click={addItem} class="small-button dark:hover:text-slate-50 hover:border-slate-300 dark:hover:border-slate-700 border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-200 w-full sm:w-auto"> <svg class="md:w-4 md:h-4 h-3 w-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
 		<path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 1v16M1 9h16"/>
 	  </svg> Add Item</button>
 	<div class="sm:text-xl text-lg font-bold text-slate-900 dark:text-slate-50" in:fade={{ duration: 400, delay: 100 }} out:slide={{ y: -30, duration: 250 }}><span class=" sm:text-xl text-lg font-normal text-slate-400">Total</span> ${totalSum}</div>	
@@ -149,14 +149,14 @@
 	{/if}
 
 		<div class="mb-4 flex flex-col gap-y-4 sm:flex-row justify-between items-center mt-8" in:fade={{ duration: 400, delay: 100 }} out:slide={{ y: -30, duration: 250 }}>
-			<button on:click={addMilestone} class="dark:hover:text-slate-50 hover:border-slate-300 dark:hover:border-slate-800 small-button w-full sm:w-auto border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-200"> <svg class="md:w-4 md:h-4 h-3 w-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
+			<button on:click={addMilestone} class="dark:hover:text-slate-50 hover:border-slate-300 dark:hover:border-slate-700 small-button w-full sm:w-auto border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-200"> <svg class="md:w-4 md:h-4 h-3 w-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
 				<path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 1v16M1 9h16"/>
 			  </svg>Add Milestone</button>
 			  {#if milestones.length > 0 && (startDate || endDate)}
 
-			  <div class="dates flex sm:flex-row flex-col gap-x-4" in:fade={{ duration: 400, delay: 150 }} out:slide={{ y: -30, duration: 250 }}>
-			<p class="text-slate-900 dark:text-slate-50 text-md sm:text-lg"><span class="text-slate-400">Start Date</span> {startDate}</p>
-			<p class="text-slate-900 dark:text-slate-50 text-md sm:text-lg"><span class="text-slate-400">End Date</span> {endDate}</p>
+			  <div class="dates sm:min-w-none min-w-full flex sm:flex-row flex-col gap-x-4 gap-y-1.5" in:fade={{ duration: 400, delay: 150 }} out:slide={{ y: -30, duration: 250 }}>
+			<div class="flex sm:min-w-none min-w-full sm:justify-normal justify-between text-slate-900 dark:text-slate-50 text-md sm:text-lg"><div class="text-slate-400">Start Date</div> {startDate}</div>
+			<div class="flex sm:min-w-none min-w-full sm:justify-normal justify-between text-slate-900 dark:text-slate-50 text-md sm:text-lg"><div class="text-slate-400">End Date</div> {endDate}</div>
 		</div>
 		{/if}
 		
@@ -173,26 +173,8 @@
 <style>
 	
 	
-	.btn {
-		color: white;
-		padding: 0.5rem 0;
-		margin-top: 0.5rem;
-		display: inline-block;
-		width: 100%;
-		border-radius: 0.25rem;
-		cursor: pointer;
-	}
-	.submit {
-		background: linear-gradient(to bottom, #44c767 5%, #50b01c 100%);
-		background-color: #44c767;
-	}
-	.submit:hover {
-		background: linear-gradient(to bottom, #50b01c 5%, #44c767 100%);
-		background-color: #50b01c;
-	}
-	.message {
-		text-align: center;
-	}
+	
+	
 
 
 
