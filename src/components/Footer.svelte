@@ -105,7 +105,7 @@ function handleClosePrivacyModal() {
 
 </script>
 
-<footer class="  border-t dark:border-slate-900 border-slate-200 shadow-2xl dark:shadow-slate-950 shadow-slate-50  min-w-full bottom-0 flex gap-y-3 flex-col sm:flex-row items-center justify-center py-6   dark:bg-slate-950 bg-slate-50">
+<footer class=" absolute z-2  border-t dark:border-slate-900 border-slate-200 shadow-2xl dark:shadow-slate-950 shadow-slate-50  min-w-full bottom-0 flex gap-y-3 flex-col sm:flex-row items-center justify-center py-6   dark:bg-slate-950 bg-slate-50">
     <a href="#" on:click={handleOpenModal} class="text-sm text-slate-500 hover:text-slate-300 transition-all mx-3">Terms & Conditions</a>
     <a href="#" on:click={handleOpenPrivacyModal} class="text-sm text-slate-500 hover:text-slate-300 transition-all mx-3">Privacy Policy</a>
     <a href="https://twitter.com/FekryAiad" class="text-sm text-slate-500 hover:text-slate-300 transition-all mx-3" >Reach Out</a>

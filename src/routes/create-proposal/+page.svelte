@@ -131,11 +131,11 @@ facebook={{
 />
   
   
-<main class="dark:bg-slate-950 bg-slate-100 min-h-screen">
-  <div class=" z-1 inset-0 overflow-x-clip min-h-full min-w-full bg-slate-100 dark:bg-slate-950 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px] inner-light dark:inner-dark">
+<main class="dark:bg-slate-950 bg-slate-100 min-h-screen relative">
+  <div class=" z-1 inset-0 overflow-x-clip overflow-y-auto min-h-screen min-w-full bg-slate-100 dark:bg-slate-950 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px] inner-light dark:inner-dark">
 
 <Nav/>
-<section class="section z-2">
+<section class="section z-2 mb-16 overflow-auto">
 
    
 

@@ -5,7 +5,7 @@
 
 </script>
 
-<nav class="nav  p-5 sm:p-6 min-w-full  flex flex-row justify-between items-center">
+<nav class="nav  p-5 sm:p-7 min-w-full  flex flex-row justify-between items-center">
     
     <div class='{showThemeSwitch ? '' : 'mx-auto'} logos relative flex items-center justify-center shadow-xl dark:shadow-slate-950 shadow-slate-100 dark:bg-slate-950 bg-slate-100'>
       <a href="/" class="  dark:visible invisible "><img src="logo-on-dark.svg" class="h-8 sm:h-9" alt="Swift Proposal Logo"/></a>
