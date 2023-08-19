@@ -113,9 +113,4 @@ function handleClosePrivacyModal() {
   <Modal {isModalOpen} title="Terms & Conditions" content={termsContent} on:close={handleCloseModal} />
   <Modal {isPrivacyModalOpen} title="Privacy Policy" content={privacyContent} on:close={handleClosePrivacyModal} />
 
-  <style>
-    .footer-dark-shadow {
-    box-shadow: 0px -52px 100px 0px #030616;
-
-}
-  </style>
+  

@@ -2,8 +2,7 @@
     import ThemeSwitch from '../components/ThemeSwitch.svelte';
     import { MetaTags } from 'svelte-meta-tags';
     import Footer from '../components/Footer.svelte';
-    import { writable } from 'svelte/store';
-
+    import Nav from '../components/Nav.svelte'
 
 
 
@@ -57,15 +56,7 @@ facebook={{
 <main class="dark:bg-slate-950 bg-slate-100 min-h-screen">
   <div class=" z-1 inset-0 overflow-x-clip min-h-full min-w-full bg-slate-100 dark:bg-slate-950 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px] inner-light dark:inner-dark">
 
-<div class="nav  p-5 sm:p-6 min-w-full  flex flex-row justify-between items-center">
-    
-    <div class=" logos relative flex items-center justify-center shadow-xl dark:shadow-slate-950 shadow-slate-100 dark:bg-slate-950 bg-slate-100">
-      <a href="#" class="  dark:visible invisible "><img src="logo-on-dark.svg" class="h-8 sm:h-9" alt="Swift Proposal Logo"/></a>
-      <a href="#" class=" dark:invisible visible absolute "><img src="logo-on-light.svg" class="h-8 sm:h-9" alt="Swift Proposal Logo"/></a>
-    </div>
-  <ThemeSwitch />
-  
-  </div>
+<Nav showThemeSwitch={false}/>
 <section class="section z-2">
 
    
