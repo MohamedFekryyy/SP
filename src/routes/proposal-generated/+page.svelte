@@ -12,8 +12,9 @@
     
 <section class="section z-2">
     
- <div class="form-container bg-slate-900/50 backdrop-blur-xl border border-slate-900 rounded-2xl p-4 sm:p-6  w-full sm:w-[500px] my-10 mx-auto shadow-2xl shadow-slate-950 transition-all">
-<h1 class="sm:max-w-[300px] mx-auto max-w-none">Thank you for using Swift Proposal</h1>
+ <div class="form-container relative bg-slate-900/50 backdrop-blur-xl border border-slate-900 rounded-2xl !pt-20 sm:!pt-24 p-4 sm:p-6  w-full sm:w-[500px] my-10 mx-auto shadow-2xl shadow-slate-950 transition-all">
+  <img  src="glass-shape.png" class="sm:h-32 h-28 mx-auto mb-8 sm:mb-10 absolute -top-14 right-0 left-0 " alt="decorative glass"/>
+  <h1 class="sm:max-w-[300px] mx-auto max-w-none">Thank you for using Swift Proposal</h1>
 <p class="text-slate-300 paragraph mt-4 text-center sm:max-w-[420px] mx-auto text-base">This is an early release of the product, if you have any feedback or suggestions please feel free to <a href="mailto:fekry@scienft.com" class="text-white underline decoration-purple-700 hover:text-purple-700 transition-all">Reach out</a> !</p>
 <button on:click={redirectToHomePage} class="btn-next mt-6"> <svg class="md:w-4 md:h-4 h-3 w-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 1v16M1 9h16"/>
@@ -28,7 +29,7 @@
          
      }
      h1 {
-         @apply text-slate-50 text-2xl sm:text-3xl font-semibold mb-2  text-center !leading-8;
+         @apply text-slate-50 text-2xl sm:text-3xl font-semibold mb-2  text-center !leading-9;
      }
      h3 {
          @apply text-slate-400 text-lg sm:text-lg font-normal text-center;
