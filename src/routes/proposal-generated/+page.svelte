@@ -1,4 +1,5 @@
 <script>
+  
   function redirectToHomePage() {
     window.location.href = '/'; // Redirect to the home page
   }
@@ -13,7 +14,7 @@
 <section class="section z-2">
     
  <div class="form-container relative bg-slate-900/50 backdrop-blur-xl border border-slate-900 rounded-2xl !pt-20 sm:!pt-24 p-4 sm:p-6  w-full sm:w-[500px] my-10 mx-auto shadow-2xl shadow-slate-950 transition-all">
-  <img  src="glass-shape.png" class="sm:h-32 h-28 mx-auto mb-8 sm:mb-10 absolute -top-14 right-0 left-0 " alt="decorative glass"/>
+  <img  src="glass-shape.png" class="floating sm:h-32 h-28 mx-auto mb-8 sm:mb-10 absolute -top-14 right-0 left-0 " alt="decorative glass"/>
   <h1 class="sm:max-w-[300px] mx-auto max-w-none">Thank you for using Swift Proposal</h1>
 <p class="text-slate-300 paragraph mt-4 text-center sm:max-w-[420px] mx-auto text-base">This is an early release of the product, if you have any feedback or suggestions please feel free to <a href="mailto:fekry@scienft.com" class="text-white underline decoration-purple-700 hover:text-purple-700 transition-all">Reach out</a> !</p>
 <button on:click={redirectToHomePage} class="btn-next mt-6"> <svg class="md:w-4 md:h-4 h-3 w-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
@@ -74,4 +75,19 @@
  .paragraph {
   font-family: inter;
  }
+
+ @keyframes float {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0); }
+  }
+
+  .floating {
+    animation: float 3s ease-in-out infinite;
+    transition: transform 0.5s ease-in-out; /* Transition for scaling */
+  }
+
+  .floating:hover {
+    transform: scale(1.6); /* Scale up on hover */
+  }
  </style>

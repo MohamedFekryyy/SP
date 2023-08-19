@@ -237,8 +237,8 @@ facebook={{
 <div class="nav  p-5 sm:p-6 min-w-full  flex flex-row justify-between items-center">
     
     <div class=" logos relative flex items-center justify-center shadow-xl dark:shadow-slate-950 shadow-slate-100 dark:bg-slate-950 bg-slate-100">
-      <a href="#" class="  dark:visible invisible "><img src="logo-on-dark.svg" class="h-7 sm:h-9" alt="Swift Proposal Logo"/></a>
-      <a href="#" class=" dark:invisible visible absolute "><img src="logo-on-light.svg" class="h-7 sm:h-9" alt="Swift Proposal Logo"/></a>
+      <a href="#" class="  dark:visible invisible "><img src="logo-on-dark.svg" class="h-8 sm:h-9" alt="Swift Proposal Logo"/></a>
+      <a href="#" class=" dark:invisible visible absolute "><img src="logo-on-light.svg" class="h-8 sm:h-9" alt="Swift Proposal Logo"/></a>
     </div>
   <ThemeSwitch />
   
@@ -313,7 +313,7 @@ facebook={{
 <footer class="  border-t dark:border-slate-900 border-slate-200 shadow-2xl dark:shadow-slate-950 shadow-slate-50  min-w-full bottom-0 flex gap-y-3 flex-col sm:flex-row items-center justify-center py-6   dark:bg-slate-950 bg-slate-50">
     <a href="#" on:click={handleOpenModal} class="text-sm text-slate-500 hover:text-slate-300 transition-all mx-3">Terms & Conditions</a>
     <a href="#" on:click={handleOpenPrivacyModal} class="text-sm text-slate-500 hover:text-slate-300 transition-all mx-3">Privacy Policy</a>
-    <a href="mailto:fekry@scienft.com" class="text-sm text-slate-500 hover:text-slate-300 transition-all mx-3" >Reach Out</a>
+    <a href="https://twitter.com/FekryAiad" class="text-sm text-slate-500 hover:text-slate-300 transition-all mx-3" >Reach Out</a>
 
 
   </footer>
@@ -332,7 +332,7 @@ facebook={{
     }
 
 	h1 {
-		@apply text-slate-900 dark:text-slate-50 w-2/3 sm:w-auto text-xl sm:text-2xl font-semibold   text-center;
+		@apply text-slate-900 dark:text-slate-50 w-3/4 sm:w-auto text-xl sm:text-2xl font-semibold   text-center;
 	}
 	h3 {
 		@apply text-slate-900 dark:text-slate-200 w-full  text-lg sm:text-xl font-normal text-center;
