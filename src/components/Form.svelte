@@ -15,6 +15,9 @@
 		preFilledText: '',
 	};
 
+	let currency = '$'; // Default currency
+
+
 	export let items = [{ title: "", price: 0 }]; // Proposal items including title and price
 
 	export let milestones = [{ title: '', deliveryDate: '' }]; // Milestones items including title and delivery date
@@ -102,11 +105,19 @@
 	<div in:fade={{ duration: 400, delay: 100 }} out:slide={{ y: -30, duration: 250 }}><InputField label={'Project Description'} bind:value={formData.projDescription} isTextarea={true} tooltip="Describe your project in clear and simple terms. What needs to be done? This helps everyone involved understand the scope and purpose of the project."/> </div>
 	<div in:fade={{ duration: 400, delay: 150 }} out:slide={{ y: -30, duration: 250 }}><InputField label={'Project Goals'} bind:value={formData.projGoals} isTextarea={true} tooltip="Define the desired outcomes of the project. What are you aiming to achieve? Examples: Increase sales, decrease abandoned carts, improve user engagement, etc."/></div>
 	{:else if active_step == 'Items'}
-	<h2 in:fade={{ duration: 400 }} out:slide={{ y: -30, duration: 250 }} class="sm:text-xl text-lg dark:text-slate-300 text-slate-700 mb-4">Proposal Items</h2>
+	<div in:fade={{ duration: 400 }} out:slide={{ y: -30, duration: 250 }} class="flex flex-row items-center justify-between mb-4">
+	<h2  class="sm:text-xl text-lg dark:text-slate-300 text-slate-700 ">Proposal Items</h2>
+	<select bind:value={currency} class="currency-select dark:text-slate-400 dark:hover:bg-slate-800/60 dark:hover:text-slate-20 text-slate-500 hover:text-slate-800 hover:bg-slate-400/20">
+		<option value="$">🇺🇸 USD</option>
+		<option value="€">🇪🇺 EUR</option>
+		<option value="£">🇬🇧 GBP</option>
+		<option value="¥">🇯🇵 YEN</option>
+	</select>
+</div>
 	{#each items as item, index}
 	<div class="list-item  sm:p-4 p-2 gap-y-4 flex-col md:flex-row dark:bg-slate-800/50 bg-slate-100/60 hover:bg-white border border-slate-200 dark:border-slate-600/20 dark:shadow-black/10 dark:shadow-xl shadow shadow-slate-200 dark:hover:bg-slate-600/10" in:fade={{ duration: 400 }} out:slide={{ y: -30, duration: 250 }}>
 		<input type="text" placeholder="Item Name" bind:value={item.title} class="text-base bg-transparent placeholder:text-slate-500 dark:text-slate-50 text-slate-900 outline-none  grow min-w-[65%]" />
-		<div class="relative"><span class="dollar-sign dark:text-slate-400 text-slate-500">$</span><input type="number" placeholder="Price" bind:value={item.price} class="!pl-6 text-base rounded-lg dark:bg-slate-700/50 bg-slate-200/70 px-3 py-3 grow max-w-[200px] text-slate-900 dark:text-slate-50 placeholder:text-slate-500 outline-none" /></div>
+		<div class="relative"><span class="currency-sign dark:text-slate-400 text-slate-500">{currency}</span><input type="number" placeholder="Price" bind:value={item.price} class="!pl-6 text-base rounded-lg dark:bg-slate-700/50 bg-slate-200/70 px-3 py-3 grow max-w-[200px] text-slate-900 dark:text-slate-50 placeholder:text-slate-500 outline-none" /></div>
 		<button on:click={() => removeItem(index)} class=" absolute md:top-0 md:right-0 top-3 right-3 md:relative pl-3 grow flex items-center justify-center dark:text-slate-400 text-slate-500 hover:text-slate-700 dark:hover:text-slate-100 transition-all">
 			<svg class="sm:w-3.5 sm:h-3.5 w-2.5 h-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
 				<path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
@@ -125,7 +136,7 @@
 	<div class="mb-4 flex flex-col gap-y-4 sm:flex-row justify-between items-center mt-8" in:fade={{ duration: 400, delay: 100 }} out:slide={{ y: -30, duration: 250 }}><button on:click={addItem} class="small-button dark:hover:text-slate-50 hover:border-slate-300 dark:hover:border-slate-700 border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-200 w-full sm:w-auto"> <svg class="md:w-4 md:h-4 h-3 w-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
 		<path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 1v16M1 9h16"/>
 	  </svg> Add Item</button>
-	<div class="sm:text-xl text-lg font-bold text-slate-900 dark:text-slate-50" in:fade={{ duration: 400, delay: 100 }} out:slide={{ y: -30, duration: 250 }}><span class=" sm:text-xl text-lg font-normal text-slate-400">Total</span> ${totalSum}</div>	
+	<div class="sm:text-xl text-lg font-bold text-slate-900 dark:text-slate-50" in:fade={{ duration: 400, delay: 100 }} out:slide={{ y: -30, duration: 250 }}><span class=" sm:text-xl text-lg font-normal text-slate-400">Total</span> {currency}{totalSum}</div>	
 </div>
 	{:else if active_step == 'Milestones'}
 	<h2 in:fade={{ duration: 400 }} out:slide={{ y: -30, duration: 250 }} class="sm:text-xl text-lg dark:text-slate-300 text-slate-700 mb-4">Project Milestones</h2>
@@ -175,14 +186,19 @@
 	
 	
 	
-	.dollar-sign {
+	.currency-sign {
 	position: absolute;
 	left: 10px; /* Adjust as needed */
 	top: 50%;
 	transform: translateY(-50%);
 
 	
-}
+	}
+
+	.currency-select {
+		@apply bg-transparent text-base font-medium pr-1 transition-all rounded text-left cursor-pointer outline-none;
+		font-family: inter !important;
+	}
 
 
 
