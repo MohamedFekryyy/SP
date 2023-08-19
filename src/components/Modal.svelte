@@ -41,8 +41,8 @@
 
 <svelte:window on:keydown={(e) => handleKeydown(e)} />
 
-<div class={modalClass} in:fly={{ y: -10 }} out:fly={{ y: 10 }} >
-  <div class="modal bg-slate-100 dark:bg-slate-900/50 border border-slate-900 rounded-2xl px-4 sm:px-6 pt-4 sm:pt-6  mx-4  w-[800px] my-10  shadow-2xl shadow-black/40 transition-all backdrop-blur-xl"  
+<div class='{modalClass} bg-slate-100/80 dark:bg-slate-950/90' in:fly={{ y: -10 }} out:fly={{ y: 10 }} >
+  <div class="modal bg-slate-50 dark:bg-slate-900/50 border border-slate-200 dark:border-slate-900 rounded-2xl px-4 sm:px-6 pt-4 sm:pt-6  mx-4  w-[800px] my-10  shadow-2xl dark:shadow-black/40 shadow-slate-300 transition-all backdrop-blur-xl"  
      >
     <div class="modal-header">
       <h2 class="dark:text-slate-50 text-slate-000 text-2xl">{title}</h2>
@@ -65,7 +65,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    @apply bg-slate-950/90 backdrop-blur-md;
+    @apply  backdrop-blur-md;
     display: flex;
     align-items: center;
     justify-content: center;

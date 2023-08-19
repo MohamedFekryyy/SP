@@ -284,7 +284,7 @@ facebook={{
             {#if $isLoading}
             <div class="loader"></div> <!-- CSS spinner -->
           {:else}
-            <span class="relative text-xl text-white">Generate Proposal</span>
+            <span class="relative text-lg text-white">Generate Proposal</span>
             {/if}
         </button>
         
