@@ -33,119 +33,27 @@ const generatePdf = async (req, res) => {
     
     <style>
     @media print {
+      .header { 
+        page-break-before: always;
+      }
 
-      .first-page {
+      .footer {
         page-break-after: always;
-
       }
     }
 
     .first-page {
         background-color: black;
         padding: 4rem 3.75rem;
-        height: 100%;
+        min-height: 100%;
         flex: auto;
-        justify-content: space-between;
-        display: flex;
-        flex-direction: column;
-    }
-
-    .content-page {
-        background-color: white;
-        padding: 4rem 3.75rem;
-        height: 100%;
-    }
-
-
-    .footer {
-        page-break-after: always;
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
- 
-        }
-
-    .row-section {
-        display: flex;
-        gap: 32px;
-        margin-bottom: 48px;
-    }
-
-    .seperator {
-        height: 1px;
-        width: 100%;
-        margin-bottom: 48px;
-        background-color: #E5E5E5;
+      
     }
     </style>    
-
-</head>
-    <body style="margin: 0;">
+        </head>
         
-        <div class="first-page">
-        
-            <div class="header">
-                <h2 style="font-size: 32px; font-weight: 600; font-family: Bricolage Grotesque; line-height: 100%; margin-bottom: 12px; color: white; margin-top: 0px;">${freelancerName}</h2>
-                <h3 style="font-size: 18px; line-height: 100%; font-weight: 500; color: #F2CFFF; font-family: inter; margin-top: 0px; margin-bottom: 0px;">Sr. Product Designer</h3>
-            </div>
-
-            <h1 style="
-            color: #FFF;
-            font-family: Bricolage Grotesque;
-            font-size: 60px;
-            font-style: normal;
-            font-weight: 700;
-            line-height: 100%; /* 3.125rem */
-            max-width: 600px;
-            margin-top: 0px;
-            margin-bottom: 0px;
-      
-            ">New, refreshed solo.one website</h1>
-
-
-            <div class="footer">
-             <p style="font-family: inter; color: #B6B6B6; font-weight: 500; line-height: 100%; font-size: 15px; margin: 0px;">Jan 2023</p>   
-             <p style="font-family: inter; color: #B6B6B6; font-weight: 500; line-height: 100%; font-size: 15px; margin: 0px;">${freelancerEmail}</p>   
-            </div>
-
-        </div>
-
-        <div class="content-page">
-
-            <div class="row-section">
-                <p style="font-family: inter; color: #999999; font-weight: 500; font-size: 15px; margin: 0; width: 20%;">Prepared for</p>
-                <div style="width: 74%;">
-                <p style="font-family: inter; color: #666666; font-weight: 400; font-size: 15px; margin: 0;"><span style="color: black; font-weight: 500;">${clientName}</span> _ ${clientCompany}</p>
-                <p style="font-family: inter; color: #666666; font-weight: 400; font-size: 15px; margin: 0; margin-top: 8px !important;">${clientEmail}</p>
-                </div>
-            </div>
-
-            <div class="seperator"></div>
-
-            <div class="row-section">
-                <p style="font-family: inter; color: #999999; font-weight: 500; font-size: 15px; margin: 0; width: 20%;">Description</p>
-                <div style="width: 74%;">
-                <p style="font-family: inter; color: #1A1A1A; font-weight: 400; font-size: 14px; margin: 0;">${projDescription}</p>
-                </div>
-            </div>
-
-            <div class="seperator"></div>
-
-            <div class="row-section">
-                <p style="font-family: inter; color: #999999; font-weight: 500; font-size: 15px; margin: 0; width: 20%;">Goals</p>
-                <div style="width: 74%;">
-                <p style="font-family: inter; color: #1A1A1A; font-weight: 400; font-size: 14px; margin: 0;">${projGoals}</p>
-                </div>
-            </div>
-
-            <div class="seperator"></div>
-
-            <div class="footer">
-                <p style="font-family: inter; color: #999999; font-weight: 500; line-height: 100%; font-size: 15px; margin: 0px;">Jan 2023</p>   
-                <p style="font-family: inter; color: #999999; font-weight: 500; line-height: 100%; font-size: 15px; margin: 0px;">${freelancerEmail}</p>   
-               </div>
-        </div>
-
+        <body style="margin: 0;">
+        <div style="background-color: #030616; padding: 40px;">
         <h1 style="margin-top: 0px; margin-bottom: 0px; min-width: 100%; font-family: Bricolage Grotesque; font-size: 36px; color: white;">${projName}</h1>
         <div style="height: 1px; background-color: black; min-width: 100%;"></div>
         <div></div>
@@ -177,18 +85,17 @@ const generatePdf = async (req, res) => {
         
         <div style="margin: 40px;">
         <h2  style="margin-top: 0px; margin-bottom: 0px; color: #595B65; font-size: 18px; font-family: inter; font-weight: 500;">Proposal Items</h2>
-        <ul style="list-style: none; background-color: #F0F0F1; padding: 16px; gap: 14px; display: flex; flex-direction: column;">${proposalItemsHtml} <li style="color:#030616; font-family: Bricolage Grotesque; font-size: 18px; min-width: 100%; display: flex; justify-content: space-between; "><div>${item.title}</div> <div>${item.price}</div></li></ul>
+        <ul  style="list-style: none; background-color: #F0F0F1; padding: 16px; gap: 14px; display: flex; flex-direction: column;">${proposalItemsHtml}</ul>
         <p style="align-items: end; min-width: 100%; ">Total Sum: ${totalSum}</p>
     </div>
     <div style="height: 1px; background-color: #E1E1E3;"></div>
 
     <div style="margin: 40px;">
-        <h2  style="margin-top: 0px; margin-bottom: 0px; color: #595B65; font-size: 18px; font-family: inter; font-weight: 500;">Milestones</h2>
-        <ul style="list-style: none; background-color: #F0F0F1; padding: 16px; gap: 14px; display: flex; flex-direction: column;">${milestoneItemsHtml}</ul>
-        <p>Start Date: ${startDate}</p>
-        <p>End Date: ${endDate}</p>
-    </div>
-    <div style="height: 1px; background-color: #E1E1E3;"></div>
+    <h2  style="margin-top: 0px; margin-bottom: 0px; color: #595B65; font-size: 18px; font-family: inter; font-weight: 500;">Milestones</h2>
+    <ul style="list-style: none; background-color: #F0F0F1; padding: 16px; gap: 14px; display: flex; flex-direction: column;">${milestoneItemsHtml}</ul>
+    <p>Start Date: ${startDate}</p>
+    <p>End Date: ${endDate}</p>
+</div>
       
         <h2>Terms & Conditions:${preFilledText}</h2>
     </body>
