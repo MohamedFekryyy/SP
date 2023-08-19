@@ -237,8 +237,8 @@ facebook={{
 <div class="nav  p-5 sm:p-6 min-w-full  flex flex-row justify-between items-center">
     
     <div class=" logos relative flex items-center justify-center shadow-xl dark:shadow-slate-950 shadow-slate-100 dark:bg-slate-950 bg-slate-100">
-      <a href="#" class="  dark:visible invisible "><img src="logo-on-dark.svg" class="h-6 sm:h-8" alt="Swift Proposal Logo"/></a>
-      <a href="#" class=" dark:invisible visible absolute "><img src="logo-on-light.svg" class="h-6 sm:h-8" alt="Swift Proposal Logo"/></a>
+      <a href="#" class="  dark:visible invisible "><img src="logo-on-dark.svg" class="h-7 sm:h-9" alt="Swift Proposal Logo"/></a>
+      <a href="#" class=" dark:invisible visible absolute "><img src="logo-on-light.svg" class="h-7 sm:h-9" alt="Swift Proposal Logo"/></a>
     </div>
   <ThemeSwitch />
   
