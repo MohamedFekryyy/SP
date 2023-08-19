@@ -1,12 +1,91 @@
 <script>
-    import ThemeSwitch from '../components/ThemeSwitch.svelte';
-    import { MetaTags } from 'svelte-meta-tags';
-    import Modal from '../components/Modal.svelte';
+    import Form from '../../components/Form.svelte'
+    import ProgressBar from '../../components/ProgressBar.svelte';
+    import Modal from '../../components/Modal.svelte';
     import { writable } from 'svelte/store';
+    import ThemeSwitch from '../../components/ThemeSwitch.svelte';
+    import { MetaTags } from 'svelte-meta-tags';
 
 
+    let formData;
+    let items;
+    let milestones;
+    let startDate;
+    let endDate;
+    let totalSum;
 
 
+   
+const isLoading = writable(false); //  state for PDF generation
+
+  
+async function generatePDF() {
+  try {
+    isLoading.set(true); // Set the loading state to true
+
+    // Create an object with the data to send to the server
+    const data = {
+      clientName: formData.clientName,
+      clientCompany: formData.clientCompany,
+      clientEmail: formData.clientEmail,
+      freelancerEmail: formData.freelancerEmail,
+      freelancerName: formData.freelancerName,
+      projName: formData.projName,
+      projDescription: formData.projDescription,
+      projGoals: formData.projGoals,
+      startDate: startDate,
+      endDate: endDate,
+      items: items,
+      milestones: milestones,
+      totalSum: totalSum,
+    };
+
+    // Send a POST request to the server-side endpoint
+    const response = await fetch('/api/generate-pdf', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(data)
+    });
+
+    // Check if the response is successful
+    if (!response.ok) {
+      // Log the response to see more details about the error
+      console.error('Server response:', await response.text());
+      throw new Error('Failed to generate PDF');
+    }
+
+    // Get the PDF data from the response
+    const pdfBlob = await response.blob();
+
+    // Create a link to download the PDF
+    const url = window.URL.createObjectURL(pdfBlob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = formData.projName + '.pdf';
+    a.click();
+
+    // Redirect to the next page
+    window.location.href = '/proposal-generated';
+  } catch (error) {
+    console.error('Error generating PDF:', error);
+    // Handle the error as appropriate for your application
+  } finally {
+    isLoading.set(false); // Set the loading state to false
+  }
+}
+
+    
+
+    
+    $: secureDataClass = currentActive === 1 ? "secure-data" : "secure-data hidden";
+
+  
+    let steps = ['clientInfo', 'ProjectInfo', 'Items', 'Milestones'], currentActive = 1, progressBar;
+    const handleProgress = (stepIncrement) => {
+      progressBar.handleProgress(stepIncrement);
+    }
 
    
     const isModalOpen = writable(false); // Using a Svelte store for modal state
@@ -168,17 +247,63 @@ facebook={{
 
    
 
-    <h1>Hello World <span class="bg-gradient-to-r from-purple-700 to-blue-900 bg-clip-text text-transparent font-semibold">Just Minutes.</span></h1>
+    <h1>Craft Stunning PDF Proposals in <span class="bg-gradient-to-r from-purple-700 to-blue-900 bg-clip-text text-transparent font-semibold">Just Minutes.</span></h1>
 <div class="container">
+    <div class="hidden"><ProgressBar {steps} bind:currentActive bind:this={progressBar}/> </div>
     
+    <Form active_step={steps[currentActive-1]} bind:formData bind:items bind:milestones bind:startDate bind:endDate bind:totalSum />
 
 
-        <a class='btn-next' href="/create-proposal" >
-            Get Started
-        </a>
+    <div class="step-button">
+        {#if currentActive > 1}
+        <button class="btn-back dark:bg-slate-900 bg-slate-200/70 dark:hover:bg-slate-900/50 hover:bg-slate-300/70" on:click={() => handleProgress(-1)} disabled={currentActive == 1}><svg
+            class="w-5 h-4 dark:text-slate-50 text-slate-700 hover:scale-110 tranistion-all"
+            aria-hidden="true"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 8 14"
+        >
+            <path
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M7 1 1.3 6.326a.91.91 0 0 0 0 1.348L7 13"
+            />
+        </svg></button>
+        {/if}
+
+        {#if currentActive === steps.length}
+      
+        <button on:click={() => generatePDF(formData, items, milestones, startDate, endDate, totalSum)} disabled={currentActive != steps.length} class="relative  items-center justify-center inline-block p-4 px-6 py-3 overflow-hidden font-medium text-indigo-600 rounded-lg shadow-2xl group min-w-[220px]">
+            <span class="absolute top-0 left-0 w-60 h-60 -mt-10 -ml-3 transition-all duration-700 bg-purple-700 rounded-full blur-md ease"></span>
+            <span class="absolute inset-0 w-full h-full transition duration-700 group-hover:rotate-180 ease">
+            <span class="absolute bottom-0 left-0 w-24 h-24 -ml-10 bg-pink-700 rounded-full blur-md"></span>
+            <span class="absolute bottom-0 right-0 w-24 h-24 -mr-10 bg-blue-900 rounded-full blur-xl"></span>
+            </span>
+            {#if $isLoading}
+            <div class="loader"></div> <!-- CSS spinner -->
+          {:else}
+            <span class="relative text-lg text-white">Generate Proposal</span>
+            {/if}
+        </button>
         
           
-   
+        {:else}
+
+        <button class={currentActive === 1 ? 'btn-next w-full' : 'btn-next w-auto'} on:click={() => handleProgress(+1)} disabled={currentActive == steps.length}>
+            {currentActive === 1 ? 'Get Started' : 'Continue'}
+        </button>
+        
+          
+        {/if}
+    </div>		
+    <div class={secureDataClass}>
+        <svg class="sm:w-5 sm:h-5 h-4 w-4 text-green-700" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 20">
+            <path d="m17.351 3.063-8-3a1.009 1.009 0 0 0-.7 0l-8 3A1 1 0 0 0 0 4a19.394 19.394 0 0 0 8.47 15.848 1 1 0 0 0 1.06 0A19.394 19.394 0 0 0 18 4a1 1 0 0 0-.649-.937Zm-3.644 4.644-5 5A1 1 0 0 1 8 13c-.033 0-.065 0-.1-.005a1 1 0 0 1-.733-.44l-2-3a1 1 0 0 1 1.664-1.11l1.323 1.986 4.138-4.138a1 1 0 0 1 1.414 1.414h.001Z"/>
+          </svg>
+        Your data is securely handled with utmost care.
+      </div>
 
 
 </div>	  
