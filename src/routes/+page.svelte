@@ -245,21 +245,18 @@ function handleClosePrivacyModal() {
 
         {#if currentActive === steps.length}
       
-        <a href="https://swiftproposal.lemonsqueezy.com/checkout/buy/bb0256ef-8f6f-48c6-892b-4f6d0e3f8a01?embed=1&logo=0&dark=1"  class=" lemonsqueezy-button relative  items-center justify-center inline-block p-4 px-6 py-3 overflow-hidden font-medium text-indigo-600 rounded-lg shadow-2xl group min-w-[220px]">
+        <button on:click={() => generatePDF(formData, items, milestones, startDate, endDate, totalSum)} disabled={currentActive != steps.length} class="relative  items-center justify-center inline-block p-4 px-6 py-3 overflow-hidden font-medium text-indigo-600 rounded-lg shadow-2xl group min-w-[220px]">
             <span class="absolute top-0 left-0 w-60 h-60 -mt-10 -ml-3 transition-all duration-700 bg-purple-700 rounded-full blur-md ease"></span>
             <span class="absolute inset-0 w-full h-full transition duration-700 group-hover:rotate-180 ease">
             <span class="absolute bottom-0 left-0 w-24 h-24 -ml-10 bg-pink-700 rounded-full blur-md"></span>
             <span class="absolute bottom-0 right-0 w-24 h-24 -mr-10 bg-blue-900 rounded-full blur-xl"></span>
             </span>
-            
-
             {#if $isLoading}
             <div class="loader"></div> <!-- CSS spinner -->
           {:else}
             <span class="relative text-xl text-white">Generate Proposal</span>
             {/if}
-          </a>
-          <script src="https://assets.lemonsqueezy.com/lemon.js" defer></script>
+        </button>
         
           
         {:else}
