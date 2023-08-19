@@ -9,3 +9,7 @@
         font-family: 'Bricolage Grotesque', sans-serif;
     }
   }
+
+  body {
+        @apply dark:bg-slate-950 bg-slate-100;
+    }
