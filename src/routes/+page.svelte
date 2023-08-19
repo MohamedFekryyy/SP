@@ -247,7 +247,7 @@ facebook={{
 
    
 
-    <h3>Fill in the data below, and get a <span class="bg-gradient-to-r from-purple-700 to-blue-900 bg-clip-text text-transparent font-semibold">Nice PDF Proposal</span></h3>
+    <h1>Craft Stunning PDF Proposals in <span class="bg-gradient-to-r from-purple-700 to-blue-900 bg-clip-text text-transparent font-semibold">Just Minutes.</span></h1>
 <div class="container">
     <div class="hidden"><ProgressBar {steps} bind:currentActive bind:this={progressBar}/> </div>
     
@@ -332,7 +332,7 @@ facebook={{
     }
 
 	h1 {
-		@apply text-slate-900 dark:text-slate-50 text-3xl sm:text-4xl font-semibold mb-2  text-center;
+		@apply text-slate-900 dark:text-slate-50 w-2/3 sm:w-auto text-xl sm:text-2xl font-semibold   text-center;
 	}
 	h3 {
 		@apply text-slate-900 dark:text-slate-200 w-full  text-lg sm:text-xl font-normal text-center;
