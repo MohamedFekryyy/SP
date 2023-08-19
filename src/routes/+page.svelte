@@ -4,8 +4,7 @@
     import Modal from '../components/Modal.svelte';
     import { writable } from 'svelte/store';
     import ThemeSwitch from '../components/ThemeSwitch.svelte';
-
-
+    import { MetaTags } from 'svelte-meta-tags';
 
 
     let formData;
@@ -192,6 +191,44 @@ function handleClosePrivacyModal() {
  
 
  </script>
+
+<MetaTags
+title="Swift Proposal"
+description="Craft Stunning PDF Proposals in Just Minutes."
+openGraph={{
+  url: 'https://www.url.ie/a',
+  title: 'Swift Proposal',
+  description: 'Craft Stunning PDF Proposals in Just Minutes.',
+  images: [
+    {
+      url: 'https://www.example.ie/og-image-01.jpg',
+      width: 800,
+      height: 600,
+      alt: 'Og Image Alt'
+    },
+    {
+      url: 'https://www.example.ie/og-image-02.jpg',
+      width: 900,
+      height: 800,
+      alt: 'Og Image Alt Second'
+    },
+    { url: 'https://www.example.ie/og-image-03.jpg' },
+    { url: 'https://www.example.ie/og-image-04.jpg' }
+  ],
+  site_name: 'SwiftProposal'
+}}
+twitter={{
+  handle: '@fekryaiad',
+  cardType: 'summary_large_image',
+  title: 'Swift Proposal',
+  description: 'Craft Stunning PDF Proposals in Just Minutes.',
+  image: 'https://www.example.ie/twitter-image.jpg',
+  imageAlt: 'Craft Stunning PDF Proposals in Just Minutes.'
+}}
+facebook={{
+  appId: '1234567890'
+}}
+/>
   
   
 <main class="dark:bg-slate-950 bg-slate-100 min-h-screen">
