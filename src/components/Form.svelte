@@ -106,7 +106,7 @@
 	{#each items as item, index}
 	<div class="list-item  sm:p-4 p-2 gap-y-4 flex-col md:flex-row dark:bg-slate-800/50 bg-slate-100/60 hover:bg-white border border-slate-200 dark:border-slate-600/20 dark:shadow-black/10 dark:shadow-xl shadow shadow-slate-200 dark:hover:bg-slate-600/10" in:fade={{ duration: 400 }} out:slide={{ y: -30, duration: 250 }}>
 		<input type="text" placeholder="Item Name" bind:value={item.title} class="text-base bg-transparent placeholder:text-slate-500 dark:text-slate-50 text-slate-900 outline-none  grow min-w-[65%]" />
-		<input type="number" placeholder="Price" bind:value={item.price} class="text-base rounded-lg dark:bg-slate-700/50 bg-slate-200/70 px-3 py-3 grow max-w-[200px] text-slate-900 dark:text-slate-50 placeholder:text-slate-500 outline-none" />
+		<div class="relative"><span class="dollar-sign dark:text-slate-400 text-slate-500">$</span><input type="number" placeholder="Price" bind:value={item.price} class="!pl-6 text-base rounded-lg dark:bg-slate-700/50 bg-slate-200/70 px-3 py-3 grow max-w-[200px] text-slate-900 dark:text-slate-50 placeholder:text-slate-500 outline-none" /></div>
 		<button on:click={() => removeItem(index)} class=" absolute md:top-0 md:right-0 top-3 right-3 md:relative pl-3 grow flex items-center justify-center dark:text-slate-400 text-slate-500 hover:text-slate-700 dark:hover:text-slate-100 transition-all">
 			<svg class="sm:w-3.5 sm:h-3.5 w-2.5 h-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
 				<path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
@@ -175,7 +175,14 @@
 	
 	
 	
+	.dollar-sign {
+	position: absolute;
+	left: 10px; /* Adjust as needed */
+	top: 50%;
+	transform: translateY(-50%);
 
+	
+}
 
 
 
