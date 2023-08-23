@@ -53,15 +53,15 @@ facebook={{
 />
   
   
-<main class="dark:bg-slate-950 bg-slate-100 min-h-screen">
+<main class="dark:bg-slate-950 bg-slate-100 min-h-screen gradient-top">
 
 <Nav showThemeSwitch={false}/>
 <section class="section z-2">
 
    
-
+    <div class="text-slate-300 py-1.5 px-2.5 bg-slate-950/60 rounded-md shadow-lg mb-8 border border-slate-800/70">💎  FREE DURING BETA  💎</div>
     <h1>Craft Stunning PDF <br> Proposals in Just Minutes</h1>
-    <p class="text-slate-400 mt-4 mb-6 max-w-md text-center">Create professional PDF proposals effortlessly with your preferred currency. Just fill a form, and it's ready.</p>
+    <p class="text-slate-400 mt-4 mb-8 max-w-md text-center">Create professional PDF proposals effortlessly with your preferred currency. Just fill a form, and it's ready.</p>
 
     
 
@@ -131,7 +131,9 @@ facebook={{
 }
 
 
-
+.gradient-top {
+  background: radial-gradient(circle at 50% 0%, #0E0E6C 0%, #0C0C5A00 82%);
+}
 
 
 
