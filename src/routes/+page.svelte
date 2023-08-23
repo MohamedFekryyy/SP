@@ -54,7 +54,7 @@ facebook={{
 <section class="section " in:fade={{ duration: 500, delay: 100 }}>
 
    
-    <div class="dark:text-slate-300 text- py-1.5 px-2.5 dark:bg-slate-950/60 bg-slate-200/50 rounded-md dark:shadow-lg shadow  mb-8 border dark:border-slate-800/70 border-slate-300/50">💎  FREE DURING BETA  💎</div>
+    <div class="dark:text-slate-300 text- py-1 px-2 dark:bg-slate-950/60 bg-slate-200/50 rounded-md dark:shadow-lg shadow  mb-8 border dark:border-slate-800/70 border-slate-300/50">💎  FREE DURING BETA  💎</div>
     <h1>Craft Stunning PDF <br> Proposals in Just Minutes</h1>
     <p class="dark:text-slate-400 text-slate-700 mt-4 mb-8 max-w-md text-center">Create professional PDF proposals effortlessly with your preferred currency. Just fill a form, and it's ready.</p>
 
