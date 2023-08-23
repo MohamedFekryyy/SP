@@ -3,6 +3,7 @@
     import { MetaTags } from 'svelte-meta-tags';
     import Footer from '../components/Footer.svelte';
     import Nav from '../components/Nav.svelte'
+    import { fade } from 'svelte/transition';
 
  
 
@@ -46,11 +47,11 @@ facebook={{
 }}
 />
   
-  
 <main class="dark:bg-slate-950 bg-slate-100 min-h-screen ">
-
-<Nav />
-<section class="section z-2">
+  <div class="!z-2"><Nav />
+  </div>
+  
+<section class="section " in:fade={{ duration: 500, delay: 100 }}>
 
    
     <div class="dark:text-slate-300 text- py-1.5 px-2.5 dark:bg-slate-950/60 bg-slate-200/50 rounded-md dark:shadow-lg shadow  mb-8 border dark:border-slate-800/70 border-slate-300/50">💎  FREE DURING BETA  💎</div>
@@ -73,7 +74,7 @@ facebook={{
 </section>
 
 
-<Footer/>
+<div class="z-1"><Footer/></div>
 
 </main>
 
@@ -89,7 +90,7 @@ facebook={{
 		@apply text-slate-900 dark:text-slate-200 w-full  text-lg sm:text-xl font-normal text-center;
 	}
 	.section {
-		@apply min-w-full flex flex-col items-center justify-start   pt-0 sm:pt-8 pb-8  px-5;
+		@apply absolute min-w-full justify-center min-h-[100vh] flex flex-col items-center top-0   px-5;
 	}
 
 	
