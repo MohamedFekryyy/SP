@@ -60,20 +60,22 @@ facebook={{
 
    
 
-    <h1>Hello World <span class="bg-gradient-to-r from-purple-700 to-blue-900 bg-clip-text text-transparent font-semibold">Just Minutes.</span></h1>
-<div class="container">
+    <h1>Craft Stunning PDF <br> Proposals in Just Minutes</h1>
+    <p class="text-slate-400 mt-4 mb-6 max-w-md text-center">Create professional PDF proposals effortlessly with your preferred currency. Just fill a form, and it's ready.</p>
+
     
 
 
-        <a class='btn-next' href="/create-proposal" >
-            Get Started
+        <a class=' bg-purple-700 px-4 py-2 text-lg font-medium rounded-lg text-slate-50 hover:bg-purple-700/90  shadow-2xl shadow-purple-700/40  transition-all  outline outline-transparent focus:outline-purple-700/20;
+        ' href="/create-proposal" >
+        Create Proposal
         </a>
         
           
    
 
 
-</div>	  
+	  
 </section>
 
 
@@ -87,7 +89,7 @@ facebook={{
 
   
 	h1 {
-		@apply text-slate-900 dark:text-slate-50 w-3/4 sm:w-auto text-xl sm:text-2xl font-semibold   text-center;
+		@apply text-slate-900 dark:text-slate-50 w-3/4 sm:w-auto text-2xl sm:text-4xl font-semibold   text-center;
 	}
 	h3 {
 		@apply text-slate-900 dark:text-slate-200 w-full  text-lg sm:text-xl font-normal text-center;
@@ -96,9 +98,7 @@ facebook={{
 		@apply min-w-full flex flex-col items-center justify-start   pt-0 sm:pt-8 pb-8  px-5;
 	}
 
-	.btn-next {
-		@apply bg-purple-700 px-6 py-3 text-lg font-medium rounded-lg text-slate-50 hover:bg-purple-700/90  shadow-2xl shadow-purple-700/40  transition-all  outline outline-transparent focus:outline-purple-700/20;
-	}
+	
 
 	.step-button {
 		@apply max-w-[800px] gap-2 mx-auto  flex  gap-y-5  flex-row justify-between  items-stretch;
