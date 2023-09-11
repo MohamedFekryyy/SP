@@ -29,6 +29,7 @@ async function generatePDF() {
       clientEmail: formData.clientEmail,
       freelancerEmail: formData.freelancerEmail,
       freelancerName: formData.freelancerName,
+      freelancerTitle: formFata.freelancerTitle,
       projName: formData.projName,
       projDescription: formData.projDescription,
       projGoals: formData.projGoals,
@@ -139,7 +140,7 @@ facebook={{
 
    
 
-    <h1>Craft Stunning PDF Proposals in <span class="bg-gradient-to-r from-purple-700 to-blue-900 bg-clip-text text-transparent font-semibold">Just Minutes.</span></h1>
+    <h1>Start with the Contact Info</h1>
 <div class="container">
     <div class="hidden"><ProgressBar {steps} bind:currentActive bind:this={progressBar}/> </div>
     
@@ -213,7 +214,7 @@ facebook={{
 
 
 	h1 {
-		@apply text-slate-900 dark:text-slate-50 w-3/4 sm:w-auto text-xl sm:text-2xl font-semibold   text-center;
+		@apply text-slate-900 dark:text-slate-50 w-3/4 sm:w-auto text-xl sm:text-3xl font-medium   text-center;
 	}
 	h3 {
 		@apply text-slate-900 dark:text-slate-200 w-full  text-lg sm:text-xl font-normal text-center;
@@ -250,11 +251,6 @@ facebook={{
 .hidden {
   display: none;
 }
-
-
-
-
-
 
 
 

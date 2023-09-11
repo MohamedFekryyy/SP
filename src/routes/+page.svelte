@@ -58,19 +58,12 @@ facebook={{
     <h1>Craft Stunning PDF <br> Proposals in Just Minutes</h1>
     <p class="dark:text-slate-400 text-slate-700 mt-4 mb-8 max-w-md text-center">Create professional PDF proposals effortlessly with your preferred currency. Just fill a form, and it's ready.</p>
 
-    
-
-
         <a class=' bg-purple-700 px-4 py-2 text-lg font-medium rounded-lg text-slate-50 hover:bg-purple-700/90  shadow-2xl shadow-purple-700/40  transition-all  outline outline-transparent focus:outline-purple-700/20;
         ' href="/create-proposal" >
         Create Proposal
         </a>
         
-          
-   
-
-
-	  
+       
 </section>
 
 

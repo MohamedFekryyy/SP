@@ -9,6 +9,7 @@
 		clientEmail: '',
 		freelancerEmail: '',
 		freelancerName: '',
+		freelancerTitle: '',
 		projName: '',
 		projDescription: '',
 		projGoals: '',
@@ -83,8 +84,6 @@
 	2. Additional work for components that appear in the scope of work will be quoted before any invoicing.
 	3. New components that are not described in the scope of work will be assessed in a new estimate.
 	4. In case of project cancellation after the work has started, the client will pay for the relative part of the work.`;
-
-
 </script>
 
 
@@ -98,6 +97,8 @@
 
 		<div in:fade={{ duration: 400 }} out:slide={{ y: -30, duration: 250 }} class="flex flex-col sm:flex-row gap-x-4"><div in:fade={{ duration: 400, delay: 100 }} out:slide={{ y: -30, duration: 250 }} class="w-full sm:w-[50%]"><InputField label={'Your Name'} bind:value={formData.freelancerName} placeholder="John Doe"/></div>
 		<div in:fade={{ duration: 400, delay: 100 }} out:slide={{ y: -30, duration: 250 }} class="w-full sm:w-[50%]"><InputField type={'email'} label={'Your Email'} bind:value={formData.freelancerEmail} placeholder="john@doe.com"/></div></div>
+		<div in:fade={{ duration: 400, delay: 50 }} out:slide={{ y: -30, duration: 250 }}><InputField  label={'Your Title'} bind:value={formData.freelancerTitle} placeholder="Product Designer"/></div>
+
 
 	{:else if active_step == 'ProjectInfo'}
 	<h2 in:fade={{ duration: 400 }} out:slide={{ y: -30, duration: 250 }} class="sm:text-xl text-lg dark:text-slate-300 text-slate-700 mb-4">Project Info</h2>
