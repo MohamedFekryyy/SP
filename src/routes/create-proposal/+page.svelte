@@ -140,7 +140,7 @@ facebook={{
 
    
 
-    <h1>Start with the Contact Info</h1>
+    
 <div class="container">
     <div class="hidden"><ProgressBar {steps} bind:currentActive bind:this={progressBar}/> </div>
     

@@ -1,9 +1,10 @@
 <script>
-    import ThemeSwitch from '../components/ThemeSwitch.svelte';
     import { MetaTags } from 'svelte-meta-tags';
     import Footer from '../components/Footer.svelte';
     import Nav from '../components/Nav.svelte'
     import { fade } from 'svelte/transition';
+    import { showAuth } from '../components/store';
+    import AuthModal from '../components/AuthModal.svelte';
 
  
 
@@ -46,7 +47,11 @@ facebook={{
   appId: '1234567890'
 }}
 />
-  
+{#if $showAuth}
+<div class="auth-overlay">
+  <AuthModal/>
+</div>
+{/if}
 <main class="dark:bg-slate-950 bg-slate-100 min-h-screen ">
   <div class="!z-2"><Nav />
   </div>
@@ -63,7 +68,6 @@ facebook={{
         Create Proposal
         </a>
         
-       
 </section>
 
 

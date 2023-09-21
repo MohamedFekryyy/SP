@@ -1,6 +1,12 @@
 <script>
     import ThemeSwitch from '../components/ThemeSwitch.svelte';
     export let showThemeSwitch = true; 
+    import { showAuth } from './store';
+
+
+  const toggleAuth = () => {
+    $showAuth = !$showAuth;
+  };
 
 
 </script>
@@ -15,6 +21,8 @@
     {#if showThemeSwitch}
     <ThemeSwitch />
 {/if}
+<button on:click={toggleAuth} class="text-slate-200">Sign In</button>
+
   
 </nav>
 
