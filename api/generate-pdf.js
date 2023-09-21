@@ -11,6 +11,7 @@ const generatePdf = async (req, res) => {
     clientEmail,
     freelancerEmail,
     freelancerName,
+    freelancerTitle,
     projName,
     projDescription,
     projGoals,
@@ -67,6 +68,8 @@ const generatePdf = async (req, res) => {
         align-content: stretch; color: white; margin-top: 60px;">
             <p style="margin: 0; font-size: 18px; font-family: inter;">${freelancerName}</p>
             <p style="margin: 0; font-size: 18px; font-family: inter;">${freelancerEmail}</p>
+            <p style="margin: 0; font-size: 18px; font-family: inter;">${freelancerTitle}</p>
+
         </div>
         </div>
         
